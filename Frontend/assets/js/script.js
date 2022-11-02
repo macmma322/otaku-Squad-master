@@ -71,8 +71,8 @@ modalCloseBtn.addEventListener('click', modalCloseFunc);
 
 
 const $expandableSearch = document.getElementById('expandable-search')
-const $expandableSearchBtn = $expandableSearch.querySelector('.search__btn-submit')
-const $expandableSearchInput = $expandableSearch.querySelector('.search__input')
+const $expandableSearchBtn = $expandableSearch.querySelector('.search-btn-submit')
+const $expandableSearchInput = $expandableSearch.querySelector('.search-input')
 
 // Attach click event handler on search icon
 $expandableSearchBtn.addEventListener('click', function (e) {
@@ -84,11 +84,11 @@ $expandableSearchBtn.addEventListener('click', function (e) {
   // Toggle expanded state class and store in data attribute
   if (expanded === null || expanded === 'false') {
     $expandableSearch.setAttribute('data-expanded', 'true')
-    $expandableSearch.classList.add('search--expanded')
+    $expandableSearch.classList.add('search-expanded')
     $expandableSearchInput.focus()
   } else {
     $expandableSearch.setAttribute('data-expanded', 'false')
-    $expandableSearch.classList.remove('search--expanded')
+    $expandableSearch.classList.remove('search-expanded')
   }
 })
 
