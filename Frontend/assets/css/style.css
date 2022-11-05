@@ -3,17 +3,19 @@
   /*------------------COLORS------------------*/
   /*------------------------------------------*/
 
-  --spanish-gray: hsl(0, 0%, 60%);
-  --sonic-silver: hsl(0, 0%, 47%);
-  --eerie-black: hsl(0, 0%, 13%);
-  --salmon-pink: hsl(353, 100%, 78%);
-  --sandy-brown: hsl(29, 90%, 65%);
-  --bittersweet: hsl(0, 100%, 70%);
-  --ocean-green: hsl(152, 51%, 52%);
-  --davys-gray: hsl(0, 0%, 33%);
-  --cultured: hsl(0, 0%, 93%);
-  --white: hsl(0, 100%, 100%);
-  --onyx: hsl(0, 0%, 27%);
+  --spanish-gray:hsl(0, 0%, 60%);
+  --sonic-silver:hsl(0, 0%, 47%);
+  --eerie-black:hsl(0, 0%, 13%);
+  --salmon-pink:hsl(353, 100%, 78%);
+  --sandy-brown:hsl(29, 90%, 65%);
+  --bittersweet:hsl(0, 100%, 70%);
+  --scarlet-red:hsl(8, 100%, 50%);
+  --ocean-green:hsl(152, 51%, 52%);
+  --davys-gray:hsl(0, 0%, 33%);
+  --cultured:hsl(0, 0%, 93%);
+  --white:hsl(0, 100%, 100%);
+  --onyx:hsl(0, 0%, 27%);
+  --onyx-darker:hsl(0, 0%, 25%);
 
   /*---------------------------------------------*/
   /*------------------TYPOGRAPHY------------------*/
@@ -174,29 +176,25 @@ body {
 /*------------------SCROLLBAR STYLE------------------*/
 /*---------------------------------------------------*/
 
-body::-webkit-scrollbar {
-  width: 15px;
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: var(--white);
 }
 
-body::-webkit-scrollbar-track {
-  background: var(--white);
-  border: 1px solid var(--cultured);
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: var(--white);
 }
 
-body::-webkit-scrollbar-thumb {
-  background: hsl(0, 0%, 80%);
-  border: 3px solid var(--white);
-  border-radius: 10px;
+::-webkit-scrollbar-thumb
+{
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: var(--cultured);
+  border: 2px solid var(--spanish-gray);
 }
-
-body::-webkit-scrollbar-thumb :hover {
-  background: hsl(0, 0%, 70);
-}
-
-
-
-
-
 
 
 /*-------------------------------------------------*/
@@ -210,30 +208,6 @@ body::-webkit-scrollbar-thumb :hover {
 .has-scrollbar {
   padding: 5px;
 }
-
-.has-scrollbar::-webkit-scrollbar {
-  width: 12px;
-  /*for vertical scroll*/
-  height: 12px;
-  /*for horizontal scroll*/
-}
-
-.has-scrollbar::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border: 3px solid var(--white);
-  border-radius: 20px;
-}
-
-.has-scrollbar:hover::-webkit-scrollbar-thumb {
-  background: hsl(0, 0, 90%);
-}
-
-.has-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: hsl(0, 0, 80%);
-}
-
-
-
 
 /*------------------------------------------------------------*/
 /*------------------MAIN CONTENT OF THE SITE------------------*/
@@ -379,7 +353,7 @@ a .overlay .modal .modal-close-overlay .modal-content .newsletter {
   font-size: var(--fs-7);
   padding: 8px 16px;
   border-radius: var(--border-radius-sm);
-  border: 1px solid var(--cultured);
+  border: 3px solid var(--cultured);
   margin-bottom: 16px;
 }
 
@@ -551,6 +525,55 @@ a .overlay .modal .modal-close-overlay .modal-content .newsletter {
   margin-bottom: 30px;
 }
 
+.user-buttons-menu-mobile{
+  width: 100%;
+  margin: auto;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+  z-index: 5;
+  height: 100%;
+  max-height: 55px;
+}
+
+.user-buttons-menu{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 0;
+  z-index: 5;
+  height: 100%;
+  max-height: 55px;
+}
+
+.user-btn-mobile {
+  position: relative;
+  font-size: 26px;
+  color: var(--eerie-black);
+  padding: 15px 20px;
+}
+
+.user-btn-mobile .count-mobile {
+  background: var(--bittersweet);
+  color: var(--white);
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+  font-weight: var(--weight-500);
+  line-height: 1;
+  padding: 2px 4px;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .menu .user-buttons-menu-mobile {
+    display: flex;
+  }
+}
+
 .menu-category .accordion-menu {
   width: 100%;
   display: flex;
@@ -656,21 +679,6 @@ a .overlay .modal .modal-close-overlay .modal-content .newsletter {
   border-bottom: 1px solid var(--cultured);
 }
 
-.menu-social-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.menu-social-container .social-link {
-  background: var(--cultured);
-  color: var(--eerie-black);
-  font-size: 20px;
-  padding: 10px;
-  border-radius: var(--border-radius-md);
-}
-
 
 /* SEARCH BAR */
 
@@ -708,7 +716,7 @@ a .overlay .modal .modal-close-overlay .modal-content .newsletter {
 .search-input {
   padding: 15px;
   width: 300px;
-  color: var(--cultured);
+  color: var(--onyx);
   font-size: 14px;
   background-color: var(--cultured);
   border-radius: var(--border-radius-md);

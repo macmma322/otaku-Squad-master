@@ -48,7 +48,7 @@
 
           <input type="email" name="email" class="email-field" placeholder="Email Address" required />
 
-          <button type="submit" class="btn-newsletter">Subscribe</button>
+          <button type="submit" class="btn-newsletter">Абонирай се!</button>
         </form>
       </div>
     </div>
@@ -64,9 +64,11 @@
       <div class="preview-zone">
         <section id="expandable-search" class="search search-icon search-icon-expandable" role="search">
           <form action="#" method="get" class="search-form">
-            <input class="search-input" type="search" name="search" maxlength="100"
-              placeholder="I am looking for..." />
-            <button class="search-btn-submit" type="submit"><ion-icon name="search-outline"></ion-icon></button>
+            <input class="search-input" type="search" name="search" maxlength="100" placeholder="I am looking for..."
+              required>/>
+            <button class="search-btn-submit" type="submit">
+              <ion-icon name="search-outline"></ion-icon>
+            </button>
           </form>
         </section>
       </div>
@@ -94,6 +96,27 @@
     </div>
 
     <nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu>
+
+      <div class="user-buttons-menu-mobile">
+
+        <div class="user-buttons-menu">
+
+          <button class="user-btn-mobile">
+            <ion-icon name="bag-handle-outline"></ion-icon>
+
+            <span class="count-mobile">0</span>
+          </button>
+
+          <button class="user-btn-mobile">
+            <ion-icon name="heart-outline"></ion-icon>
+
+            <span class="count-mobile">0</span>
+          </button>
+
+        </div>
+      </div>
+
+
       <div class="menu-top">
         <h2 class="menu-title">Menu</h2>
         <button class="menu-close-btn" data-mobile-menu-close-btn>
@@ -274,31 +297,6 @@
           </li>
         </ul>
 
-        <ul class="menu-social-container">
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-        </ul>
         <div class="dark-mode-btn">
           <input class="dark-mode-swtch" type="checkbox" id="check" onclick="changeStatus()"></input>
         </div>
@@ -307,7 +305,7 @@
   </div>
 
   <main>
-   <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+    <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
 
   </main>
 
