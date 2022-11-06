@@ -122,7 +122,7 @@ body {
 /*----------------------------------------------------*/
 
 .dark-mode-btn {
-  padding: 20px 30px;
+  padding: 5px 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -592,9 +592,9 @@ input[type="checkbox"]:checked {
 .menu-category .accordion-menu {
   width: 100%;
   display: flex;
+  align-content: center !important;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .mobile-menu-category-list .menu-category {

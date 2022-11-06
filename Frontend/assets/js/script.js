@@ -66,7 +66,11 @@ modalCloseBtn.addEventListener('click', modalCloseFunc);
 
 //----------------------------------------------------------
 
-
+/* 
+  =======================
+    SEARCH BAR SCRIPT
+  =======================
+*/
 
 
 
@@ -91,20 +95,6 @@ $expandableSearchBtn.addEventListener('click', function (e) {
     $expandableSearch.classList.remove('search-expanded')
   }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* 
   =======================
