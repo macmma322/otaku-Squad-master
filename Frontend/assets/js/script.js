@@ -23,20 +23,20 @@ checkStatus();
 function checkStatus(){
     if (localStorage.getItem('darkMode')==="true"){
         check.checked = true;                           //the checkbox is checked (if you load the page by default it isn’t)
-        link.href = './assets/css/style-dark.css';                   //since it's true we load the dark theme CSS
+        link.href = './assets/css/style-dark/style-main-dark.css';                   //since it's true we load the dark theme CSS
     }else{
         check.checked = false;                          //the checkbox is unchecked
-        link.href = './assets/css/style.css';
+        link.href = './assets/css/style/style-main.css';
     }
 }
 
 function changeStatus(){                                //This function gets called every time the checkbox is clicked
     if (localStorage.getItem('darkMode')==="true"){     //if darkMode was active and this function is called it means the user now wants light
         localStorage.setItem('darkMode', "false");      //so we set it to false, to indicate we are in light mode
-        link.href = './assets/css/style.css';
+        link.href = './assets/css/style/style-main.css';
     } else{
         localStorage.setItem('darkMode', "true");       //same code but adapted for dark theme
-        link.href = './assets/css/style-dark.css';
+        link.href = './assets/css/style-dark/style-main-dark.css';
     }
 }
 
@@ -341,3 +341,30 @@ class Slideshow {
 
   addLoadClass();
 })();
+
+
+
+
+
+
+
+
+// Toggle "effect" classes
+function toggleEffect () {
+  var target = document.querySelector (this.dataset.target);
+      target.dataset.effect = this.dataset.effect;
+  
+  for (var i= 0; i < demoButtons.length; i++) {
+    demoButtons[i].classList.remove ('active');
+  }
+  
+  toggleActive.call (this);
+}
+
+// Toggle "active" class
+function toggleActive () {
+  this.classList.toggle ('active');
+}
+
+// Invoke "start ()" function
+window.addEventListener ('load', start);
