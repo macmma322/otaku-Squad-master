@@ -107,6 +107,7 @@ span {
 html {
   font-family: "Poppins", sans-serif;
   overscroll-behavior: contain;
+  transition: 0.5s ease-in-out;
 }
 
 @media only screen and (max-width: 600px) {

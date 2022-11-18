@@ -52,16 +52,21 @@
   /*----------------------------------------------*/
 
   --transition-timing: 0.2s ease;
-  
+
 
 
 
   --font: "Roboto", sans-serif;
-  --fontOrigin: 1rem;     /* 16px */
-  --fontSmall: 0.625em;   /* 10px */
-  --fontMedium: 0.875em;  /* 14px */
-  --fontNormal: 1em;      /* 16px */
-  --fontLarge:  1.375em;  /* 22px */
+  --fontOrigin: 1rem;
+  /* 16px */
+  --fontSmall: 0.625em;
+  /* 10px */
+  --fontMedium: 0.875em;
+  /* 14px */
+  --fontNormal: 1em;
+  /* 16px */
+  --fontLarge: 1.375em;
+  /* 22px */
   --fontLight: 100;
   --fontRegular: 400;
   --speed: 0.65s;
@@ -2012,4 +2017,10 @@ body[data-route-option=next-section] .c-header-home_buttons {
   .c-header-home_button {
     width: 15.625rem;
   }
+}
+
+.slideshow-arrows {
+  visibility: hidden;
+  position: absolute;
+  top: -9999px;
 }
