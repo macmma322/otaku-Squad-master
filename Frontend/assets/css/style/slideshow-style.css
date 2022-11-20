@@ -2024,3 +2024,9 @@ body[data-route-option=next-section] .c-header-home_buttons {
   position: absolute;
   top: -9999px;
 }
+
+@media (max-width: 320px) {
+  #wrapper{
+    padding: 5vh 5px;
+  }
+}
