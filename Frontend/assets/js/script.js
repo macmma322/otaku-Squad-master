@@ -368,3 +368,7 @@ function toggleActive () {
 
 // Invoke "start ()" function
 window.addEventListener ('load', start);
+
+$(document).ready(function(){
+  $('#auto10').height($('#auto10').height() + 50);
+});
