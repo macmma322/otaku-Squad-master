@@ -173,11 +173,13 @@
 
 .modal-close-btn {
   position: absolute;
+  height: 34px;
+  width: 34px;
   top: 15px;
   right: 15px;
   background: var(--salmon-pink);
   color: var(--white);
-  font-size: 16px;
+  font-size: 20px;
   padding: 5px;
   border-radius: var(--border-radius-sm);
 }

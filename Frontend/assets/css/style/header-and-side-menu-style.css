@@ -170,7 +170,7 @@
   width: 100%;
   max-width: 320px;
   height: 100vh;
-  padding: 20px;
+  padding: 20px !important;
   box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.1);
   overflow-y: scroll;
   overscroll-behavior: contain;
@@ -309,13 +309,13 @@
 .submenu-title {
   padding: 6px 0;
   font-size: var(--fs-6);
-  color: var(--sonic-silver);
+  color: var(--davys-gray);
   font-weight: var(--weight-300);
   text-decoration: none;
 }
 
 .submenu-title:hover {
-  color: var(--davys-gray);
+  color: var(--eerie-black);
 }
 
 .submenu-category-list {
@@ -338,12 +338,23 @@
   border-bottom: none;
 }
 
+.menu-bottom .accordion-menu{
+  font-size: var(--fs-6);
+  height: 30px;
+  font-weight: var(--weight-500);
+  color: var(--onyx);
+  text-decoration: none;
+  margin: 10px;
+}
+
 .menu-bottom .menu-title {
   font-size: var(--fs-6);
+  height: 30px;
   font-weight: var(--weight-500);
-  color: var(--eerie-black);
-  padding: 12px 0;
+  color: var(--onyx);
   text-decoration: none;
+  margin: 0;
+  align-items: center !important;
 }
 
 .accordion-menu .caret-back {
