@@ -1293,7 +1293,7 @@ a:hover {
     margin: 30px 40px 0 0;
   }
 }
-@media (max-width:1240px){
+@media (max-width:1260px){
   .pcss3t>.tab-content-first:checked~ul .tab-content-first,
   .pcss3t>.tab-content-2:checked~ul .tab-content-2,
   .pcss3t>.tab-content-3:checked~ul .tab-content-3,
@@ -1307,6 +1307,7 @@ a:hover {
     z-index: 1;
     top: 0;
     left: 0;
+    margin: 0;
     opacity: 1;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -1317,6 +1318,10 @@ a:hover {
   .page{
     margin: 0;
     padding: 10px;
+  }
+  
+  .tab-content::-webkit-scrollbar{
+    display: none;
   }
 
 }

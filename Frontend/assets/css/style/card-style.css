@@ -1306,6 +1306,7 @@ a:hover {
     top: 0;
     left: 0;
     opacity: 1;
+    margin: auto;
     overflow-x: hidden;
     overflow-y: scroll;
     height: 100%;
@@ -1315,6 +1316,10 @@ a:hover {
   .page{
     margin: 0;
     padding: 10px;
+  }
+
+  .tab-content::-webkit-scrollbar{
+    display: none;
   }
 
 }
