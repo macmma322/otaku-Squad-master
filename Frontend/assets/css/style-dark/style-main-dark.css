@@ -134,9 +134,23 @@ font::placeholder {
 }
 
 body {
-  background: url(../../images/main-content/dark-background.jpg);
   padding-top: 55px;
   overflow: visible !important;
+}
+
+.light-background{
+  display: none;
+}
+
+.dark-background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  background-repeat: repeat;
 }
 
 /*----------------------------------------------------*/

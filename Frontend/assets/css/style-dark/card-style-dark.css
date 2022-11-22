@@ -1012,16 +1012,19 @@ a:hover {
   width: 100%;
   max-width: 250px;
   height: 400px;
-  font-size: var(--fontOrigin);
   border-radius: 8px;
   box-shadow: 0 16px 60px rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  background: url(../../images/main-content/card-background.jpg);
+  background-position: center;
+  background-size: cover;
   -webkit-transition: all var(--speed) ease;
   transition: all var(--speed) ease;
 }
 
 .card:hover {
   box-shadow: 0 40px 130px rgba(0, 0, 0, 0.6);
+  background:none;
   -webkit-transform: scale(1.1, 1.1);
   transform: scale(1.1, 1.1);
 }
@@ -1083,6 +1086,7 @@ a:hover {
   height: 100%;
   pointer-events: none;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5));
+
 }
 
 .card__image img {
@@ -1100,12 +1104,23 @@ a:hover {
   animation-direction: alternate;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);;
+  /* padding: 10px 20px; */
+  opacity: 0;
+  -webkit-transition: all var(--speed) ease;
+  transition: all var(--speed) ease;
 }
 
 .card:hover .card__image img {
   -webkit-transform: scale(1, 1);
   transform: scale(1, 1);
-  opacity: 0.5;
+  opacity: 0.5;  
+  -webkit-transform: translateY(0);
+  transform: translateY(0);;
+  /* padding: 10px 20px; */
+  -webkit-transition: all var(--speed) ease;
+  transition: all var(--speed) ease;
 }
 
 .card__header {
@@ -1119,11 +1134,13 @@ a:hover {
   justify-self: center;
   display: block;
   overflow: hidden;
-  width: 10vmax;
-  height: 10vmax;
-  max-width: 100px;
-  max-height: 100px;
-  border-radius: 50%;
+  /* margin-top: 30px; */
+  border-radius: var(--border-radius-md);
+  width: 100vmax;
+  height: 20vmax;
+  max-width: 200px;
+  max-height: 400px;
+  transition: all 0.5s ease;
 }
 
 .card__profile img {
@@ -1216,13 +1233,14 @@ a:hover {
 }
 
 .card__footer {
+  margin-top: 80px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   position: relative;
   -webkit-transform: translateY(60%);
   transform: translateY(60%);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "date category";
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
   opacity: 0;
   -webkit-transition: all var(--speed) ease;
   transition: all var(--speed) ease;
@@ -1263,7 +1281,7 @@ a:hover {
 }
 
 .card[data-effect="color"] .card__image {
-  background: linear-gradient(to bottom, rgba(20, 20, 100, 1), rgba(255, 100, 100, 0.5))
+  background: linear-gradient(to bottom, rgba(20, 20, 100, 1), rgba(255, 100, 100, 0.5));
 }
 
 .card[data-effect="color"]:hover .card__image img {
@@ -1325,3 +1343,85 @@ a:hover {
   }
 
 }
+
+.button-container {
+  z-index: 9999;
+  position: relative;
+  width: 300px;
+  height: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40vh;
+  overflow: hidden;
+  transition: 0.5s;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.button-container button {
+  z-index: 99999;
+  width: 101%;
+  height: 100%;
+  font-family: "Monument Extended", sans-serif;
+  font-size: 40px;
+  background: #fff;
+  -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+  mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
+  -webkit-mask-size: 2300% 100%;
+  mask-size: 2300% 100%;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  animation: anim2 0.7s steps(22) forwards;
+}
+.button-container button:hover {
+  animation: anim1 0.7s steps(22) forwards;
+}
+.mask {
+  position: absolute;
+  color: #fff;
+  text-align: center;
+  width: 101%;
+  font-family: "Monument Extended", sans-serif;
+  font-weight: lighter;
+  font-size: 40px;
+  margin-top: 25px;
+  overflow: hidden;
+}
+@keyframes anim1 {
+  from {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+ }
+  to {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+ }
+}
+@keyframes anim2 {
+  from {
+    -webkit-mask-position: 0 0;
+    mask-position: 0 0;
+ }
+  to {
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+ }
+}
+
+.btn-buy-now {
+  background: var(--eerie-black);
+  color: var(--white);
+  font-size: var(--fs-8);
+  font-weight: var(--weight-700);
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: var(--border-radius-sm);
+  margin: auto;
+  transition: var(--transition-timing);
+}
+
+.btn-buy-now:hover {
+  font-weight: var(--weight-700);
+  color:var(--eerie-black);
+  background: var(--salmon-pink);
+}
+

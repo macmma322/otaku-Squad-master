@@ -217,8 +217,8 @@ a .overlay .modal .modal-close-overlay .modal-content .newsletter {
 .btn-newsletter {
   background: var(--eerie-black);
   color: var(--white);
-  font-size: var(--fs-7);
-  font-weight: var(--weight-600);
+  font-size: var(--fs-8);
+  font-weight: var(--weight-700);
   text-transform: uppercase;
   padding: 10px 15px;
   border-radius: var(--border-radius-sm);
@@ -227,6 +227,8 @@ a .overlay .modal .modal-close-overlay .modal-content .newsletter {
 }
 
 .btn-newsletter:hover {
+  font-weight: var(--weight-700);
+  color:var(--eerie-black);
   background: var(--salmon-pink);
 }
 
