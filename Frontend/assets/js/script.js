@@ -373,7 +373,7 @@ function myFunction() {
 //--------------------Log In Password Show/Hide-------------------
 
 const togglePassword0 = document.querySelectorAll('#togglePassword')[0];
-const passwor0 = document.querySelectorAll('#id_password')[0];
+const password0 = document.querySelectorAll('#id_password')[0];
 
 // toggle the type attribute
 togglePassword0.addEventListener('click', function (e) {

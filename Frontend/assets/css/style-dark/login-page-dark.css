@@ -88,7 +88,7 @@ form.sign-in-form {
   position: relative;
 }
 
-.input-field i {
+.input-field .login-icons {
   text-align: center;
   line-height: 55px;
   color: var(--spanish-gray);
@@ -422,4 +422,9 @@ form.sign-in-form {
 .forms-container .input-field{
   font-size: 30px;
   align-items: center;
+}
+
+.pass-show-hide {
+  float: right;
+  justify-self: right;
 }
