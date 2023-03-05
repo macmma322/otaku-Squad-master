@@ -1,11 +1,11 @@
 'use strict';
 
 //We're going to use "check" to get the ckeckbox element
-const check=document.getElementById("check")
+const check = document.getElementById("check")
 
 //If darkMode doesn’t exist in the LocalStorage, create it. False by default
-if (localStorage.getItem('darkMode')===null){
-    localStorage.setItem('darkMode', "false");
+if (localStorage.getItem('darkMode') === null) {
+  localStorage.setItem('darkMode', "false");
 }
 
 //Create a link tag to later link the CSS file we want
@@ -20,24 +20,24 @@ document.getElementsByTagName('HEAD')[0].appendChild(link);
 //It gives the page it's default look, depening on waht darkMode is set to it will load one css or another
 checkStatus();
 
-function checkStatus(){
-    if (localStorage.getItem('darkMode')==="true"){
-        check.checked = true;                           //the checkbox is checked (if you load the page by default it isn’t)
-        link.href = './assets/css/style-dark/style-main-dark.css';                   //since it's true we load the dark theme CSS
-    }else{
-        check.checked = false;                          //the checkbox is unchecked
-        link.href = './assets/css/style/style-main.css';
-    }
+function checkStatus() {
+  if (localStorage.getItem('darkMode') === "true") {
+    check.checked = true;                           //the checkbox is checked (if you load the page by default it isn’t)
+    link.href = './assets/css/style-dark/var-dark.css';                   //since it's true we load the dark theme CSS
+  } else {
+    check.checked = false;                          //the checkbox is unchecked
+    link.href = './assets/css/style/var.css';
+  }
 }
 
-function changeStatus(){                                //This function gets called every time the checkbox is clicked
-    if (localStorage.getItem('darkMode')==="true"){     //if darkMode was active and this function is called it means the user now wants light
-        localStorage.setItem('darkMode', "false");      //so we set it to false, to indicate we are in light mode
-        link.href = './assets/css/style/style-main.css';
-    } else{
-        localStorage.setItem('darkMode', "true");       //same code but adapted for dark theme
-        link.href = './assets/css/style-dark/style-main-dark.css';
-    }
+function changeStatus() {                                //This function gets called every time the checkbox is clicked
+  if (localStorage.getItem('darkMode') === "true") {     //if darkMode was active and this function is called it means the user now wants light
+    localStorage.setItem('darkMode', "false");      //so we set it to false, to indicate we are in light mode
+    link.href = './assets/css/style/var.css';
+  } else {
+    localStorage.setItem('darkMode', "true");       //same code but adapted for dark theme
+    link.href = './assets/css/style-dark/var-dark.css';
+  }
 }
 
 //------------------------------
@@ -191,7 +191,8 @@ class Slideshow {
       showArrows: false,
       showPagination: true,
       duration: 10000,
-      autoplay: true };
+      autoplay: true
+    };
 
 
     let options = Object.assign({}, defaultOptions, userOptions);
@@ -302,7 +303,8 @@ class Slideshow {
 
   destroy() {
     this.$el.off();
-  }}
+  }
+}
 
 
 (function () {
@@ -311,7 +313,8 @@ class Slideshow {
 
   function load() {
     const options = {
-      showPagination: true };
+      showPagination: true
+    };
 
 
     let slideShow = new Slideshow(options);
@@ -342,6 +345,8 @@ class Slideshow {
   addLoadClass();
 })();
 
+//-------------------------------------------------------------
+
 const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
 const container = document.querySelector(".container-login");
@@ -353,3 +358,62 @@ sign_up_btn.addEventListener("click", () => {
 sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
+
+//-------------------------------------------------------------
+
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+//--------------------Log In Password Show/Hide-------------------
+
+const togglePassword0 = document.querySelectorAll('#togglePassword')[0];
+const passwor0 = document.querySelectorAll('#id_password')[0];
+
+// toggle the type attribute
+togglePassword0.addEventListener('click', function (e) {
+    const type = password0.getAttribute('type') === 'password' ? 'text' : 'password';
+    password0.setAttribute('type', type);
+  }
+)
+
+// toggle the eye slash icon
+const button0 = document.querySelectorAll("ion-button")[0];
+  button0.addEventListener("click", () => {
+    if (togglePassword0.getAttribute('name') == 'eye-outline') {
+    togglePassword0.setAttribute('name', 'eye-off-outline');
+    }
+    else {
+    togglePassword0.setAttribute('name', 'eye-outline');
+    }
+  }
+);
+
+//--------------------Sign Up Password Show/Hide-------------------
+
+const togglePassword1 = document.querySelectorAll('#togglePassword')[1];
+const password1 = document.querySelectorAll('#id_password')[1];
+
+// toggle the type attribute
+togglePassword1.addEventListener('click', function (e) {
+    const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+    password1.setAttribute('type', type);
+  }
+)
+
+// toggle the eye slash icon
+const button1 = document.querySelectorAll("ion-button")[1];
+  button1.addEventListener("click", () => {
+    if (togglePassword1.getAttribute('name') == 'eye-outline') {
+    togglePassword1.setAttribute('name', 'eye-off-outline');
+    }
+    else {
+    togglePassword1.setAttribute('name', 'eye-outline');
+    }
+  }
+);
