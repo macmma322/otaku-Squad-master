@@ -1,0 +1,33 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Otaku Squad - Anime & Gaming Culture - дрехи и аксесоари</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    
+        <script>
+            // Retrieve the last language used from local storage
+            const lastLanguage = localStorage.getItem('preferredLanguage');
+            
+            // Redirect the user to the corresponding index page
+            switch (lastLanguage) {
+              case 'bg':
+                window.location.href = './Frontend/website/bg/index-bg.html';
+                break;
+              case 'en':
+                window.location.href = './Frontend/website/en/index-en.html';
+                break;
+              default:
+                // If no language was previously selected, redirect to the English index page
+                window.location.href = './Frontend/website/en/index-en.html';
+                break;
+            }
+          </script>
+        </head>
+        <body>
+          <!-- Nothing here, this page will redirect automatically -->
+        </body>
+      </html>
+    
