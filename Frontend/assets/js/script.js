@@ -126,15 +126,32 @@ const modalCloseBtn = document.querySelector('[data-modal-close]');
 const modalCloseOverlay = document.querySelector('[data-modal-overlay]');
 
 //modal function
-
 const modalCloseFunc = function () {
   modal.classList.add('closed');
 };
 
-//modal eventListener
+const openModal = function() {
+  const showModal = localStorage.getItem('showModal');
 
+  if (!showModal || showModal === 'false') {
+    const randomNumber = Math.floor(Math.random() * 200) + 1;
+
+    if (randomNumber === 200) {
+      modal.classList.remove('closed');
+      localStorage.setItem('showModal', 'true');
+    } else {
+      localStorage.setItem('showModal', 'false');
+    }
+  } else {
+    modal.classList.remove('closed');
+  }
+};
+
+//modal eventListener
 modalCloseOverlay.addEventListener('click', modalCloseFunc);
 modalCloseBtn.addEventListener('click', modalCloseFunc);
+
+window.addEventListener('load', openModal);
 
 
 //----------------------------------------------------------
