@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="hydrated">
+<html lang="bg">
 
 <head>
   <meta charset="UTF-8" />
@@ -8,8 +8,8 @@
 
   <title>Otaku Squad - Anime & Gaming Culture - дрехи и аксесоари</title>
 
-  <link rel="shortcut icon" href="./assets/images/logo/site header icon.png" type="image/x-icon" />
-  <link href="./assets/css/style/var.css" type="text/css" />
+  <link rel="shortcut icon" href="../../assets/images/logo/site header icon.png" type="image/x-icon" />
+  <link href="/Frontend/assets/css/style/var.css" type="text/css" />
   <link id="active-stylesheet" href="" rel="stylesheet" type="text/css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,8 +23,8 @@
 
 <body class="body">
 
-  <img class="light-background"src="assets/images/main-content/light-background.jpg">
-  <img class="dark-background"src="assets/images/main-content/dark-background.jpg">
+  <img class="light-background" src="../../assets/images/main-content/light-background.jpg">
+  <img class="dark-background" src="../../assets/images/main-content/dark-background.jpg">
   <div class="overlay" data-overlay></div>
 
   <!-- MODAL CONTENT -->
@@ -71,7 +71,7 @@
         <section id="expandable-search" class="search search-icon search-icon-expandable" role="search">
           <form action="#" method="get" class="search-form">
             <input class="search-input" type="search" name="search" maxlength="100" placeholder="I am looking for..."
-              required>/>
+              required>
             <button class="search-btn-submit" type="submit">
               <ion-icon name="search-outline"></ion-icon>
             </button>
@@ -85,7 +85,7 @@
           <ion-icon name="menu-outline"></ion-icon>
         </button>
 
-        <button onclick="window.location.href='./login_index.html';" class="user-btn">
+        <button onclick="window.location.href='./login_index-bg.html';" class="user-btn">
           <ion-icon name="person-outline"></ion-icon>
         </button>
 
@@ -113,7 +113,7 @@
         <div class="user-buttons-menu">
 
 
-          <button onclick="window.location.href='./login_index.html';"  class="user-btn-mobile">
+          <button onclick="window.location.href='./login_index-bg.html';"  class="user-btn-mobile">
             <ion-icon name="person-outline"></ion-icon>
           </button>
 
@@ -279,13 +279,21 @@
               <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
             </button>
 
-            <ul class="submenu-category-list" data-accordion>
+            <ul class="submenu-category-list" id="language-selector" data-accordion>
               <li class="submenu-category">
-                <a href="#" class="submenu-title" submenu-text>English</a>
+                <button class="submenu-title" id="en-button" data-lang="en">English</button>
               </li>
 
               <li class="submenu-category">
-                <a href="#" class="submenu-title" submenu-text>български</a>
+                <button class="submenu-title" id="bg-button" data-lang="bg">Bulgarian</button>
+              </li>
+
+              <li class="submenu-category">
+                <button class="submenu-title" id="fr-button" data-lang="fr">French</button>
+              </li>
+
+              <li class="submenu-category">
+                <button class="submenu-title" id="es-button" data-lang="es">Spanish</button>
               </li>
             </ul>
           </li>
@@ -958,7 +966,7 @@
         document.write("You are using Desktop");
       }
     </script> -->
-  <script asyn src="./assets/js/script.js"></script>
+  <script asyn src="../../assets/js/script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>

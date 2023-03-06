@@ -23,24 +23,65 @@ checkStatus();
 function checkStatus() {
   if (localStorage.getItem('darkMode') === "true") {
     check.checked = true;                           //the checkbox is checked (if you load the page by default it isn’t)
-    link.href = './assets/css/style-dark/var-dark.css';                   //since it's true we load the dark theme CSS
+    link.href = "/Frontend/assets/css/style-dark/var-dark.css";                   //since it's true we load the dark theme CSS
   } else {
     check.checked = false;                          //the checkbox is unchecked
-    link.href = './assets/css/style/var.css';
+    link.href = "/Frontend/assets/css/style/var.css";
   }
 }
 
 function changeStatus() {                                //This function gets called every time the checkbox is clicked
   if (localStorage.getItem('darkMode') === "true") {     //if darkMode was active and this function is called it means the user now wants light
     localStorage.setItem('darkMode', "false");      //so we set it to false, to indicate we are in light mode
-    link.href = './assets/css/style/var.css';
+    link.href = "/Frontend/assets/css/style/var.css";
   } else {
     localStorage.setItem('darkMode', "true");       //same code but adapted for dark theme
-    link.href = './assets/css/style-dark/var-dark.css';
+    link.href = "/Frontend/assets/css/style-dark/var-dark.css";
   }
 }
 
 //------------------------------
+
+
+
+// const languageButtons = document.querySelectorAll("#language-selector button");
+
+// languageButtons.forEach(function(button) {
+//   button.addEventListener("click", function() {
+//     const selectedLanguage = this.getAttribute("data-lang");
+//     let newUrl;
+//     if (selectedLanguage === "en") {
+//       newUrl = "../../website/en/index.html";
+//     } else if (selectedLanguage === "bg") {
+//       newUrl = "../../website/bg/index-bg.html";
+//     } else if (selectedLanguage === "fr") {
+//       newUrl = "../../website/fr/index-fr.html";
+//     } else if (selectedLanguage === "es") {
+//       newUrl = "../../website/es/index-es.html";
+//     }
+//     // add more "else if" statements for additional languages
+
+//     window.location.href = newUrl;
+//   });
+// });
+
+const enButton = document.getElementById("en-button");
+const bgButton = document.getElementById("bg-button");
+
+enButton.addEventListener("click", function() {
+  let currentUrl = window.location.href;
+  let newUrl = currentUrl.replace("/bg/", "/en/").replace("-bg.html", ".html");
+  // replace "/bg/" with "/en/" to change language code, and replace "-bg.html" with ".html" to remove the language code from the page name
+  window.location.href = newUrl;
+});
+
+bgButton.addEventListener("click", function() {
+  let currentUrl = window.location.href;
+  let newUrl = currentUrl.replace("/en/", "/bg/").replace(".html", "-bg.html");
+  // replace "/en/" with "/bg/" to change language code, and replace ".html" with "-bg.html" to add the language code to the page name
+  window.location.href = newUrl;
+});
+
 
 
 

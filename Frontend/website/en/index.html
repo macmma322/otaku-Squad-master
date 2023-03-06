@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en" class="hydrated">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Otaku Squad - Anime & Gaming Culture - дрехи и аксесоари</title>
+
+  <link rel="shortcut icon" href="../../assets/images/logo/site header icon.png" type="image/x-icon" />
+  <link href="/Frontend/assets/css/style/var.css" type="text/css" />
+  <link id="active-stylesheet" href="" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <script>0</script>
+</head>
+
+<body class="body">
+
+  <img class="light-background" src="../../assets/images/main-content/light-background.jpg">
+  <img class="dark-background" src="../../assets/images/main-content/dark-background.jpg">
+  <div class="overlay" data-overlay></div>
+
+  <!-- MODAL CONTENT -->
+
+  <div class="modal" data-modal>
+    <div class="modal-close-overlay" data-modal-overlay></div>
+
+    <div class="modal-content" newsletter-cont>
+      <button class="modal-close-btn" data-modal-close>
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+
+      <div class="newsletter">
+        <form action="#">
+          <div class="newsletter-header">
+            <h3 class="newsletter-title">Бъди част от "Otaku Squad"</h3>
+
+            <p class="newsletter-desc">
+               Let's be the ones who won't allow the
+               <b><a href="https://en.wikipedia.org/wiki/Otaku" target="_blank">Otaku</a></b>
+               culture to disappear! Subscribe to us to get new ones
+               offers, promotions and the opportunity to share your ideas.
+            </p>
+          </div>
+
+          <input type="email" name="email" class="email-field" placeholder="Email Address" required />
+
+          <button type="submit" class="btn-newsletter">Subscribe!</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- NAVIGATION MENU CONTENT -->
+
+  <div class="menu">
+
+    <div class="top-navigation-menu">
+
+      <div class="preview-zone">
+        <section id="expandable-search" class="search search-icon search-icon-expandable" role="search">
+          <form action="#" method="get" class="search-form">
+            <input class="search-input" type="search" name="search" maxlength="100" placeholder="I am looking for..."
+              required>
+            <button class="search-btn-submit" type="submit">
+              <ion-icon name="search-outline"></ion-icon>
+            </button>
+          </form>
+        </section>
+      </div>
+
+      <div class="top-menu-icons" id="mydiv">
+
+        <button class="action-btn" data-mobile-menu-open-btn>
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+
+        <button onclick="window.location.href='./login_-en.html';" class="user-btn">
+          <ion-icon name="person-outline"></ion-icon>
+        </button>
+
+
+        <button class="user-btn">
+          <ion-icon name="bag-handle-outline"></ion-icon>
+
+          <span class="count">0</span>
+        </button>
+
+        <button class="user-btn">
+          <ion-icon name="heart-outline"></ion-icon>
+
+          <span class="count">0</span>
+        </button>
+
+      </div>
+
+    </div>
+
+    <nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu>
+
+      <div class="user-buttons-menu-mobile">
+
+        <div class="user-buttons-menu">
+
+
+          <button onclick="window.location.href='./login_index-en.html';"  class="user-btn-mobile">
+            <ion-icon name="person-outline"></ion-icon>
+          </button>
+
+          <button class="user-btn-mobile">
+            <ion-icon name="bag-handle-outline"></ion-icon>
+
+            <span class="count-mobile">0</span>
+          </button>
+
+          <button class="user-btn-mobile">
+            <ion-icon name="heart-outline"></ion-icon>
+
+            <span class="count-mobile">0</span>
+          </button>
+
+        </div>
+      </div>
+
+
+      <div class="menu-top">
+        <h2 class="menu-title">Menu</h2>
+        <button class="menu-close-btn" data-mobile-menu-close-btn>
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+
+      <ul class="mobile-menu-category-list">
+        <li class="menu-category">
+          <a href="#" class="menu-title">Home</a>
+        </li>
+
+        <li class="menu-category">
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Men's</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Shirt</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Shorts & Jeans</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Safety Shoes</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Wallet</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu-category">
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Women's</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Dress & Frock</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Earrings</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Necklace</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Makeup Kit</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu-category">
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Jewelry</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Earrings</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Couple Rings</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Necklace</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Bracelets</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu-category">
+          <button class="accordion-menu" data-accordion-btn>
+            <p class="menu-title">Perfume</p>
+
+            <div>
+              <ion-icon name="add-outline" class="add-icon"></ion-icon>
+              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+            </div>
+          </button>
+
+          <ul class="submenu-category-list" data-accordion>
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Clothes</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Deodorant</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Flower Fragrance</a>
+            </li>
+
+            <li class="submenu-category">
+              <a href="#" class="submenu-title" submenu-text>Air Freshener</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="menu-category">
+          <a href="#" class="menu-title">Blog</a>
+        </li>
+
+        <li class="menu-category">
+          <a href="#" class="menu-title">Hot Offers</a>
+        </li>
+      </ul>
+
+      <div class="menu-bottom">
+        <ul class="menu-category-list">
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Language</p>
+
+              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+            </button>
+
+            <ul class="submenu-category-list" id="language-selector" data-accordion>
+              <li class="submenu-category">
+                <button class="submenu-title" id="en-button" data-lang="en">English</button>
+              </li>
+
+              <li class="submenu-category">
+                <button class="submenu-title" id="bg-button" data-lang="bg">Bulgarian</button>
+              </li>
+
+              <li class="submenu-category">
+                <button class="submenu-title" id="fr-button" data-lang="fr">French</button>
+              </li>
+
+              <li class="submenu-category">
+                <button class="submenu-title" id="es-button" data-lang="es">Spanish</button>
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Currency</p>
+
+              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>USD &dollar;</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Euro &euro;</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>български лв.</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="dark-mode-btn">
+          <input class="dark-mode-swtch" type="checkbox" id="check" onclick="changeStatus()"></input>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+
+    <div id="wrapper">
+      <section class="slideshow" id="js-header">
+
+        <div class="slideshow__slide js-slider-home-slide is-current" data-slide="1">
+          <div class="slideshow__slide-background-parallax background-absolute js-parallax" data-speed="-1"
+            data-position="top" data-target="#js-header">
+            <div class="slideshow__slide-background-load-wrap background-absolute">
+              <div class="slideshow__slide-background-load background-absolute">
+                <div class="slideshow__slide-background-wrap background-absolute">
+                  <div class="slideshow__slide-background background-absolute">
+                    <div class="slideshow__slide-image-wrap background-absolute">
+                      <div class="slideshow__slide-image background-absolute"
+                        style="background-image: url('https://images.pexels.com/photos/190537/pexels-photo-190537.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920');">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slideshow__slide-caption">
+            <div class="slideshow__slide-caption-text">
+              <div class="container js-parallax" data-speed="2" data-position="top" data-target="#js-header">
+                <h1 class="slideshow__slide-caption-title">Стилни навсякъде, по всяко време. Изрази себе си.</h1>
+                <a class="slideshow__slide-caption-subtitle -load o-hsub -link" href="#">
+                  <span class="slideshow__slide-caption-subtitle-label">Виж как</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slideshow__slide js-slider-home-slide is-next" data-slide="2">
+          <div class="slideshow__slide-background-parallax background-absolute js-parallax" data-speed="-1"
+            data-position="top" data-target="#js-header">
+            <div class="slideshow__slide-background-load-wrap background-absolute">
+              <div class="slideshow__slide-background-load background-absolute">
+                <div class="slideshow__slide-background-wrap background-absolute">
+                  <div class="slideshow__slide-background background-absolute">
+                    <div class="slideshow__slide-image-wrap background-absolute">
+                      <div class="slideshow__slide-image background-absolute"
+                        style="background-image: url('https://images.pexels.com/photos/110649/pexels-photo-110649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1080&w=1920');">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slideshow__slide-caption">
+            <div class="slideshow__slide-caption-text">
+              <div class="container js-parallax" data-speed="2" data-position="top" data-target="#js-header">
+                <h1 class="slideshow__slide-caption-title">Качеството никога не излиза от мода.</h1>
+                <a class="slideshow__slide-caption-subtitle -load o-hsub -link" href="#">
+                  <span class="slideshow__slide-caption-subtitle-label">Разгледай Сега</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slideshow__slide js-slider-home-slide is-prev" data-slide="3">
+          <div class="slideshow__slide-background-parallax background-absolute js-parallax" data-speed="-1"
+            data-position="top" data-target="#js-header">
+            <div class="slideshow__slide-background-load-wrap background-absolute">
+              <div class="slideshow__slide-background-load background-absolute">
+                <div class="slideshow__slide-background-wrap background-absolute">
+                  <div class="slideshow__slide-background background-absolute">
+                    <div class="slideshow__slide-image-wrap background-absolute">
+                      <div class="slideshow__slide-image background-absolute"
+                        style="background-image: url('https://images.pexels.com/photos/196666/pexels-photo-196666.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920');">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slideshow__slide-caption">
+            <div class="slideshow__slide-caption-text">
+              <div class="container js-parallax" data-speed="2" data-position="top" data-target="#js-header">
+                <h1 class="slideshow__slide-caption-title">Бъди изключителен, Бъди Божествен, Бъди себе си.</h1>
+                <a class="slideshow__slide-caption-subtitle -load o-hsub -link" href="#">
+                  <span class="slideshow__slide-caption-subtitle-label">Виж още</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="c-header-home_footer">
+          <div class="o-container">
+            <div class="c-header-home_controls -nomobile o-button-group">
+              <div class="js-parallax is-inview" data-speed="1" data-position="top" data-target="#js-header">
+                <button class="o-button -white -square -left js-slider-home-button js-slider-home-prev" type="button">
+                  <span class="o-button_label">
+                    <svg class="o-button_icon" role="img">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-prev"></use>
+                    </svg>
+                  </span>
+                </button>
+                <button class="o-button -white -square js-slider-home-button js-slider-home-next" type="button">
+                  <span class="o-button_label">
+                    <svg class="o-button_icon" role="img">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-next"></use>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </section>
+      <svg class="slideshow-arrows" xmlns="http://www.w3.org/2000/svg">
+        <symbol viewBox="0 0 18 18" id="arrow-next">
+          <path id="arrow-next-arrow.svg"
+            d="M12.6,9L4,17.3L4.7,18l8.5-8.3l0,0L14,9l0,0l-0.7-0.7l0,0L4.7,0L4,0.7L12.6,9z" />
+        </symbol>
+        <symbol viewBox="0 0 18 18" id="arrow-prev">
+          <path id="arrow-prev-arrow.svg"
+            d="M14,0.7L13.3,0L4.7,8.3l0,0L4,9l0,0l0.7,0.7l0,0l8.5,8.3l0.7-0.7L5.4,9L14,0.7z" />
+        </symbol>
+      </svg>
+    </div>
+
+
+
+      
+     <div class="page">
+      
+          <!-- tabs -->
+          <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+            <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
+            <label for="tab1"><ion-icon name="trending-up-outline"></ion-icon> Най-популярни <ion-icon name="trending-up-outline"></ion-icon></label>
+      
+            <input type="radio" name="pcss3t" id="tab2" class="tab-content-2">
+            <label for="tab2"><ion-icon name="megaphone-outline"></ion-icon> Нови продукти <ion-icon name="megaphone-outline"></ion-icon></label>
+      
+            <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
+            <label for="tab3"><ion-icon name="flame-outline"></ion-icon> Намаления <ion-icon name="flame-outline"></ion-icon></label>
+      
+            <input type="radio" name="pcss3t" id="tab5" class="tab-content-last">
+            <label for="tab5"> ееер </label>
+      
+            <ul>
+              <li class="tab-content tab-content-first typography">
+                <div class="typography">
+                  <div class="row-content">
+                    <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+  
+                    <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+
+                    <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+
+                     <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+                </div>
+                </div>
+              </li>
+      
+              <li class="tab-content tab-content-2 typography">
+                <div class="typography">
+                  <div class="row-content">
+                    <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+  
+                    <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+
+                    <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+
+                     <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+                </div>
+                </div>
+              </li>
+      
+              <li class="tab-content tab-content-3 typography">
+                <div class="typography">
+                  <div class="row-content">
+                    <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+  
+                    <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+
+                    <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+
+                     <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+                </div>
+                </div>
+              </li>
+      
+              <li class="tab-content tab-content-last typography">
+                <div class="typography">
+                  <div class="row-content">
+                    <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+  
+                    <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+
+                    <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+
+                     <div class="card" data-effect="zoom">
+                      <button class="card__save  js-save" type="button">
+                        <i class="fa  fa-bookmark"></i>
+                      </button>
+                      <figure class="card__image">
+                        <img src="assets/images/main-content/card-background-hover.jpg" alt=" ">
+                      </figure>
+                      <div class="card__header">
+                        <figure class="card__profile">
+                          <img src="assets/images/main-content/product-1.jfif"
+                            alt="Short description">
+                        </figure>
+                      </div>
+                      <div class="card__body">
+                        <h3 class="card__name"></h3>
+                        <p class="card__job"></p>
+                        <p class="card__bio"> </p>
+                      </div>
+                      <div class="card__footer">
+                        <p class="card__date">
+                          <button type="submit" class="btn-buy-now">Купи Сега</button>
+                        <p class=""></p>
+                      </div>
+                    </div>
+                </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!--/ tabs -->
+  </div>
+
+
+
+  </main>
+
+
+
+  <div class="footer-basic">
+    <footer>
+      <div class="social">
+        <a href="#" target="_blank">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="#" target="_blank">
+          <ion-icon name="logo-discord"></ion-icon>
+        </a>
+        <a href="#" target="_blank">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100072597646544" target="_blank">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+      </div>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Home</a></li>
+        <li class="list-inline-item"><a href="#">Services</a></li>
+        <li class="list-inline-item"><a href="#">About</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+      </ul>
+      <p class="copyright">Company Name © 2018</p>
+    </footer>
+  </div>
+  <script>
+
+    var elem = document.getElementById('mydiv').getBoundingClientRect();
+    if (elem) {
+      console.log(elem);
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+  <!-- <script>
+      /* Storing user's device details in a variable*/
+      let details = navigator.userAgent;
+
+      /* Creating a regular expression 
+      containing some mobile devices keywords 
+      to search it in details string*/
+      let regexp = /android|iphone|kindle|ipad/i;
+
+      /* Using test() method to search regexp in details
+      it returns boolean value*/
+      let isMobileDevice = regexp.test(details);
+
+      if (isMobileDevice) {
+        document.write("You are using a Mobile Device");
+      } else {
+        document.write("You are using Desktop");
+      }
+    </script> -->
+  <script asyn src="../../assets/js/script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
