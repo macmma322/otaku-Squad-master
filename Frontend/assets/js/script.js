@@ -43,44 +43,70 @@ function changeStatus() {                                //This function gets ca
 //------------------------------
 
 
+const languageButtons = document.querySelectorAll("#language-selector button");
 
-// const languageButtons = document.querySelectorAll("#language-selector button");
-
-// languageButtons.forEach(function(button) {
-//   button.addEventListener("click", function() {
-//     const selectedLanguage = this.getAttribute("data-lang");
-//     let newUrl;
-//     if (selectedLanguage === "en") {
-//       newUrl = "../../website/en/index.html";
-//     } else if (selectedLanguage === "bg") {
-//       newUrl = "../../website/bg/index-bg.html";
-//     } else if (selectedLanguage === "fr") {
-//       newUrl = "../../website/fr/index-fr.html";
-//     } else if (selectedLanguage === "es") {
-//       newUrl = "../../website/es/index-es.html";
-//     }
-//     // add more "else if" statements for additional languages
-
-//     window.location.href = newUrl;
-//   });
-// });
-
-const enButton = document.getElementById("en-button");
-const bgButton = document.getElementById("bg-button");
-
-enButton.addEventListener("click", function() {
-  let currentUrl = window.location.href;
-  let newUrl = currentUrl.replace("/bg/", "/en/").replace("-bg.html", ".html");
-  // replace "/bg/" with "/en/" to change language code, and replace "-bg.html" with ".html" to remove the language code from the page name
-  window.location.href = newUrl;
+languageButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    const selectedLanguage = this.getAttribute("data-lang");
+    const currentUrl = window.location.pathname;
+    const currentLanguage = getCurrentLanguage(currentUrl);
+    let newUrl;
+    if (selectedLanguage !== currentLanguage) {
+      newUrl = currentUrl.replace(`/${currentLanguage}/`, `/${selectedLanguage}/`);
+      newUrl = newUrl.replace(`-${currentLanguage}`, `-${selectedLanguage}`);
+      window.localStorage.setItem("selectedLanguage", selectedLanguage);
+      window.location.href = newUrl;
+    }
+  });
 });
 
-bgButton.addEventListener("click", function() {
-  let currentUrl = window.location.href;
-  let newUrl = currentUrl.replace("/en/", "/bg/").replace(".html", "-bg.html");
-  // replace "/en/" with "/bg/" to change language code, and replace ".html" with "-bg.html" to add the language code to the page name
-  window.location.href = newUrl;
+function getCurrentLanguage(url) {
+  const pattern = /\/([a-z]{2})\//;
+  const match = url.match(pattern);
+  if (match) {
+    return match[1];
+  }
+  return null;
+}
+
+let selectedLanguage = localStorage.getItem("language") || "en";
+
+languageButtons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    const newLanguage = this.getAttribute("data-lang");
+
+    if (selectedLanguage !== newLanguage) {
+      let newUrl;
+      if (newLanguage === "en") {
+        newUrl = currentUrl.replace(/\/bg\//g, "/en/");
+        newUrl = newUrl.replace(/-bg/g, "-en");
+      } else if (newLanguage === "bg") {
+        newUrl = currentUrl.replace(/\/en\//g, "/bg/");
+        newUrl = newUrl.replace(/-en/g, "-bg");
+      } else if (newLanguage === "fr") {
+        newUrl = currentUrl.replace(/\/en\//g, "/fr/");
+        newUrl = newUrl.replace(/-en/g, "-fr");
+      } else if (newLanguage === "es") {
+        newUrl = currentUrl.replace(/\/en\//g, "/es/");
+        newUrl = newUrl.replace(/-en/g, "-es");
+      }
+      // add more "else if" statements for additional languages
+
+      window.location.href = newUrl;
+      localStorage.setItem("language", newLanguage);
+    }
+  });
 });
+
+languageButtons.forEach(function(button) {
+  const buttonLanguage = button.getAttribute("data-lang");
+  if (buttonLanguage === selectedLanguage) {
+    button.classList.add("selected");
+  } else {
+    button.classList.remove("selected");
+  }
+});
+
 
 
 
