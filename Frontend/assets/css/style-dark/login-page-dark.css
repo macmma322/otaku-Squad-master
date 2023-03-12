@@ -88,13 +88,6 @@ form.sign-in-form {
   position: relative;
 }
 
-.input-field .login-icons {
-  text-align: center;
-  line-height: 55px;
-  color: var(--spanish-gray);
-  transition: 0.5s;
-  font-size: 1.1rem;
-}
 
 .input-field input {
   background: none;
@@ -104,6 +97,14 @@ form.sign-in-form {
   font-weight: 600;
   font-size: 1.1rem;
   color: var(--white);
+}
+
+.input-field i {
+  text-align: center;
+  line-height: 55px;
+  color: var(--eerie-black);
+  transition: 0.5s;
+  font-size: 1.1rem;
 }
 
 .input-field input::placeholder {
@@ -242,7 +243,7 @@ form.sign-in-form {
 
 .right-panel .image,
 .right-panel .content {
-  transform: translateX(800px);
+  transform: translateX(950px);
   z-index: 4;
 }
 

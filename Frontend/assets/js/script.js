@@ -107,51 +107,50 @@ languageButtons.forEach(function(button) {
   }
 });
 
-
-
-
-
-
-
-
 /* 
   =======================
     MODAL SCRIPT
   =======================
 */
 
-//modal variables
+// Get the modal and close button
 const modal = document.querySelector('[data-modal]');
 const modalCloseBtn = document.querySelector('[data-modal-close]');
 const modalCloseOverlay = document.querySelector('[data-modal-overlay]');
 
-//modal function
-const modalCloseFunc = function () {
+// Function to close the modal
+const closeModal = function () {
   modal.classList.add('closed');
 };
 
-const openModal = function() {
-  const showModal = localStorage.getItem('showModal');
-
-  if (!showModal || showModal === 'false') {
-    const randomNumber = Math.floor(Math.random() * 200) + 1;
-
-    if (randomNumber === 200) {
-      modal.classList.remove('closed');
-      localStorage.setItem('showModal', 'true');
-    } else {
-      localStorage.setItem('showModal', 'false');
-    }
+// Check if the modal should be displayed
+const openModal = function () {
+  let pageViews = localStorage.getItem('pageViews');
+  closeModal();
+  // If no page views are recorded yet, set it to 1
+  if (!pageViews) {
+    pageViews = 1;
   } else {
+    pageViews = parseInt(pageViews);
+    pageViews += 1;
+  }
+
+  // Store the updated page view count
+  localStorage.setItem('pageViews', pageViews);
+
+  // Display the modal if the page view count is a multiple of 200
+  if (pageViews % 100 === 0) {
     modal.classList.remove('closed');
   }
 };
 
-//modal eventListener
-modalCloseOverlay.addEventListener('click', modalCloseFunc);
-modalCloseBtn.addEventListener('click', modalCloseFunc);
+// Add event listeners to close the modal
+modalCloseOverlay.addEventListener('click', closeModal);
+modalCloseBtn.addEventListener('click', closeModal);
 
+// Display the modal if necessary when the page is loaded
 window.addEventListener('load', openModal);
+
 
 
 //----------------------------------------------------------
