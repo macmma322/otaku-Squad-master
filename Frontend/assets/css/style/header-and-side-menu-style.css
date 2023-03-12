@@ -271,7 +271,7 @@
 }
 
 .mobile-menu-category-list .menu-category {
-  border-bottom: 1px solid var(--cultured);
+  border-bottom: 1px solid var(--dirty-white);
 }
 
 .mobile-menu-category-list .menu-title {
@@ -367,7 +367,7 @@
 }
 
 .menu-bottom .submenu-category-list {
-  border: 1px solid var(--cultured);
+  border: 1px solid var(--dirty-white);
   border-radius: var(--border-radius-md);
   padding: 0 15px;
   margin-left: 0;
@@ -375,7 +375,7 @@
 }
 
 .menu-bottom .submenu-category:not(:last-child) {
-  border-bottom: 1px solid var(--cultured);
+  border-bottom: 1px solid var(--dirty-white);
 }
 
 

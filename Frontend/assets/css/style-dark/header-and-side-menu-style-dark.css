@@ -295,7 +295,7 @@
 }
 
 .mobile-menu-category-list .menu-category {
-  border-bottom: 1px solid var(--davys-gray);
+  border-bottom: 1px solid var(--sonic-silver);
 }
 
 .mobile-menu-category-list .menu-title {
@@ -386,7 +386,7 @@
 }
 
 .menu-bottom .submenu-category-list {
-  border: 1px solid var(--davys-gray);
+  border: 1px solid var(--sonic-silver);
   border-radius: var(--border-radius-md);
   padding: 0 15px;
   margin-left: 0;
@@ -394,7 +394,7 @@
 }
 
 .menu-bottom .submenu-category:not(:last-child) {
-  border-bottom: 1px solid var(--davys-gray);
+  border-bottom: 1px solid var(--sonic-silver);
 }
 
 /* SEARCH BAR */

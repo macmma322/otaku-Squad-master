@@ -10,10 +10,10 @@
 <body>
 
   <script>
-    // Retrieve the last language used from local storage
-    const lastLanguage = localStorage.getItem('preferredLanguage');
-
-    // Redirect the user to the corresponding index page
+    // Retrieve the last language used from local storage, or use the user's browser language preference
+    var lastLanguage = localStorage.getItem('preferredLanguage') || (navigator.language || navigator.userLanguage);
+    
+    // Redirect the user to the corresponding index page based on their language preference
     switch (lastLanguage) {
       case 'bg':
         window.location.href = './Frontend/website/bg/index-bg.html';
@@ -22,11 +22,11 @@
         window.location.href = './Frontend/website/en/index-en.html';
         break;
       default:
-        // If no language was previously selected, redirect to the English index page
+        // If the user's language is not supported, redirect to the English index page
         window.location.href = './Frontend/website/en/index-en.html';
         break;
     }
-  </script>
+      </script>
   <!-- Nothing here, this page will redirect automatically -->
 </body>
 
