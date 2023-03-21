@@ -139,7 +139,7 @@ const openModal = function () {
   localStorage.setItem('pageViews', pageViews);
 
   // Display the modal if the page view count is a multiple of 200
-  if (pageViews % 100 === 0) {
+  if (pageViews % 100=== 0) {
     modal.classList.remove('closed');
   }
 };
@@ -500,3 +500,17 @@ const button1 = document.querySelectorAll("ion-button")[1];
     }
   }
 );
+
+
+const cartBtn = document.querySelectorAll('.user-btn')[1];
+const cartPopup = document.querySelector('.cart-popup');
+const cartCloseBtn = document.querySelector('.cart-popup .close-btn');
+
+cartBtn.addEventListener('click', () => {
+  cartPopup.classList.toggle('active');
+});
+  
+cartCloseBtn.addEventListener('click', () => {
+  cartPopup.classList.remove('active');
+});
+

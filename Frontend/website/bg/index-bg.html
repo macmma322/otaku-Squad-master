@@ -74,8 +74,7 @@
       <div class="preview-zone">
         <section id="expandable-search" class="search search-icon search-icon-expandable" role="search">
           <form action="#" method="get" class="search-form">
-            <input class="search-input" type="search" name="search" maxlength="100" placeholder="Търся си..."
-              required>
+            <input class="search-input" type="search" name="search" maxlength="100" placeholder="Търся си..." required>
             <button class="search-btn-submit" type="submit">
               <ion-icon name="search-outline"></ion-icon>
             </button>
@@ -93,10 +92,8 @@
           <ion-icon name="person-outline"></ion-icon>
         </button>
 
-
-        <button class="user-btn">
+        <button class="user-btn cart-btn">
           <ion-icon name="bag-handle-outline"></ion-icon>
-
           <span class="count">0</span>
         </button>
 
@@ -106,6 +103,19 @@
           <span class="count">0</span>
         </button>
 
+        <div class="cart-popup">
+          <button class="close-btn"><ion-icon name="close-outline"></ion-icon></button>
+          <div class="cart-items">
+            <ul>
+              <li>Product 1</li>
+              <li>Product 2</li>
+              <li>Product 3</li>
+            </ul>
+          </div>
+          <div class="cart-total">
+            Total: $50.00
+          </div>
+        </div>
       </div>
 
     </div>
@@ -928,12 +938,15 @@
       <p class="copyright">Company Name © 2018</p>
     </footer>
   </div>
+
+  <script>
+    console.log(navigator.language); 
+  </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
   <script asyn src="../../assets/js/script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

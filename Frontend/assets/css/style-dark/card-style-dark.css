@@ -687,7 +687,7 @@ a:hover {
 }
 
 .pcss3t-theme-1>.tab-content-first:checked~ul {
-  /* border-top-left-radius: 0; */
+  border-top-left-radius: 0;
 }
 
 @media screen and (max-width: 767px) {

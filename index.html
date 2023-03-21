@@ -8,11 +8,14 @@
 </head>
 
 <body>
+  <script>
+    
+  </script>
 
   <script>
     // Retrieve the last language used from local storage, or use the user's browser language preference
     var lastLanguage = localStorage.getItem('preferredLanguage') || (navigator.language || navigator.userLanguage);
-    
+
     // Redirect the user to the corresponding index page based on their language preference
     switch (lastLanguage) {
       case 'bg':
@@ -21,12 +24,18 @@
       case 'en':
         window.location.href = './Frontend/website/en/index-en.html';
         break;
+      case 'fr':
+        window.location.href = './Frontend/website/fr/index-fr.html';
+        break;
+      case 'es':
+        window.location.href = './Frontend/website/es/index-es.html';
+        break;
       default:
         // If the user's language is not supported, redirect to the English index page
         window.location.href = './Frontend/website/en/index-en.html';
         break;
     }
-      </script>
+  </script>
   <!-- Nothing here, this page will redirect automatically -->
 </body>
 

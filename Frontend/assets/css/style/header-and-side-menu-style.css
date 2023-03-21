@@ -464,3 +464,59 @@
 .search-expanded .search-input {
   transform: scaleX(1);
 }
+
+
+
+
+
+
+
+
+.cart-popup {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 300px;
+  z-index: 9999;
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+}
+
+.cart-popup.active {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.cart-items {
+  margin-bottom: 10px;
+}
+
+.cart-items ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cart-items li {
+  margin-bottom: 5px;
+}
+
+.cart-total {
+  text-align: right;
+}
+
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
