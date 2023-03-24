@@ -45,8 +45,8 @@ function changeStatus() {                                //This function gets ca
 
 const languageButtons = document.querySelectorAll("#language-selector button");
 
-languageButtons.forEach(function(button) {
-  button.addEventListener("click", function() {
+languageButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
     const selectedLanguage = this.getAttribute("data-lang");
     const currentUrl = window.location.pathname;
     const currentLanguage = getCurrentLanguage(currentUrl);
@@ -71,8 +71,8 @@ function getCurrentLanguage(url) {
 
 let selectedLanguage = localStorage.getItem("language") || "en";
 
-languageButtons.forEach(function(button) {
-  button.addEventListener("click", function() {
+languageButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
     const newLanguage = this.getAttribute("data-lang");
 
     if (selectedLanguage !== newLanguage) {
@@ -98,7 +98,7 @@ languageButtons.forEach(function(button) {
   });
 });
 
-languageButtons.forEach(function(button) {
+languageButtons.forEach(function (button) {
   const buttonLanguage = button.getAttribute("data-lang");
   if (buttonLanguage === selectedLanguage) {
     button.classList.add("selected");
@@ -139,7 +139,7 @@ const openModal = function () {
   localStorage.setItem('pageViews', pageViews);
 
   // Display the modal if the page view count is a multiple of 200
-  if (pageViews % 100=== 0) {
+  if (pageViews % 100 === 0) {
     modal.classList.remove('closed');
   }
 };
@@ -460,21 +460,21 @@ const password0 = document.querySelectorAll('#id_password')[0];
 
 // toggle the type attribute
 togglePassword0.addEventListener('click', function (e) {
-    const type = password0.getAttribute('type') === 'password' ? 'text' : 'password';
-    password0.setAttribute('type', type);
-  }
+  const type = password0.getAttribute('type') === 'password' ? 'text' : 'password';
+  password0.setAttribute('type', type);
+}
 )
 
 // toggle the eye slash icon
 const button0 = document.querySelectorAll("ion-button")[0];
-  button0.addEventListener("click", () => {
-    if (togglePassword0.getAttribute('name') == 'eye-outline') {
+button0.addEventListener("click", () => {
+  if (togglePassword0.getAttribute('name') == 'eye-outline') {
     togglePassword0.setAttribute('name', 'eye-off-outline');
-    }
-    else {
-    togglePassword0.setAttribute('name', 'eye-outline');
-    }
   }
+  else {
+    togglePassword0.setAttribute('name', 'eye-outline');
+  }
+}
 );
 
 //--------------------Sign Up Password Show/Hide-------------------
@@ -484,33 +484,75 @@ const password1 = document.querySelectorAll('#id_password')[1];
 
 // toggle the type attribute
 togglePassword1.addEventListener('click', function (e) {
-    const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
-    password1.setAttribute('type', type);
-  }
+  const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+  password1.setAttribute('type', type);
+}
 )
 
 // toggle the eye slash icon
 const button1 = document.querySelectorAll("ion-button")[1];
-  button1.addEventListener("click", () => {
-    if (togglePassword1.getAttribute('name') == 'eye-outline') {
+button1.addEventListener("click", () => {
+  if (togglePassword1.getAttribute('name') == 'eye-outline') {
     togglePassword1.setAttribute('name', 'eye-off-outline');
-    }
-    else {
-    togglePassword1.setAttribute('name', 'eye-outline');
-    }
   }
+  else {
+    togglePassword1.setAttribute('name', 'eye-outline');
+  }
+}
 );
 
 
-const cartBtn = document.querySelectorAll('.user-btn')[1];
-const cartPopup = document.querySelector('.cart-popup');
-const cartCloseBtn = document.querySelector('.cart-popup .close-btn');
 
-cartBtn.addEventListener('click', () => {
-  cartPopup.classList.toggle('active');
-});
-  
-cartCloseBtn.addEventListener('click', () => {
-  cartPopup.classList.remove('active');
-});
 
+function signUpUser(event) {
+  // Prevent the form from submitting and refreshing the page
+  event.preventDefault();
+
+  // Get the form input values
+  const username = document.getElementById('signup-username').value;
+  const email = document.getElementById('signup-email').value;
+  const password = document.getElementById('signup-password').value;
+  const fname = document.getElementById('signup-fname').value;
+  const lname = document.getElementById('signup-lname').value;
+
+  // Send a POST request to the /api/sign-up endpoint
+  fetch('http://localhost:3000/api/sign-up', {
+    method: 'POST',
+    body: JSON.stringify({ username, email, password, fname, lname }),
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the response data here
+      console.log(data);
+    })
+    .catch(error => {
+      // Handle any errors that occur during the request
+      console.error(error);
+    });
+}
+
+function loginUser(event) {
+  // Prevent the form from submitting and refreshing the page
+  event.preventDefault();
+
+  // Get the form input values
+  const username = document.getElementById('login-username').value;
+  const password = document.getElementById('login-password').value;
+
+  // Send a POST request to the /api/login endpoint
+  fetch('http://localhost:3000/api/login', {
+    method: 'POST',
+    body: JSON.stringify({ username, password }),
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the response data here
+      console.log(data);
+    })
+    .catch(error => {
+      // Handle any errors that occur during the request
+      console.error(error);
+    });
+}
