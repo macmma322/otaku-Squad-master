@@ -1,17 +1,23 @@
 const express = require('express');
+const session = require('express-session');
+const path = require('path');
 const app = express();
-app.use(express.json());
 const bodyParser = require('body-parser');
 const { Client } = require('pg');
+const bcrypt = require('bcrypt');
 
+// Set the __dirname value to the parent directory of the current file
+const parentDir = path.dirname(__dirname);
+global.__basedir = parentDir;
+
+// Serve static files from the 'Otaku Squad' folder
+app.use(express.static(path.join(__basedir, 'Otaku Squad')));
+
+app.use(express.json());
 
 // Use body-parser middleware to parse incoming request bodies
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-// Serve static files from the 'Otaku Squad' folder
-app.use(express.static('Otaku Squad'));
-
 
 // Create a new PostgreSQL client
 const client = new Client({
@@ -31,23 +37,39 @@ client.connect((err) => {
   }
 });
 
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 60000 } // Set cookie expiration time
+}));
+
+// Route for the home page
+app.get('/', (req, res) => {
+  res.sendFile(parentDir + '/index.html');
+});
+
+// Set headers to allow cross-origin resource sharing (CORS)
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5501");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
+// Search API endpoint
+app.get('/search', (req, res) => {
+  const searchTerm = req.query.search;
+  const sql = `SELECT * FROM custom_products WHERE product_name ILIKE '%${searchTerm}%' OR description_bg ILIKE '%${searchTerm}%' OR description_en ILIKE '%${searchTerm}%' OR description_fr ILIKE '%${searchTerm}%' OR description_es ILIKE '%${searchTerm}%'`;
 
-// Example route that returns a JSON response
-app.get('/api/users', (req, res) => {
-  const users = [
-    { id: 1, name: 'John Doe' },
-    { id: 2, name: 'Jane Doe' },
-  ];
-  res.json(users);
+  client.query(sql, (err, results) => {
+    if (err) {
+      console.error(err);
+      res.sendStatus(500);
+    } else {
+      res.render('search-results', { results: results.rows });
+    }
+  });
 });
-
-
 
 //Login API
 app.post('/api/login', async (req, res) => {
@@ -82,135 +104,10 @@ async function insertUser(username, email, password, first_name, last_name) {
   console.log('User inserted successfully');
 }
 
-
-
-
-
 // Start the server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
+  process.chdir('e:/Otaku Squad');
+  console.log('__basedirs:', parentDir);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // Define an API endpoint to get all products
-// app.get('/api/products', (req, res) => {
-//   client.query('SELECT * FROM products', (err, result) => {
-//     if (err) {
-//       console.error('Error querying the database', err.stack);
-//       res.status(500).send('Error querying the database');
-//     } else {
-//       res.json(result.rows);
-//     }
-//   });
-// });
-
-// // Define an API endpoint to get a specific product by ID
-// app.get('/api/products/:id', (req, res) => {
-//   const productId = req.params.id;
-//   client.query('SELECT * FROM custom_products WHERE id = $1', [productId], (err, result) => {
-//     if (err) {
-//       console.error('Error querying the database', err.stack);
-//       res.status(500).send('Error querying the database');
-//     } else if (result.rows.length === 0) {
-//       res.status(404).send('Product not found');
-//     } else {
-//       res.json(result.rows[0]);
-//     }
-//   });
-// });
-
-
-// const bodyParser = require('body-parser');
-
-// // parse application/x-www-form-urlencoded
-// app.use(bodyParser.urlencoded({ extended: false }));
-
-// // parse application/json
-// app.use(bodyParser.json());
-
-// // Your routes and other middlewares here
-
-
-
-// // Set up body-parser to parse form data
-// app.use(bodyParser.urlencoded({ extended: true }));
-
-// // Serve the HTML file
-// app.get('/', (req, res) => {
-//   res.sendFile(__dirname + '../index.html');
-// });
-
-// // Handle login form submission
-// app.post('/login', (req, res) => {
-//   const { username, password } = req.body;
-
-
-//   console.log(req.body);
-
-//   // TODO: Implement authentication logic here
-
-//   res.send(`Logging in with username ${username} and password ${password}`);
-// });
-
-// // Handle sign up form submission
-// app.post('/signup', (req, res) => {
-//   const { username, email, password } = req.body;
-
-//   console.log(username, email, password);
-
-//   // TODO: Implement sign up logic here
-
-//   insertUser(username, email, password);
-
-//   res.send(`Signing up with username ${username}, email ${email}, and password ${password}`);
-// });
-
-
-
-
-
-
-
-
-
-// // Start the server
-// server.listen(3000, () => {
-//   console.log('Server is listening on port 3000');
-// });

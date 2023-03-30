@@ -428,9 +428,14 @@ class Slideshow {
   addLoadClass();
 })();
 
+
+
+
+
+
 //-------------------------------------------------------------
 
-const sign_in_btn = document.querySelector("#sign-in-btn");
+const sign_in_btn = document.querySelector("#login-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
 const container = document.querySelector(".container-login");
 
@@ -442,61 +447,55 @@ sign_in_btn.addEventListener("click", () => {
   container.classList.remove("sign-up-mode");
 });
 
-//-------------------------------------------------------------
 
-function myFunction() {
-  var x = document.getElementById("myInput");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
+
+
 
 //--------------------Log In Password Show/Hide-------------------
 
-const togglePassword0 = document.querySelectorAll('#togglePassword')[0];
-const password0 = document.querySelectorAll('#id_password')[0];
+const toggleLoginPassword = document.querySelectorAll('#togglePassword')[0];
+const loginPasswordInput = document.querySelector('#login_password');
 
 // toggle the type attribute
-togglePassword0.addEventListener('click', function (e) {
-  const type = password0.getAttribute('type') === 'password' ? 'text' : 'password';
-  password0.setAttribute('type', type);
+toggleLoginPassword.addEventListener('click', function (e) {
+  const type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+  loginPassword.setAttribute('type', type);
 }
 )
 
 // toggle the eye slash icon
-const button0 = document.querySelectorAll("ion-button")[0];
-button0.addEventListener("click", () => {
-  if (togglePassword0.getAttribute('name') == 'eye-outline') {
-    togglePassword0.setAttribute('name', 'eye-off-outline');
+const loginPasswordButton = document.querySelectorAll('ion-button')[0];
+loginPasswordButton.addEventListener("click", () => {
+  if (toggleLoginPassword.getAttribute('name') == 'eye-outline') {
+    toggleLoginPassword.setAttribute('name', 'eye-off-outline');
   }
   else {
-    togglePassword0.setAttribute('name', 'eye-outline');
+    toggleLoginPassword.setAttribute('name', 'eye-outline');
   }
 }
 );
+
 
 //--------------------Sign Up Password Show/Hide-------------------
 
-const togglePassword1 = document.querySelectorAll('#togglePassword')[1];
-const password1 = document.querySelectorAll('#id_password')[1];
+const toggleSignUpPassword = document.querySelectorAll('#togglePassword')[1];
+const signUpPasswordInput = document.querySelector('#signup_password');
 
 // toggle the type attribute
-togglePassword1.addEventListener('click', function (e) {
-  const type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
-  password1.setAttribute('type', type);
+toggleSignUpPassword.addEventListener('click', function (e) {
+  const type = signUpPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+  signUpPasswordInput.setAttribute('type', type);
 }
 )
 
 // toggle the eye slash icon
-const button1 = document.querySelectorAll("ion-button")[1];
-button1.addEventListener("click", () => {
-  if (togglePassword1.getAttribute('name') == 'eye-outline') {
-    togglePassword1.setAttribute('name', 'eye-off-outline');
+const signUpPasswordButton = document.querySelectorAll("ion-button")[1];
+signUpPasswordButton.addEventListener("click", () => {
+  if (signUpPasswordInput.getAttribute('name') == 'eye-outline') {
+    signUpPasswordInput.setAttribute('name', 'eye-off-outline');
   }
   else {
-    togglePassword1.setAttribute('name', 'eye-outline');
+    toggleSignUpPassword.setAttribute('name', 'eye-outline');
   }
 }
 );
@@ -504,27 +503,35 @@ button1.addEventListener("click", () => {
 
 
 
-function signUpUser(event) {
-  // Prevent the form from submitting and refreshing the page
-  event.preventDefault();
 
-  // Get the form input values
-  const username = document.getElementById('signup-username').value;
-  const email = document.getElementById('signup-email').value;
-  const password = document.getElementById('signup-password').value;
-  const fname = document.getElementById('signup-fname').value;
-  const lname = document.getElementById('signup-lname').value;
+
+
+
+
+const signUpForm = document.getElementById('signup-btn');
+signUpForm.addEventListener('click', signUpUser());
+
+function signUpUser() {
+  // Prevent the form from submitting and refreshing the page
+  // event.preventDefault();
+
+    // Get sign up form input values
+    const signUpUsername = document.getElementById('signup_username').value;
+    const email = document.getElementById('signup_email').value;
+    const signUpPassword = document.getElementById('signup_password').value;
+    const fname = document.getElementById('signup_fname').value;
+    const lname = document.getElementById('signup_lname').value;
 
   // Send a POST request to the /api/sign-up endpoint
   fetch('http://localhost:3000/api/sign-up', {
     method: 'POST',
-    body: JSON.stringify({ username, email, password, fname, lname }),
+    body: JSON.stringify({ signUpUsername, email, signUpPassword, fname, lname }),
     headers: { 'Content-Type': 'application/json' }
   })
     .then(response => response.json())
     .then(data => {
-      // Handle the response data here
-      console.log(data);
+      console.log(data); // Handle the response data here
+      insertUser(signUpUsername, email, signUpPassword, fname, lname);
     })
     .catch(error => {
       // Handle any errors that occur during the request
@@ -532,18 +539,24 @@ function signUpUser(event) {
     });
 }
 
+
+
+
+const loginForm = document.getElementById('login-btn');
+loginForm.addEventListener('submit',loginUser);
+
 function loginUser(event) {
   // Prevent the form from submitting and refreshing the page
   event.preventDefault();
 
-  // Get the form input values
-  const username = document.getElementById('login-username').value;
-  const password = document.getElementById('login-password').value;
+  // Get the login form input values
+const loginUsername = document.getElementById('login_username').value;console.log(loginUsername);
+const loginPassword = document.getElementById('login_password').value;console.log(loginPassword);
 
   // Send a POST request to the /api/login endpoint
   fetch('http://localhost:3000/api/login', {
     method: 'POST',
-    body: JSON.stringify({ username, password }),
+    body: JSON.stringify({ loginUsername, loginPassword }),
     headers: { 'Content-Type': 'application/json' }
   })
     .then(response => response.json())
