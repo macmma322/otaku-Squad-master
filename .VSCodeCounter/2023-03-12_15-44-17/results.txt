@@ -1,0 +1,66 @@
+Date : 2023-03-12 15:44:17
+Directory : e:\Otaku Squad
+Total : 25 files,  10937 codes, 549 comments, 2152 blanks, all 13638 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| CSS        |         16 |      8,080 |        426 |      1,619 |     10,125 |
+| HTML       |          5 |      2,419 |         70 |        416 |      2,905 |
+| JavaScript |          1 |        338 |         53 |        111 |        502 |
+| XML        |          2 |         81 |          0 |          2 |         83 |
+| Markdown   |          1 |         19 |          0 |          4 |         23 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                              | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                 |         25 |     10,937 |        549 |      2,152 |     13,638 |
+| . (Files)                                                                         |          2 |         46 |          1 |          9 |         56 |
+| Frontend                                                                          |         23 |     10,891 |        548 |      2,143 |     13,582 |
+| Frontend\assets                                                                   |         19 |      8,499 |        479 |      1,732 |     10,710 |
+| Frontend\assets\css                                                               |         16 |      8,080 |        426 |      1,619 |     10,125 |
+| Frontend\assets\css\style                                                         |          8 |      4,058 |        221 |        813 |      5,092 |
+| Frontend\assets\css\style-dark                                                    |          8 |      4,022 |        205 |        806 |      5,033 |
+| Frontend\assets\images                                                            |          2 |         81 |          0 |          2 |         83 |
+| Frontend\assets\images\logo                                                       |          1 |         72 |          0 |          1 |         73 |
+| Frontend\assets\images\main-content                                               |          1 |          9 |          0 |          1 |         10 |
+| Frontend\assets\js                                                                |          1 |        338 |         53 |        111 |        502 |
+| Frontend\website                                                                  |          4 |      2,392 |         69 |        411 |      2,872 |
+| Frontend\website\bg                                                               |          2 |      1,197 |         25 |        205 |      1,427 |
+| Frontend\website\en                                                               |          2 |      1,195 |         44 |        206 |      1,445 |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                          | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| e:\Otaku Squad\Frontend\assets\css\style-dark\card-style-dark.css                 | CSS        |      1,112 |        114 |        213 |      1,439 |
+| e:\Otaku Squad\Frontend\assets\css\style-dark\footer-style-dark.css               | CSS        |        106 |         12 |         25 |        143 |
+| e:\Otaku Squad\Frontend\assets\css\style-dark\header-and-side-menu-style-dark.css | CSS        |        398 |         19 |         73 |        490 |
+| e:\Otaku Squad\Frontend\assets\css\style-dark\login-page-dark.css                 | CSS        |        366 |          4 |         61 |        431 |
+| e:\Otaku Squad\Frontend\assets\css\style-dark\overlay-and-modal-style-dark.css    | CSS        |        202 |         13 |         41 |        256 |
+| e:\Otaku Squad\Frontend\assets\css\style-dark\slideshow-style-dark.css            | CSS        |      1,662 |         19 |        351 |      2,032 |
+| e:\Otaku Squad\Frontend\assets\css\style-dark\style-main-dark.css                 | CSS        |        169 |         24 |         42 |        235 |
+| e:\Otaku Squad\Frontend\assets\css\style-dark\var-dark.css                        | CSS        |          7 |          0 |          0 |          7 |
+| e:\Otaku Squad\Frontend\assets\css\style\card-style.css                           | CSS        |      1,112 |        114 |        203 |      1,429 |
+| e:\Otaku Squad\Frontend\assets\css\style\footer-style.css                         | CSS        |        105 |         12 |         25 |        142 |
+| e:\Otaku Squad\Frontend\assets\css\style\header-and-side-menu-style.css           | CSS        |        381 |         14 |         71 |        466 |
+| e:\Otaku Squad\Frontend\assets\css\style\login-page.css                           | CSS        |        403 |         16 |         69 |        488 |
+| e:\Otaku Squad\Frontend\assets\css\style\overlay-and-modal-style.css              | CSS        |        188 |         13 |         38 |        239 |
+| e:\Otaku Squad\Frontend\assets\css\style\slideshow-style.css                      | CSS        |      1,662 |         19 |        351 |      2,032 |
+| e:\Otaku Squad\Frontend\assets\css\style\style-main.css                           | CSS        |        200 |         33 |         56 |        289 |
+| e:\Otaku Squad\Frontend\assets\css\style\var.css                                  | CSS        |          7 |          0 |          0 |          7 |
+| e:\Otaku Squad\Frontend\assets\images\logo\logo.svg                               | XML        |         72 |          0 |          1 |         73 |
+| e:\Otaku Squad\Frontend\assets\images\main-content\search.svg                     | XML        |          9 |          0 |          1 |         10 |
+| e:\Otaku Squad\Frontend\assets\js\script.js                                       | JavaScript |        338 |         53 |        111 |        502 |
+| e:\Otaku Squad\Frontend\website\bg\index-bg.html                                  | HTML       |        815 |          4 |        120 |        939 |
+| e:\Otaku Squad\Frontend\website\bg\login-index-bg.html                            | HTML       |        382 |         21 |         85 |        488 |
+| e:\Otaku Squad\Frontend\website\en\index-en.html                                  | HTML       |        815 |         23 |        121 |        959 |
+| e:\Otaku Squad\Frontend\website\en\login-index-en.html                            | HTML       |        380 |         21 |         85 |        486 |
+| e:\Otaku Squad\README.md                                                          | Markdown   |         19 |          0 |          4 |         23 |
+| e:\Otaku Squad\index.html                                                         | HTML       |         27 |          1 |          5 |         33 |
+| Total                                                                             |            |     10,937 |        549 |      2,152 |     13,638 |
++-----------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
