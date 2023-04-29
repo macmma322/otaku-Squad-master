@@ -130,7 +130,7 @@ font::placeholder {
 body {
   padding-top: 55px;
   overflow: visible !important;
-  background-image: url(../../images/main-content/dark-background.jpg);
+  /* background-image: url(../../images/main-content/dark-background.jpg); */
 }
 
 .light-background{

@@ -40,8 +40,7 @@ function changeStatus() {                                //This function gets ca
   }
 }
 
-//------------------------------
-
+//Languages Selector Script with local storage
 
 const languageButtons = document.querySelectorAll("#language-selector button");
 
@@ -107,11 +106,7 @@ languageButtons.forEach(function (button) {
   }
 });
 
-/* 
-  =======================
-    MODAL SCRIPT
-  =======================
-*/
+//Modal dialog box script
 
 // Get the modal and close button
 const modal = document.querySelector('[data-modal]');
@@ -153,15 +148,7 @@ window.addEventListener('load', openModal);
 
 
 
-//----------------------------------------------------------
-
-/* 
-  =======================
-    SEARCH BAR SCRIPT
-  =======================
-*/
-
-
+//Search Bar Script
 
 const $expandableSearch = document.getElementById('expandable-search')
 const $expandableSearchBtn = $expandableSearch.querySelector('.search-btn-submit')
@@ -185,11 +172,7 @@ $expandableSearchBtn.addEventListener('click', function (e) {
   }
 })
 
-/* 
-  =======================
-    MOBILE MENU SCRIPT
-  =======================
-*/
+//Mobile Menu Script
 
 // mobile menu variables
 
@@ -216,11 +199,7 @@ for (let i = 0; i < mobileMenuOpenBtn.length; i++) {
 
 //----------------------------------------------------------
 
-/* 
-  =======================
-    MOBILE MENU ON THE SIDE SCRIPT
-  =======================
-*/
+// Mobile Menu on the left side Script
 
 //accordion variables
 
@@ -255,7 +234,7 @@ function toggleMobileMenu(menu) {
   menu.classList.toggle('open');
 }
 
-//----------------------------------------------------------
+//Automated Slideshow Script
 
 const $window = $(window);
 const $body = $('body');
@@ -421,26 +400,7 @@ class Slideshow {
   addLoadClass();
 })();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Cart Dropdown Menu Script
 
 const cartBtn = document.getElementById('cart-btn');
 const cartDropdown = document.getElementById('cart-dropdown');
@@ -555,59 +515,7 @@ checkoutBtn.addEventListener('click', async () => {
   }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//-------------------------------------------------------------
+//Registration/Login form script and access to the backend
 
 const login_btn = document.querySelector("#login-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
@@ -623,56 +531,49 @@ login_btn.addEventListener("click", function () {
 
 
 
-
 //--------------------Log In Password Show/Hide-------------------
 
-const toggleLoginPassword = document.querySelectorAll('#togglePassword')[0];
+const toggleLoginPassword = document.querySelector('#togglePasswordLogin');
 const loginPasswordInput = document.querySelector('#login_password');
 
 // toggle the type attribute
 toggleLoginPassword.addEventListener('click', function (e) {
-  const type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
-  loginPassword.setAttribute('type', type);
-}
-)
+const type = loginPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+loginPasswordInput.setAttribute('type', type);
+});
 
 // toggle the eye slash icon
 const loginPasswordButton = document.querySelectorAll('ion-button')[0];
 loginPasswordButton.addEventListener("click", () => {
-  if (toggleLoginPassword.getAttribute('name') == 'eye-outline') {
-    toggleLoginPassword.setAttribute('name', 'eye-off-outline');
-  }
-  else {
-    toggleLoginPassword.setAttribute('name', 'eye-outline');
-  }
+if (toggleLoginPassword.getAttribute('name') == 'eye-outline') {
+toggleLoginPassword.setAttribute('name', 'eye-off-outline');
 }
-);
-
+else {
+toggleLoginPassword.setAttribute('name', 'eye-outline');
+}
+});
 
 //--------------------Sign Up Password Show/Hide-------------------
 
-const toggleSignUpPassword = document.querySelectorAll('#togglePassword')[1];
+const toggleSignUpPassword = document.querySelector('#togglePasswordSignUp');
 const signUpPasswordInput = document.querySelector('#signup_password');
 
 // toggle the type attribute
 toggleSignUpPassword.addEventListener('click', function (e) {
-  const type = signUpPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-  signUpPasswordInput.setAttribute('type', type);
-}
-)
+const type = signUpPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+signUpPasswordInput.setAttribute('type', type);
+});
 
 // toggle the eye slash icon
 const signUpPasswordButton = document.querySelectorAll("ion-button")[1];
 signUpPasswordButton.addEventListener("click", () => {
-  if (signUpPasswordInput.getAttribute('name') == 'eye-outline') {
-    signUpPasswordInput.setAttribute('name', 'eye-off-outline');
-  }
-  else {
-    signUpPasswordButton.setAttribute('name', 'eye-outline');
-  }
+if (toggleSignUpPassword.getAttribute('name') == 'eye-outline') {
+toggleSignUpPassword.setAttribute('name', 'eye-off-outline');
 }
-);
-
+else {
+toggleSignUpPassword.setAttribute('name', 'eye-outline');
+}
+});
 
 
 
