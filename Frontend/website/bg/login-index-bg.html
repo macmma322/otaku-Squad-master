@@ -91,11 +91,18 @@
         </button>
 
 
-        <button class="user-btn">
-          <ion-icon name="bag-handle-outline"></ion-icon>
-
-          <span class="count">0</span>
-        </button>
+        <div class="cart-wrapper">
+          <button class="user-btn cart-btn" id="cart-btn">
+            <ion-icon name="bag-handle-outline"></ion-icon>
+            <span class="count">0</span>
+          </button>
+          <div class="cart-dropdown" id="cart-dropdown">
+            <div class="cart-items" id="cart-items"></div>
+            <div class="cart-total" id="cart-total"></div>
+            <button class="checkout-btn" id="checkout-btn">Checkout</button>
+          </div>
+        </div>
+        
 
         <button class="user-btn">
           <ion-icon name="heart-outline"></ion-icon>
@@ -347,7 +354,7 @@
               <ion-button><ion-icon class="pass-show-hide" name="eye-off-outline" id="togglePassword"
                   style="cursor: pointer;"></ion-icon></ion-button>
             </div>
-            <input id="login-btn" type="submit" value="Login" class="btn-signup solid" />
+            <input id="login-btn-submit" type="submit" value="Login" class="btn-signup solid" />
             <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon" target="_blank">

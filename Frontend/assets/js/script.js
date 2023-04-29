@@ -427,6 +427,21 @@ class Slideshow {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const cartBtn = document.getElementById('cart-btn');
 const cartDropdown = document.getElementById('cart-dropdown');
 const cartItemsContainer = document.getElementById('cart-items');
@@ -572,17 +587,37 @@ checkoutBtn.addEventListener('click', async () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //-------------------------------------------------------------
 
-const sign_in_btn = document.querySelector("#sign-in-btn");
+const login_btn = document.querySelector("#login-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".container");
+const container = document.querySelector(".container-login");
 
 sign_up_btn.addEventListener("click", function () {
   container.classList.add("sign-up-mode");
 });
 
-sign_in_btn.addEventListener("click", function () {
+login_btn.addEventListener("click", function () {
   container.classList.remove("sign-up-mode");
 });
 
