@@ -257,13 +257,6 @@ function toggleMobileMenu(menu) {
 
 //----------------------------------------------------------
 
-
-
-
-
-
-
-
 const $window = $(window);
 const $body = $('body');
 
@@ -433,20 +426,165 @@ class Slideshow {
 
 
 
+
+const cartBtn = document.getElementById('cart-btn');
+const cartDropdown = document.getElementById('cart-dropdown');
+const cartItemsContainer = document.getElementById('cart-items');
+const cartTotalContainer = document.getElementById('cart-total');
+const checkoutBtn = document.getElementById('checkout-btn');
+const arrow = document.createElement('div');
+arrow.classList.add('arrow');
+
+let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+function updateCart() {
+  let cartCount = 0;
+  let cartTotal = 0;
+  cartItemsContainer.innerHTML = '';
+
+  if (cartItems.length === 0) {
+    cartItemsContainer.innerHTML = 'Your cart is empty';
+    return;
+  }
+
+  cartItems.forEach((item) => {
+    const cartItem = document.createElement('div');
+    cartItem.innerHTML = `
+      <div>${item.name}</div>
+      <div>${item.quantity} x $${item.price.toFixed(2)}</div>
+    `;
+    cartItemsContainer.appendChild(cartItem);
+    cartCount += item.quantity;
+    cartTotal += item.price * item.quantity;
+  });
+
+  cartTotalContainer.innerHTML = `Total: $${cartTotal.toFixed(2)}`;
+  document.querySelector('.count').innerHTML = cartCount;
+
+  let cartHeight = 0;
+  cartItems.forEach((item) => {
+    cartHeight += 35; // Change this value to adjust the height of each cart item
+  });
+
+  cartDropdown.style.height = `${cartHeight}px`;
+}
+
+function openCart() {
+  cartBtn.disabled = true; // disable the button before starting the animation
+  cartDropdown.classList.add('show');
+  arrow.classList.add('arrow-up');
+  cartDropdown.appendChild(arrow);
+  const animation = cartDropdown.animate(
+    [
+      { transform: 'translate(45px, 0) scale(0, 0)', opacity: 0 },
+      { transform: 'translate(20px, 20px) scale(1, 1)', opacity: 1 },
+    ],
+    {
+      duration: 250,
+      easing: 'ease-out',
+      fill: 'forwards',
+    }
+  );
+  animation.onfinish = function() {
+    cartBtn.disabled = false; // enable the button when the animation is finished
+  }
+}
+
+function closeCart() {
+  cartBtn.disabled = true; // disable the button before starting the animation
+  arrow.classList.remove('arrow-up');
+  const animation = cartDropdown.animate(
+    [ 
+      { transform: 'translate(20px, 20px) scale(1, 1)', opacity: 1 },
+      { transform: 'translate(45px, 0) scale(0, 0)', opacity: 0 },
+    ],
+    {
+      duration: 250,
+      easing: 'ease-out',
+      fill: 'forwards',
+    }
+  );
+  animation.onfinish = function() {
+    cartDropdown.classList.remove('show');
+    cartDropdown.removeChild(arrow);
+    cartBtn.disabled = false; // enable the button when the animation is finished
+  }
+}
+
+
+
+cartBtn.addEventListener('click', () => {
+  if (cartDropdown.classList.contains('show')) {
+    closeCart();
+  } else {
+    openCart();
+  }
+  updateCart();
+});
+
+checkoutBtn.addEventListener('click', async () => {
+  const stripe = Stripe('your_public_key_here');
+  const response = await fetch('/create-checkout-session', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ cartItems }),
+  });
+  const session = await response.json();
+  const result = await stripe.redirectToCheckout({
+    sessionId: session.id,
+  });
+  if (result.error) {
+    console.log(result.error.message);
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //-------------------------------------------------------------
 
-const sign_in_btn = document.querySelector("#login-btn");
+const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".container-login");
+const container = document.querySelector(".container");
 
-sign_up_btn.addEventListener("click", () => {
+sign_up_btn.addEventListener("click", function () {
   container.classList.add("sign-up-mode");
 });
 
-sign_in_btn.addEventListener("click", () => {
+sign_in_btn.addEventListener("click", function () {
   container.classList.remove("sign-up-mode");
 });
-
 
 
 
@@ -495,7 +633,7 @@ signUpPasswordButton.addEventListener("click", () => {
     signUpPasswordInput.setAttribute('name', 'eye-off-outline');
   }
   else {
-    toggleSignUpPassword.setAttribute('name', 'eye-outline');
+    signUpPasswordButton.setAttribute('name', 'eye-outline');
   }
 }
 );

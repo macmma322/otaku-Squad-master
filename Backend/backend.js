@@ -5,6 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const { Client } = require('pg');
 const bcrypt = require('bcrypt');
+const stripe = require('stripe')('your_secret_key_here');
 
 // Set the __dirname value to the parent directory of the current file
 const parentDir = path.dirname(__dirname);
@@ -103,6 +104,29 @@ async function insertUser(username, email, password, first_name, last_name) {
   await client.query(query, values);
   console.log('User inserted successfully');
 }
+
+//Retrive products and product prices from the database
+app.get('/products', (req, res) => {
+  const sql = 'SELECT * FROM products';
+  connection.query(sql, (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});
+
+//Checkout for cart
+app.post('/checkout', async (req, res) => {
+  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+  const total = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const charge = await stripe.charges.create({
+    amount: total * 100, // Stripe requires the amount to be in cents
+    currency: 'usd',
+    source: req.body.stripeToken,
+    description: 'My E-commerce Site',
+  });
+  // Handle successful payment
+  res.send('Payment successful!');
+});
 
 // Start the server
 const port = process.env.PORT || 3000;
