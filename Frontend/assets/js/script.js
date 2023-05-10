@@ -497,23 +497,23 @@ cartBtn.addEventListener('click', () => {
   updateCart();
 });
 
-checkoutBtn.addEventListener('click', async () => {
-  const stripe = Stripe('your_public_key_here');
-  const response = await fetch('/create-checkout-session', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ cartItems }),
-  });
-  const session = await response.json();
-  const result = await stripe.redirectToCheckout({
-    sessionId: session.id,
-  });
-  if (result.error) {
-    console.log(result.error.message);
-  }
-});
+// checkoutBtn.addEventListener('click', async () => {
+//   const stripe = Stripe('your_public_key_here');
+//   const response = await fetch('/create-checkout-session', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({ cartItems }),
+//   });
+//   const session = await response.json();
+//   const result = await stripe.redirectToCheckout({
+//     sessionId: session.id,
+//   });
+//   if (result.error) {
+//     console.log(result.error.message);
+//   }
+// });
 
 //Registration/Login form script and access to the backend
 
@@ -643,3 +643,64 @@ const loginPassword = document.getElementById('login_password').value;console.lo
       console.error(error);
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const sliderMainImage = document.getElementById("product-main-image"); //product container image
+const sliderImageList = document.getElementsByClassName("image-list"); // image thumblian group selection
+console.log(sliderImageList);
+
+sliderImageList[0].onclick = function(){
+    sliderMainImage.src = sliderImageList[0].src;
+    console.log(sliderMainImage.src);
+};
+
+sliderImageList[1].onclick = function(){
+    sliderMainImage.src = sliderImageList[1].src;
+    console.log(sliderMainImage.src);
+};
+
+sliderImageList[2].onclick = function(){
+    sliderMainImage.src = sliderImageList[2].src;
+    console.log(sliderMainImage.src);
+};
+
+sliderImageList[3].onclick = function(){
+    sliderMainImage.src = sliderImageList[3].src;
+    console.log(sliderMainImage.src);
+};

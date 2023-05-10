@@ -5,7 +5,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const { Client } = require('pg');
 const bcrypt = require('bcrypt');
-const stripe = require('stripe')('your_secret_key_here');
+
 
 // Set the __dirname value to the parent directory of the current file
 const parentDir = path.dirname(__dirname);
@@ -114,6 +114,43 @@ app.get('/products', (req, res) => {
   });
 });
 
+
+
+
+
+
+// This is a public sample test API key.
+// Don’t submit any personally identifiable information in requests made with this key.
+// Sign in to see your own test API key embedded in code samples.
+const stripe = require("stripe")('sk_test_z6Wgj3W5n3eYSLEKPRJ4OrE900vpjOnFhP');
+
+app.use(express.static("public"));
+app.use(express.json());
+
+const calculateOrderAmount = (items) => {
+  // Replace this constant with a calculation of the order's amount
+  // Calculate the order total on the server to prevent
+  // people from directly manipulating the amount on the client
+  return 1400;
+};
+
+app.post("/create-payment-intent", async (req, res) => {
+  const { items } = req.body;
+
+  // Create a PaymentIntent with the order amount and currency
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: calculateOrderAmount(items),
+    currency: "usd",
+    automatic_payment_methods: {
+      enabled: true,
+    },
+  });
+
+  res.send({
+    clientSecret: paymentIntent.client_secret,
+  });
+});
+
 //Checkout for cart
 app.post('/checkout', async (req, res) => {
   const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
@@ -127,6 +164,21 @@ app.post('/checkout', async (req, res) => {
   // Handle successful payment
   res.send('Payment successful!');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Start the server
 const port = process.env.PORT || 3000;

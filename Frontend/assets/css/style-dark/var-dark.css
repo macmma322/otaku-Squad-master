@@ -5,7 +5,8 @@
 @import "footer-style-dark.css";
 @import "style-main-dark.css";
 @import "login-page-dark.css";
-
+@import "checkout-dark.css";
+@import "product-style-dark.css";
 :root {
     /*-----------------------------------------*/
     /*------------------COLORS------------------*/
@@ -79,7 +80,4 @@
     --fontLight: 100;
     --fontRegular: 400;
     --speed: 0.65s;
-  
-  
-  
   }

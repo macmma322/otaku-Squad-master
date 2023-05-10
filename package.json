@@ -9,7 +9,8 @@
     "jsdom": "^21.1.1",
     "mongoose": "^7.0.2",
     "path": "^0.12.7",
-    "pg": "^8.10.0"
+    "pg": "^8.10.0",
+    "stripe": "^12.3.0"
   },
   "name": "otaku-squad",
   "description": "Language set by browser and last prefered language",
