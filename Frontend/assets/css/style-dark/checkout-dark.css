@@ -6,8 +6,8 @@ img{
     display: flex;
     -ms-flex-wrap: wrap; /* IE10 */
     flex-wrap: wrap;
-    margin: 0 -16px;
-    padding: 20px;
+    /* margin: 0 -16px; */
+    /* padding: 20px; */
   }
   
   .col-25 {

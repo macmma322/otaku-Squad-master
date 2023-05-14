@@ -71,7 +71,7 @@
 }
 
 .footer-basic {
-  position: relative;
+  position: absolute;
   width: 100%;
   padding: 40px 0;
   background: var(--onyx);

@@ -18,7 +18,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+  
   <script>0</script>
+  <script src="https://cdn.jsdelivr.net/npm/mo-js@0.288.2/build/mo.min.js"></script>
   <script>
     localStorage.setItem('preferredLanguage', 'bg');
   </script>
@@ -336,84 +339,91 @@
       </div>
     </nav>
   </div>
+  <main>
 
-
-  <div class="product-container">
-    <div class="single-product">
-      <div class="row">
-        <div class="col-6">
-          <div class="product-image">
-            <div class="product-image-main">
-              <img src="img/tshirt-1.png" alt="" id="product-main-image">
-            </div>
-            <div class="product-image-slider">
-              <img src="img/tshirt-1.png" alt="" class="image-list">
-              <img src="img/tshirt-2.png" alt="" class="image-list">
-              <img src="img/tshirt-3.png" alt="" class="image-list">
-              <img src="img/tshirt-group.png" alt="" class="image-list">
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="breadcrumb">
-            <span><a href="#">Home</a></span>
-            <span><a href="#">Product</a></span>
-            <span class="active">T-shirt</span>
-          </div>
-
-          <div class="product">
-            <div class="product-title">
-              <h2>Half Sleve T-shirt for Men</h2>
-            </div>
-            <div class="product-rating">
-              <span><i class="bx bxs-star"></i></span>
-              <span><i class="bx bxs-star"></i></span>
-              <span><i class="bx bxs-star"></i></span>
-              <span><i class="bx bxs-star"></i></span>
-              <span><i class="bx bxs-star"></i></span>
-              <span class="review">(47 Review)</span>
-            </div>
-            <div class="product-price">
-              <span class="offer-price">$99.00</span>
-              <span class="sale-price">$129.00</span>
-            </div>
-
-            <div class="product-details">
-              <h3>Description</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos est magnam quibusdam maiores sit
-                perferendis minima cupiditate iusto earum repudiandae maxime vitae nostrum, ea cumque iste ipsa hic
-                commodi tempore.</p>
-            </div>
-            <div class="product-size">
-              <h4>Size</h4>
-              <div class="size-layout">
-                <input type="radio" name="size" value="S" id="1" class="size-input">
-                <label for="1" class="size">S</label>
-
-                <input type="radio" name="size" value="M" id="2" class="size-input">
-                <label for="2" class="size">M</label>
-
-                <input type="radio" name="size" value="L" id="3" class="size-input">
-                <label for="3" class="size">L</label>
-
-                <input type="radio" name="size" value="XL" id="4" class="size-input">
-                <label for="4" class="size">XL</label>
-
-                <input type="radio" name="size" value="XXL" id="5" class="size-input">
-                <label for="5" class="size">XXL</label>
+    <div class="product-container">
+      <div class="single-product">
+        <div class="row">
+          <div class="col-6">
+            <div class="product-image">
+              <div class="product-image-main">
+                <img src="img/tshirt-1.png" alt="" id="product-main-image">
+              </div>
+              <div class="product-image-slider">
+                <img src="img/tshirt-1.png" alt="" class="image-list">
+                <img src="img/tshirt-2.png" alt="" class="image-list">
+                <img src="img/tshirt-3.png" alt="" class="image-list">
+                <img src="img/tshirt-group.png" alt="" class="image-list">
               </div>
             </div>
-            <div class="product-color">
+          </div>
+          <div class="col-6">
+            <div class="breadcrumb">
+              <span><a href="#">Home</a></span>
+              <span><a href="#">Product</a></span>
+              <span class="active">T-shirt</span>
+            </div>
+
+            <div class="placement">
+              <div class="heart"></div>
+            </div>
+            
+
+            <div class="product">
+              <div class="product-title">
+                <h2>Half Sleve T-shirt for Men</h2>
+              </div>
+              <div class="product-rating">
+                <span><i class="bx bxs-star"></i></span>
+                <span><i class="bx bxs-star"></i></span>
+                <span><i class="bx bxs-star"></i></span>
+                <span><i class="bx bxs-star"></i></span>
+                <span><i class="bx bxs-star"></i></span>
+                <span class="review">(47 Review)</span>
+              </div>
+              <div class="product-price">
+                <span class="offer-price">$99.00</span>
+                <span class="sale-price">$129.00</span>
+              </div>
+
+              <div class="product-details">
+                <h3>Description</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos est magnam quibusdam maiores sit
+                  perferendis minima cupiditate iusto earum repudiandae maxime vitae nostrum, ea cumque iste ipsa hic
+                  commodi tempore.</p>
+              </div>
+              <div class="product-size">
+                <h4>Size</h4>
+                <div class="size-layout">
+                  <input type="radio" name="size" value="S" id="1" class="size-input">
+                  <label for="1" class="size">S</label>
+
+                  <input type="radio" name="size" value="M" id="2" class="size-input">
+                  <label for="2" class="size">M</label>
+
+                  <input type="radio" name="size" value="L" id="3" class="size-input">
+                  <label for="3" class="size">L</label>
+
+                  <input type="radio" name="size" value="XL" id="4" class="size-input">
+                  <label for="4" class="size">XL</label>
+
+                  <input type="radio" name="size" value="XXL" id="5" class="size-input">
+                  <label for="5" class="size">XXL</label>
+                </div>
+              </div>
+              <!-- <div class="product-color">
               <h4>Color</h4>
               <div class="color-layout">
+                <label for="black" class="black">
                 <input type="radio" name="color" value="black" class="color-input">
-                <label for="black" class="black"></label>
+                </label>
+                <label for="red" class="red">
                 <input type="radio" name="color" value="red" class="color-input">
-                <label for="red" class="red"></label>
-
+                </label>
+                <label for="blue" class="blue">
                 <input type="radio" name="color" value="blue" class="color-input">
-                <label for="blue" class="blue"></label>
-              </div>
+                </label>
+              </div> -->
             </div>
             <span class="divider"></span>
 
@@ -426,7 +436,7 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
 
   </main>
 
@@ -465,6 +475,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
   <script asyn src="../../assets/js/script.js"></script>
+  <script asyn src="../../assets/js/product-detail-script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>

@@ -106,6 +106,9 @@ languageButtons.forEach(function (button) {
   }
 });
 
+
+
+
 //Modal dialog box script
 
 // Get the modal and close button
@@ -148,6 +151,7 @@ window.addEventListener('load', openModal);
 
 
 
+
 //Search Bar Script
 
 const $expandableSearch = document.getElementById('expandable-search')
@@ -171,6 +175,9 @@ $expandableSearchBtn.addEventListener('click', function (e) {
     $expandableSearch.classList.remove('search-expanded')
   }
 })
+
+
+
 
 //Mobile Menu Script
 
@@ -196,6 +203,11 @@ for (let i = 0; i < mobileMenuOpenBtn.length; i++) {
     overlay.addEventListener('click', mobileMenuCloseFunc);
   }
 }
+
+
+
+
+
 
 //----------------------------------------------------------
 
@@ -234,171 +246,9 @@ function toggleMobileMenu(menu) {
   menu.classList.toggle('open');
 }
 
-//Automated Slideshow Script
-
-const $window = $(window);
-const $body = $('body');
-
-class Slideshow {
-  constructor(userOptions = {}) {
-    const defaultOptions = {
-      $el: $('.slideshow'),
-      showArrows: false,
-      showPagination: true,
-      duration: 10000,
-      autoplay: true
-    };
 
 
-    let options = Object.assign({}, defaultOptions, userOptions);
 
-    this.$el = options.$el;
-    this.maxSlide = this.$el.find($('.js-slider-home-slide')).length;
-    this.showArrows = this.maxSlide > 1 ? options.showArrows : false;
-    this.showPagination = options.showPagination;
-    this.currentSlide = 1;
-    this.isAnimating = false;
-    this.animationDuration = 1200;
-    this.autoplaySpeed = options.duration;
-    this.interval;
-    this.$controls = this.$el.find('.js-slider-home-button');
-    this.autoplay = this.maxSlide > 1 ? options.autoplay : false;
-
-    this.$el.on('click', '.js-slider-home-next', event => this.nextSlide());
-    this.$el.on('click', '.js-slider-home-prev', event => this.prevSlide());
-    this.$el.on('click', '.js-pagination-item', event => {
-      if (!this.isAnimating) {
-        this.preventClick();
-        this.goToSlide(event.target.dataset.slide);
-      }
-    });
-
-    this.init();
-  }
-
-  init() {
-    this.goToSlide(1);
-    if (this.autoplay) {
-      this.startAutoplay();
-    }
-
-    if (this.showPagination) {
-      let paginationNumber = this.maxSlide;
-      let pagination = '<div class="pagination"><div class="container">';
-
-      for (let i = 0; i < this.maxSlide; i++) {
-        let item = `<span class="pagination__item js-pagination-item ${i === 0 ? 'is-current' : ''}" data-slide=${i + 1}>${i + 1}</span>`;
-        pagination = pagination + item;
-      }
-
-      pagination = pagination + '</div></div>';
-
-      this.$el.append(pagination);
-    }
-  }
-
-  preventClick() {
-    this.isAnimating = true;
-    this.$controls.prop('disabled', true);
-    clearInterval(this.interval);
-
-    setTimeout(() => {
-      this.isAnimating = false;
-      this.$controls.prop('disabled', false);
-      if (this.autoplay) {
-        this.startAutoplay();
-      }
-    }, this.animationDuration);
-  }
-
-  goToSlide(index) {
-    this.currentSlide = parseInt(index);
-
-    if (this.currentSlide > this.maxSlide) {
-      this.currentSlide = 1;
-    }
-
-    if (this.currentSlide === 0) {
-      this.currentSlide = this.maxSlide;
-    }
-
-    const newCurrent = this.$el.find('.js-slider-home-slide[data-slide="' + this.currentSlide + '"]');
-    const newPrev = this.currentSlide === 1 ? this.$el.find('.js-slider-home-slide').last() : newCurrent.prev('.js-slider-home-slide');
-    const newNext = this.currentSlide === this.maxSlide ? this.$el.find('.js-slider-home-slide').first() : newCurrent.next('.js-slider-home-slide');
-
-    this.$el.find('.js-slider-home-slide').removeClass('is-prev is-next is-current');
-    this.$el.find('.js-pagination-item').removeClass('is-current');
-
-    if (this.maxSlide > 1) {
-      newPrev.addClass('is-prev');
-      newNext.addClass('is-next');
-    }
-
-    newCurrent.addClass('is-current');
-    this.$el.find('.js-pagination-item[data-slide="' + this.currentSlide + '"]').addClass('is-current');
-  }
-
-  nextSlide() {
-    this.preventClick();
-    this.goToSlide(this.currentSlide + 1);
-  }
-
-  prevSlide() {
-    this.preventClick();
-    this.goToSlide(this.currentSlide - 1);
-  }
-
-  startAutoplay() {
-    this.interval = setInterval(() => {
-      if (!this.isAnimating) {
-        this.nextSlide();
-      }
-    }, this.autoplaySpeed);
-  }
-
-  destroy() {
-    this.$el.off();
-  }
-}
-
-
-(function () {
-  let loaded = false;
-  let maxLoad = 3000;
-
-  function load() {
-    const options = {
-      showPagination: true
-    };
-
-
-    let slideShow = new Slideshow(options);
-  }
-
-  function addLoadClass() {
-    $body.addClass('is-loaded');
-
-    setTimeout(function () {
-      $body.addClass('is-animated');
-    }, 600);
-  }
-
-  $window.on('load', function () {
-    if (!loaded) {
-      loaded = true;
-      load();
-    }
-  });
-
-  setTimeout(function () {
-    if (!loaded) {
-      loaded = true;
-      load();
-    }
-  }, maxLoad);
-
-  addLoadClass();
-})();
 
 //Cart Dropdown Menu Script
 
@@ -460,7 +310,7 @@ function openCart() {
       fill: 'forwards',
     }
   );
-  animation.onfinish = function() {
+  animation.onfinish = function () {
     cartBtn.disabled = false; // enable the button when the animation is finished
   }
 }
@@ -469,7 +319,7 @@ function closeCart() {
   cartBtn.disabled = true; // disable the button before starting the animation
   arrow.classList.remove('arrow-up');
   const animation = cartDropdown.animate(
-    [ 
+    [
       { transform: 'translate(20px, 20px) scale(1, 1)', opacity: 1 },
       { transform: 'translate(45px, 0) scale(0, 0)', opacity: 0 },
     ],
@@ -479,7 +329,7 @@ function closeCart() {
       fill: 'forwards',
     }
   );
-  animation.onfinish = function() {
+  animation.onfinish = function () {
     cartDropdown.classList.remove('show');
     cartDropdown.removeChild(arrow);
     cartBtn.disabled = false; // enable the button when the animation is finished
@@ -497,210 +347,20 @@ cartBtn.addEventListener('click', () => {
   updateCart();
 });
 
-// checkoutBtn.addEventListener('click', async () => {
-//   const stripe = Stripe('your_public_key_here');
-//   const response = await fetch('/create-checkout-session', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({ cartItems }),
-//   });
-//   const session = await response.json();
-//   const result = await stripe.redirectToCheckout({
-//     sessionId: session.id,
-//   });
-//   if (result.error) {
-//     console.log(result.error.message);
-//   }
-// });
-
-//Registration/Login form script and access to the backend
-
-const login_btn = document.querySelector("#login-btn");
-const sign_up_btn = document.querySelector("#sign-up-btn");
-const container = document.querySelector(".container-login");
-
-sign_up_btn.addEventListener("click", function () {
-  container.classList.add("sign-up-mode");
-});
-
-login_btn.addEventListener("click", function () {
-  container.classList.remove("sign-up-mode");
-});
-
-
-
-//--------------------Log In Password Show/Hide-------------------
-
-const toggleLoginPassword = document.querySelector('#togglePasswordLogin');
-const loginPasswordInput = document.querySelector('#login_password');
-
-// toggle the type attribute
-toggleLoginPassword.addEventListener('click', function (e) {
-const type = loginPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-loginPasswordInput.setAttribute('type', type);
-});
-
-// toggle the eye slash icon
-const loginPasswordButton = document.querySelectorAll('ion-button')[0];
-loginPasswordButton.addEventListener("click", () => {
-if (toggleLoginPassword.getAttribute('name') == 'eye-outline') {
-toggleLoginPassword.setAttribute('name', 'eye-off-outline');
-}
-else {
-toggleLoginPassword.setAttribute('name', 'eye-outline');
-}
-});
-
-//--------------------Sign Up Password Show/Hide-------------------
-
-const toggleSignUpPassword = document.querySelector('#togglePasswordSignUp');
-const signUpPasswordInput = document.querySelector('#signup_password');
-
-// toggle the type attribute
-toggleSignUpPassword.addEventListener('click', function (e) {
-const type = signUpPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-signUpPasswordInput.setAttribute('type', type);
-});
-
-// toggle the eye slash icon
-const signUpPasswordButton = document.querySelectorAll("ion-button")[1];
-signUpPasswordButton.addEventListener("click", () => {
-if (toggleSignUpPassword.getAttribute('name') == 'eye-outline') {
-toggleSignUpPassword.setAttribute('name', 'eye-off-outline');
-}
-else {
-toggleSignUpPassword.setAttribute('name', 'eye-outline');
-}
-});
-
-
-
-
-
-
-
-
-const signUpForm = document.getElementById('signup-btn');
-signUpForm.addEventListener('click', signUpUser());
-
-function signUpUser() {
-  // Prevent the form from submitting and refreshing the page
-  // event.preventDefault();
-
-    // Get sign up form input values
-    const signUpUsername = document.getElementById('signup_username').value;
-    const email = document.getElementById('signup_email').value;
-    const signUpPassword = document.getElementById('signup_password').value;
-    const fname = document.getElementById('signup_fname').value;
-    const lname = document.getElementById('signup_lname').value;
-
-  // Send a POST request to the /api/sign-up endpoint
-  fetch('http://localhost:3000/api/sign-up', {
+checkoutBtn.addEventListener('click', async () => {
+  const stripe = Stripe('your_public_key_here');
+  const response = await fetch('/create-checkout-session', {
     method: 'POST',
-    body: JSON.stringify({ signUpUsername, email, signUpPassword, fname, lname }),
-    headers: { 'Content-Type': 'application/json' }
-  })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data); // Handle the response data here
-      insertUser(signUpUsername, email, signUpPassword, fname, lname);
-    })
-    .catch(error => {
-      // Handle any errors that occur during the request
-      console.error(error);
-    });
-}
-
-
-
-
-const loginForm = document.getElementById('login-btn');
-loginForm.addEventListener('submit',loginUser);
-
-function loginUser(event) {
-  // Prevent the form from submitting and refreshing the page
-  event.preventDefault();
-
-  // Get the login form input values
-const loginUsername = document.getElementById('login_username').value;console.log(loginUsername);
-const loginPassword = document.getElementById('login_password').value;console.log(loginPassword);
-
-  // Send a POST request to the /api/login endpoint
-  fetch('http://localhost:3000/api/login', {
-    method: 'POST',
-    body: JSON.stringify({ loginUsername, loginPassword }),
-    headers: { 'Content-Type': 'application/json' }
-  })
-    .then(response => response.json())
-    .then(data => {
-      // Handle the response data here
-      console.log(data);
-    })
-    .catch(error => {
-      // Handle any errors that occur during the request
-      console.error(error);
-    });
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const sliderMainImage = document.getElementById("product-main-image"); //product container image
-const sliderImageList = document.getElementsByClassName("image-list"); // image thumblian group selection
-console.log(sliderImageList);
-
-sliderImageList[0].onclick = function(){
-    sliderMainImage.src = sliderImageList[0].src;
-    console.log(sliderMainImage.src);
-};
-
-sliderImageList[1].onclick = function(){
-    sliderMainImage.src = sliderImageList[1].src;
-    console.log(sliderMainImage.src);
-};
-
-sliderImageList[2].onclick = function(){
-    sliderMainImage.src = sliderImageList[2].src;
-    console.log(sliderMainImage.src);
-};
-
-sliderImageList[3].onclick = function(){
-    sliderMainImage.src = sliderImageList[3].src;
-    console.log(sliderMainImage.src);
-};
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ cartItems }),
+  });
+  const session = await response.json();
+  const result = await stripe.redirectToCheckout({
+    sessionId: session.id,
+  });
+  if (result.error) {
+    console.log(result.error.message);
+  }
+});

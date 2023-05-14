@@ -65,7 +65,7 @@
 *,
 *::before,
 *::after {
-  /* margin: 0; */
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -130,7 +130,6 @@ font::placeholder {
 body {
   padding-top: 55px;
   overflow: visible !important;
-  /* background-image: url(../../images/main-content/dark-background.jpg); */
 }
 
 .light-background{
@@ -141,11 +140,10 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  /* width: 100%; */
+  width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0.7;
-  /* background-repeat: repeat; */
 }
 
 /*----------------------------------------------------*/
