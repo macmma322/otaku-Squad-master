@@ -31,4 +31,8 @@ window.addEventListener('load', function() {
       this.classList.toggle('is-active');
     });
   });
+
+  $(document).ready(function () {
+    $(".carousel").slick();
+  });
   
