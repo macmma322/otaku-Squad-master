@@ -25,14 +25,13 @@
 
 
 
-window.addEventListener('load', function() {
-    var heart = document.querySelector('.heart');
-    heart.addEventListener('click', function() {
-      this.classList.toggle('is-active');
-    });
+window.addEventListener('load', function () {
+  var heart = document.querySelector('.heart');
+  heart.addEventListener('click', function () {
+    this.classList.toggle('is-active');
   });
+});
 
-  $(document).ready(function () {
-    $(".carousel").slick();
-  });
-  
+$(document).ready(function () {
+  $(".carousel").slick();
+});
