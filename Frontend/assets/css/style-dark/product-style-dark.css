@@ -1,107 +1,200 @@
-:root {
-  /* Colors */
-  --spanish-gray: hsl(0, 0%, 60%);
-  --sonic-silver: hsl(0, 0%, 47%);
-  --eerie-black: hsl(0, 0%, 13%);
-  --salmon-pink: hsl(353, 100%, 78%);
-  --sandy-brown: hsl(29, 90%, 65%);
-  --bittersweet: hsl(0, 100%, 70%);
-  --scarlet-red: hsl(8, 100%, 50%);
-  --ocean-green: hsl(152, 51%, 52%);
-  --davys-gray: hsl(0, 0%, 33%);
-  --cultured: hsl(0, 0%, 93%);
-  --white: hsl(0, 100%, 100%);
-  --onyx: hsl(0, 0%, 27%);
-  --onyx-darker: hsl(0, 0%, 25%);
-  --dirty-white: hsla(196, 6%, 53%, 0.6);
-  --dirty-onyx: hsla(0, 0%, 27%, 0.6);
-
-  /* Typography */
-  --fs-1: 1.563rem;
-  --fs-2: 1.375rem;
-  --fs-3: 1.25rem;
-  --fs-4: 1.125rem;
-  --fs-5: 1rem;
-  --fs-6: 0.938rem;
-  --fs-7: 0.875rem;
-  --fs-8: 0.813rem;
-  --fs-9: 0.75rem;
-  --fs-10: 0.688rem;
-  --fs-11: 0.625rem;
-
-  --weight-300: 300;
-  --weight-400: 400;
-  --weight-500: 500;
-  --weight-600: 600;
-  --weight-700: 700;
-
-  /* Border Radius */
-  --border-radius-md: 10px;
-  --border-radius-sm: 5px;
-
-  /* Transition */
-  --transition-timing: 0.2s ease;
-}
+@import "../variables.css";
 
 /* Overall container */
 .center-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "left right";
+  margin: 2% 10% 2% 10%;
+  background-color: var(--onyx);
+  border-radius: 15px;
+  padding: 45px 0 45px 0;
 }
 
-/* Product container */
-.product-container {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 20px;
+.left-column {
+  grid-area: left;
 }
 
-/* Single product */
-.single-product {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+.right-column {
+  position: relative;
+  grid-area: right;
 }
 
-/* Image carousel section */
-.product-gallery {
-  flex: 1;
-  padding: 20px;
+@media screen and (max-width: 768px) {
+  .center-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    grid-template-areas:
+      "left"
+      "right";
+    padding: 25px 0;
+  }
 }
 
 /* Breadcrumb */
-.breadcrumb {
-  margin-top: 20px;
-  margin-bottom: 10px;
+
+#breadcrumb {
+  list-style: none;
+  display: inline-block;
+}
+
+#breadcrumb .fa {
   font-size: 14px;
 }
 
-.breadcrumb a {
-  color: #000;
-  text-decoration: none;
+#breadcrumb li {
+  float: left;
 }
 
-.breadcrumb a:hover {
-  text-decoration: underline;
+#breadcrumb li a {
+  font-weight: var(--weight-600);
+  color: var(--cultured);
+  display: block;
+  background: var(--dark-chocolate-cherries);
+  text-decoration: none;
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px 0 5px;
+  text-align: center;
+  margin-right: 23px;
+  margin-top: 10px;
+  transition: 150ms ease-in-out;
 }
+
+#breadcrumb li:nth-child(even) a {
+  background-color: var(--dark-chocolate-cherries);
+  transition: 150ms ease-in-out;
+}
+
+#breadcrumb li:nth-child(even) a:before {
+  border-color: var(--dark-chocolate-cherries);
+  border-left-color: transparent;
+  transition: 150ms ease-in-out;
+}
+
+#breadcrumb li:nth-child(even) a:after {
+  border-left-color: var(--dark-chocolate-cherries);
+  transition: 150ms ease-in-out;
+}
+
+#breadcrumb li:first-child a {
+  padding-left: 15px;
+  -moz-border-radius: 4px 0 0 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+#breadcrumb li:first-child a:before {
+  border: none;
+}
+
+#breadcrumb li:last-child a {
+  padding-right: 15px;
+  -moz-border-radius: 0 4px 4px 0;
+  -webkit-border-radius: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+#breadcrumb li:last-child a:after {
+  border: none;
+}
+
+#breadcrumb li a:before,
+#breadcrumb li a:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  border: 0 solid var(--dark-chocolate-cherries);
+  border-width: 20px 10px;
+  width: 0;
+  height: 0;
+  transition: 150ms ease-in-out;
+}
+
+#breadcrumb li a:before {
+  left: -20px;
+  border-left-color: transparent;
+  transition: 150ms ease-in-out;
+}
+
+#breadcrumb li a:after {
+  left: 100%;
+  border-color: transparent;
+  border-left-color: var(--dark-chocolate-cherries);
+}
+
+#breadcrumb li a:hover {
+  transition: 150ms ease-in-out;
+  color: var(--eerie-black);
+  font-weight: var(--weight-600);
+  background-color: var(--salmon-pink);
+}
+
+#breadcrumb li a:hover:before {
+  transition: 150ms ease-in-out;
+  border-color: var(--salmon-pink);
+  border-left-color: transparent;
+}
+
+#breadcrumb li a:hover:after {
+  transition: 150ms ease-in-out;
+  border-left-color: var(--salmon-pink);
+}
+
+#breadcrumb li a:active {
+  transition: 150ms ease-in-out;
+  background-color: var(--salmon-pink);
+}
+
+#breadcrumb li a:active:before {
+  transition: 150ms ease-in-out;
+  border-color: var(--salmon-pink);
+  border-left-color: transparent;
+}
+
+#breadcrumb li a:active:after {
+  transition: 150ms ease-in-out;
+  border-left-color: var(--salmon-pink);
+}
+
+
+/* Heart button and animation */
 
 /* Placement section */
+
 .placement {
-  position: relative;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 45px;
+  transform: translate(50%, -50%);
 }
 
 /* Heart button */
 .heart {
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 0;
+  right: 0;
   width: 30px;
   height: 30px;
-  background-color: red; /* Replace with your desired heart icon */
+  background-color: red;
+  /* Replace with your desired heart icon */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Product details */
 .product {
@@ -166,6 +259,7 @@
 .size-layout {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .size-input {
@@ -175,20 +269,32 @@
 .size {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid #ccc;
-  margin: 5px;
+  padding: 10px 20px;
   cursor: pointer;
+  background: var(--eerie-black);
+  color: var(--white);
+  font-size: var(--fs-8);
+  font-weight: var(--weight-700);
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: var(--border-radius-sm);
+  margin: 5px;
+  transition: var(--transition-timing);
 }
 
-.size:hover {
-  background-color: #ccc;
+.size-input:hover+.size {
+  font-weight: var(--weight-700);
+  color: var(--eerie-black);
+  background: var(--cultured);
+  box-shadow: 0 0 5px 2.5px var(--cultured), 0 0 10px 5px
 }
 
-.size-input:checked + .size {
-  background-color: #ccc;
+
+.size-input:checked+.size {
+  font-weight: var(--weight-700);
+  color: var(--eerie-black);
+  background: var(--salmon-pink);
+  box-shadow: 0 0 5px 2.5px var(--salmon-pink), 0 0 10px 5px
 }
 
 /* Divider */
@@ -199,7 +305,7 @@
 
 /* Product button group */
 .product-btn-group {
-  margin-top: 20px;
+
   display: flex;
   justify-content: space-between;
 }
@@ -208,9 +314,22 @@
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  background-color: #eaeaea;
-  border: none;
   cursor: pointer;
+  background: var(--eerie-black);
+  color: var(--white);
+  font-size: var(--fs-8);
+  font-weight: var(--weight-700);
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: var(--border-radius-sm);
+  margin: auto;
+  transition: var(--transition-timing);
+}
+
+.button:hover {
+  font-weight: var(--weight-700);
+  color: var(--eerie-black);
+  background: var(--salmon-pink);
 }
 
 .button i,
@@ -254,6 +373,7 @@
 .heart {
   width: 100px;
   height: 100px;
+  float: right;
   background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
   background-position: 0 0;
   cursor: pointer;
@@ -261,16 +381,171 @@
   transition-duration: 0s;
 
   &.is-active {
-    transition-duration: 1s;
-    background-position: -2800px 0;
+  transition-duration: 1s;
+  background-position: -2800px 0;
   }
 }
 
-.placement {
-  position: absolute;
-  top: 0;
-  right: -95px;
-  transform: translate(-50%, -50%);
+
+.gallery {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
+.carousel {
+  width: 100%;
+  height: 100vh;
+  max-width: 500px;
+  max-height: 500px;
+  position: relative;
+}
+
+.carousel>ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms;
+}
+
+.slide>img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slide[data-active] {
+  opacity: 1;
+  z-index: 1;
+  transition-delay: 0ms;
+}
+
+.btn {
+  position: absolute;
+  top: 50%;
+  width: 1px;
+  height: 1px;
+  z-index: 2;
+  background: none;
+  border: none;
+  font-size: 30px;
+  transform: translateY(-50%);
+  padding: 0 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: none;
+  color: none;
+}
+
+.btn:focus {
+  outline: 1px solid black;
+}
+
+
+.btn.prev {
+  left: 0;
+}
+
+.btn.next {
+  right: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carousel {
+    max-width: 100%;
+    max-height: 300px;
+  }
+
+  .btn {
+    font-size: 24px;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .gallery {
+    padding: 40px;
+  }
+
+  .carousel {
+    max-width: 70%;
+    max-height: 600px;
+  }
+
+  .btn {
+    font-size: 36px;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .gallery {
+    padding: 60px;
+  }
+
+  .carousel {
+    max-width: 50%;
+    max-height: 800px;
+  }
+
+  .btn {
+    font-size: 48px;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .carousel {
+    max-width: none;
+    max-height: 600px;
+  }
+
+  .btn {
+    font-size: 36px;
+    padding: 0.5rem 1rem;
+  }
+}
+
+
+
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--eerie-black);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid var(--deep-autumn-orange);
+  animation: loader 2s infinite ease;
+}

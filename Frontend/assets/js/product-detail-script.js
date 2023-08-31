@@ -1,37 +1,27 @@
-
-// const sliderMainImage = document.getElementById("product-main-image"); //product container image
-// const sliderImageList = document.getElementsByClassName("image-list"); // image thumblian group selection
-// console.log(sliderImageList);
-
-// sliderImageList[0].onclick = function(){
-//     sliderMainImage.src = sliderImageList[0].src;
-//     console.log(sliderMainImage.src);
-// };
-
-// sliderImageList[1].onclick = function(){
-//     sliderMainImage.src = sliderImageList[1].src;
-//     console.log(sliderMainImage.src);
-// };
-
-// sliderImageList[2].onclick = function(){
-//     sliderMainImage.src = sliderImageList[2].src;
-//     console.log(sliderMainImage.src);
-// };
-
-// sliderImageList[3].onclick = function(){
-//     sliderMainImage.src = sliderImageList[3].src;
-//     console.log(sliderMainImage.src);
-// };
-
-
-
-window.addEventListener('load', function () {
-  var heart = document.querySelector('.heart');
-  heart.addEventListener('click', function () {
-    this.classList.toggle('is-active');
+document.addEventListener("DOMContentLoaded", function() {
+    var hearts = document.querySelectorAll(".heart");
+    
+    hearts.forEach(function(heart) {
+      heart.addEventListener("click", function() {
+        this.classList.toggle("is-active");
+      });
+    });
   });
-});
 
-$(document).ready(function () {
-  $(".carousel").slick();
+  
+const buttons = document.querySelectorAll('[data-carousel-btn]');
+
+buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const offset = btn.dataset.carouselButton === 'next' ? 1 : -1
+        const slides = btn.closest('[data-carousel]').querySelector('[data-slides]')
+
+        const activeSlide = slides.querySelector('[data-active]')
+        let newIndex = [...slides.children].indexOf(activeSlide) + offset
+        if (newIndex < 0) newIndex = slides.children.length - 1
+        if (newIndex >= slides.children.length) newIndex = 0
+
+        slides.children[newIndex].dataset.active = true
+        delete activeSlide.dataset.active
+    });
 });

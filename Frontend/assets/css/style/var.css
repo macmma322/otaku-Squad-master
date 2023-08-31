@@ -1,3 +1,4 @@
+@import "../variables.css";
 @import "overlay-and-modal-style.css";
 @import "header-and-side-menu-style.css";
 @import "slideshow-style.css";
@@ -5,81 +6,3 @@
 @import "footer-style.css";
 @import "style-main.css";
 @import "login-page.css";
-
-:root {
-    /*-----------------------------------------*/
-    /*------------------COLORS------------------*/
-    /*------------------------------------------*/
-  
-    --spanish-gray: hsl(0, 0%, 60%);
-    --sonic-silver: hsl(0, 0%, 47%);
-    --eerie-black: hsl(0, 0%, 13%);
-    --salmon-pink: hsl(353, 100%, 78%);
-    --sandy-brown: hsl(29, 90%, 65%);
-    --bittersweet: hsl(0, 100%, 70%);
-    --scarlet-red: hsl(8, 100%, 50%);
-    --ocean-green: hsl(152, 51%, 52%);
-    --davys-gray: hsl(0, 0%, 33%);
-    --cultured: hsl(0, 0%, 93%);
-    --white: hsl(0, 100%, 100%);
-    --onyx: hsl(0, 0%, 27%);
-    --onyx-darker: hsl(0, 0%, 25%);
-    --dirty-white: hsla(196, 6%, 53%, 0.6);
-    --dirty-onyx: hsla(0, 0%, 27%, 0.6);
-    --light-gray: hsl(0, 0%, 76%);
-  
-    /*---------------------------------------------*/
-    /*------------------TYPOGRAPHY------------------*/
-    /*----------------------------------------------*/
-  
-    --fs-1: 1.563rem;
-    --fs-2: 1.375rem;
-    --fs-3: 1.25rem;
-    --fs-4: 1.125rem;
-    --fs-5: 1rem;
-    --fs-6: 0.938rem;
-    --fs-7: 0.875rem;
-    --fs-8: 0.813rem;
-    --fs-9: 0.75rem;
-    --fs-10: 0.688rem;
-    --fs-11: 0.625rem;
-  
-    --weight-300: 300;
-    --weight-400: 400;
-    --weight-500: 500;
-    --weight-600: 600;
-    --weight-700: 700;
-  
-    /*-------------------------------------------------*/
-    /*------------------BORDER RADIUS------------------*/
-    /*-------------------------------------------------*/
-    --border-radius-md: 10px;
-    --border-radius-sm: 5px;
-  
-    /*----------------------------------------------*/
-    /*------------------TRANSITION------------------*/
-    /*----------------------------------------------*/
-  
-    --transition-timing: 0.2s ease;
-  
-  
-  
-  
-    --font: "Roboto", sans-serif;
-    --fontOrigin: 1rem;
-    /* 16px */
-    --fontSmall: 0.625em;
-    /* 10px */
-    --fontMedium: 0.875em;
-    /* 14px */
-    --fontNormal: 1em;
-    /* 16px */
-    --fontLarge: 1.375em;
-    /* 22px */
-    --fontLight: 100;
-    --fontRegular: 400;
-    --speed: 0.65s;
-  
-  
-  
-  }

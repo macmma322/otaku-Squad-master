@@ -1,5 +1,6 @@
-/* TABS */
+@import "../variables.css";
 
+/* TABS */
 .row-content {
   display: flex;
   flex-wrap: wrap;

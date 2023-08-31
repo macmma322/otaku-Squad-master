@@ -25,9 +25,15 @@
 </head>
 
 <body class="body">
+  <div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+  </div>
 
-  <img class="light-background" src="../../assets/images/main-content/light-background.jpg">
-  <img class="dark-background" src="../../assets/images/main-content/dark-background.jpg">
+  <div class="backgrounds">
+    <img class="light-background" src="../../assets/images/main-content/light-background.jpg">
+    <img class="dark-background" src="../../assets/images/main-content/dark-background.jpg">
+  </div>
+
   <div class="overlay" data-overlay></div>
 
   <!-- MODAL CONTENT -->
@@ -100,11 +106,12 @@
           <div class="cart-dropdown" id="cart-dropdown">
             <div class="cart-items" id="cart-items"></div>
             <div class="cart-total" id="cart-total"></div>
-            <button onclick="window.location.href='./checkout-bg.html';" class="checkout-btn" id="checkout-btn">Checkout</button>
+            <button onclick="window.location.href='./checkout-bg.html';" class="checkout-btn"
+              id="checkout-btn">Checkout</button>
           </div>
         </div>
-        
-        
+
+
         <button class="user-btn">
           <ion-icon name="heart-outline"></ion-icon>
 
@@ -934,7 +941,17 @@
   </div>
 
   <script>
-    console.log(navigator.language); 
+    window.addEventListener("load", function () {
+      var loaderWrapper = document.querySelector(".loader-wrapper");
+      if (loaderWrapper) {
+        loaderWrapper.style.transition = "opacity 0.5s";
+        loaderWrapper.style.opacity = "0";
+        setTimeout(function () {
+          loaderWrapper.style.display = "none";
+        }, 500);
+      }
+    });
+  
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
