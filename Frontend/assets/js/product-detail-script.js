@@ -25,3 +25,5 @@ buttons.forEach(btn => {
         delete activeSlide.dataset.active
     });
 });
+
+

@@ -15,6 +15,7 @@
 }
 
 .left-column {
+  position: relative;
   grid-area: left;
 }
 
@@ -23,14 +24,25 @@
   grid-area: right;
 }
 
-@media screen and (max-width: 768px) {
-  .center-container {
+@media (max-width: 1024px) {
+  .container {
     grid-template-columns: 1fr;
-    gap: 20px;
     grid-template-areas:
       "left"
       "right";
-    padding: 25px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin: 2% 5% 2% 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 2% 2% 2% 2%;
+    padding: 30px 0 30px 0;
   }
 }
 
@@ -183,18 +195,21 @@
   /* Replace with your desired heart icon */
 }
 
+.heart {
+  width: 100px;
+  height: 100px;
+  float: right;
+  background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+  transition: background-position 1s steps(28);
+  transition-duration: 0s;
 
-
-
-
-
-
-
-
-
-
-
-
+  &.is-active {
+    transition-duration: 1s;
+    background-position: -2800px 0;
+  }
+}
 
 /* Product details */
 .product {
@@ -337,193 +352,10 @@
   margin-right: 5px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .single-product {
-    flex-direction: column;
-  }
-
-  .product-gallery,
-  .product {
-    padding: 10px;
-  }
-
-  .product-gallery {
-    order: 2;
-  }
-
-  .product {
-    order: 1;
-  }
-
-  .divider {
-    display: none;
-  }
-
-  .product-btn-group {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .button {
-    margin-top: 10px;
-  }
-}
-
-.heart {
-  width: 100px;
-  height: 100px;
-  float: right;
-  background: url("https://cssanimation.rocks/images/posts/steps/heart.png") no-repeat;
-  background-position: 0 0;
-  cursor: pointer;
-  transition: background-position 1s steps(28);
-  transition-duration: 0s;
-
-  &.is-active {
-  transition-duration: 1s;
-  background-position: -2800px 0;
-  }
-}
-
-
-.gallery {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.carousel {
-  width: 100%;
-  height: 100vh;
-  max-width: 500px;
-  max-height: 500px;
-  position: relative;
-}
-
-.carousel>ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: 200ms opacity ease-in-out;
-  transition-delay: 200ms;
-}
-
-.slide>img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center;
-}
-
-.slide[data-active] {
-  opacity: 1;
-  z-index: 1;
-  transition-delay: 0ms;
-}
-
-.btn {
-  position: absolute;
-  top: 50%;
-  width: 1px;
-  height: 1px;
-  z-index: 2;
-  background: none;
-  border: none;
-  font-size: 30px;
-  transform: translateY(-50%);
-  padding: 0 0.5rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-}
-
-.btn:hover,
-.btn:focus {
-  background-color: none;
-  color: none;
-}
-
-.btn:focus {
-  outline: 1px solid black;
-}
-
-
-.btn.prev {
-  left: 0;
-}
-
-.btn.next {
-  right: 0;
-}
-
-@media screen and (max-width: 480px) {
-  .gallery {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .carousel {
-    max-width: 100%;
-    max-height: 300px;
-  }
-
-  .btn {
-    font-size: 24px;
-    padding: 0.25rem 0.5rem;
-  }
-}
-
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .gallery {
-    padding: 40px;
-  }
-
-  .carousel {
-    max-width: 70%;
-    max-height: 600px;
-  }
-
-  .btn {
-    font-size: 36px;
-    padding: 0.5rem 1rem;
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  .gallery {
-    padding: 60px;
-  }
-
-  .carousel {
-    max-width: 50%;
-    max-height: 800px;
-  }
-
-  .btn {
-    font-size: 48px;
-    padding: 0.75rem 1.5rem;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-
-  .carousel {
-    max-width: none;
-    max-height: 600px;
-  }
-
-  .btn {
-    font-size: 36px;
-    padding: 0.5rem 1rem;
+@media screen and (max-width: 768px) {
+  .center-container {
+    grid-template-columns: 1fr;
+    /* Display a single column on smaller screens */
   }
 }
 
@@ -536,7 +368,7 @@
   top: 0;
   left: 0;
   background-color: var(--eerie-black);
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -548,4 +380,130 @@
   position: relative;
   border: 4px solid var(--deep-autumn-orange);
   animation: loader 2s infinite ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.slides {
+  padding: 0;
+  max-height: 420px;
+  max-width: 609px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  
+}
+
+.slides * {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.slides input { display: none; }
+
+.slide-container {display: block;}
+
+.slide {
+  top: 0;
+  opacity: 0;
+  max-width: 610px;
+  max-height: 420px;
+  width: 609px;
+  height: 420px;
+  display: block;
+  position: absolute;
+  transform: scale(0);
+  transition: all .7s ease-in-out;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+}
+
+.nav label {
+  /* width: 200px; */
+  height: 100%;
+  display: none;
+  position: absolute;
+  opacity: 0;
+  z-index: 9;
+  cursor: pointer;
+  transition: opacity .2s;
+  color: #FFF;
+  font-size: 156pt;
+  text-align: center;
+  line-height: 380px;
+  font-family: "Varela Round", sans-serif;
+  /* background-color: rgba(255, 255, 255, .3); */
+  text-shadow: 0px 0px 15px rgb(119, 119, 119);
+}
+
+.slide:hover + .nav label { opacity: 0.5; }
+
+.nav label:hover { opacity: 1; }
+
+.nav .next { right: 0; }
+
+input:checked + .slide-container  .slide {
+  opacity: 1;
+
+  transform: scale(1);
+
+  transition: opacity 1s ease-in-out;
+}
+
+input:checked + .slide-container .nav label { display: block; }
+
+.nav-dots {
+width: 100%;
+bottom: 9px;
+height: 11px;
+display: block;
+position: absolute;
+text-align: center;
+}
+
+.nav-dots .nav-dot {
+top: -5px;
+width: 11px;
+height: 11px;
+margin: 0 4px;
+position: relative;
+border-radius: 100%;
+display: inline-block;
+background-color: var(--cultured)
+}
+
+.nav-dots .nav-dot:hover {
+cursor: pointer;
+background-color: var(--dirty-white);
+border: 1.5px solid var(--eerie-black);
+}
+
+input#img-1:checked ~ .nav-dots label#img-dot-1,
+input#img-2:checked ~ .nav-dots label#img-dot-2,
+input#img-3:checked ~ .nav-dots label#img-dot-3,
+input#img-4:checked ~ .nav-dots label#img-dot-4,
+input#img-5:checked ~ .nav-dots label#img-dot-5,
+input#img-6:checked ~ .nav-dots label#img-dot-6 {
+background: var(--davys-gray);
+border: 1.5px solid var(--white);
 }
