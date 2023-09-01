@@ -1,4 +1,4 @@
-@import "variables.css";
+@import "../variables.css";
 
 *,
 *::before,
@@ -70,11 +70,12 @@ body {
   overflow: visible !important;
 }
 
-.light-background{
+.light-background {
   display: none;
 }
 
-.dark-background{
+.dark-background {
+    z-index: -999;
   position: fixed;
   top: 0;
   left: 0;
