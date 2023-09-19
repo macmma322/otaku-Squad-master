@@ -117,8 +117,6 @@ function nFormat(number) {
   }
 }
 
-}
-
 
 var slides = document.querySelectorAll(".slide");
 var dots = document.querySelectorAll(".dot");

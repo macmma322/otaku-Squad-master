@@ -50,7 +50,7 @@
 .title {
   width: 400px;
   height: 80px;
-  
+
 }
 
 .breadcrumbs {
@@ -388,7 +388,7 @@
 }
 
 .controls:active {
-  color: grey;
+  color: var(--davys-gray);
 }
 
 #left-arrow {
@@ -397,6 +397,26 @@
 
 #right-arrow {
   right: 10px;
+}
+
+#left-arrow,
+#right-arrow {
+  
+  color: var(--cultured);
+  transition: 0.3s;
+}
+
+#left-arrow>.fa-arrow-left, #right-arrow>.fa-arrow-right {
+  border: 1.5px solid var(--bittersweet);
+  color: var(--cultured);
+  transition: 0.3s;
+}
+
+
+#left-arrow:hover>.fa-arrow-left, #right-arrow:hover>.fa-arrow-right {
+  border: 1.5px solid var(--eerie-black);
+  color: var(--eerie-black);
+  transition: 0.3s;
 }
 
 #dots-con {
@@ -444,6 +464,7 @@
   padding: 45px 0 45px 0;
   transition: 0.5s ease-in-out;
 }
+
 .chart {
   width: 500px;
   display: flex;
@@ -461,24 +482,29 @@
   padding: 20px 0;
   padding: 10px;
 }
-.chart .rate-box > * {
+
+.chart .rate-box>* {
   height: 100%;
   display: flex;
   align-items: center;
   font-weight: 500;
   color: var(--cultured);
 }
+
 .rate-box .value {
   display: flex;
   align-items: center;
 }
+
 .rate-box .value:hover {
   color: var(--golden-yellow-gradient);
 }
+
 .chart .value {
   font-size: 30px;
   cursor: pointer;
 }
+
 .rate-box .progress-bar {
   border-width: 1px;
   position: relative;
@@ -487,6 +513,7 @@
   border-radius: 100px;
   width: 350px;
 }
+
 .rate-box .progress-bar .progress {
   background-image: var(--golden-yellow-gradient);
   height: 100%;
@@ -503,6 +530,7 @@
   align-items: center;
   gap: 8px;
 }
+
 .one .fas {
   color: #cfd8dc;
 }
@@ -514,7 +542,7 @@
   transition: 0.5s ease-in-out all;
 }
 
-.global > span {
+.global>span {
   font-size: 90px;
   font-weight: 500;
 }
@@ -527,6 +555,7 @@
   width: 100%;
   height: 10%;
 }
+
 .rating-icons span {
   position: absolute;
   display: flex;
@@ -540,6 +569,6 @@
   font-size: 25px !important;
 }
 
-.two{
+.two {
   transition: background 1s ease-in-out;
 }
