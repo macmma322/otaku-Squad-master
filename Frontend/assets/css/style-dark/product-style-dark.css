@@ -332,6 +332,7 @@
 
 
 #slider {
+  max-width: 664.1px;
   width: 90%;
   height: 90%;
   margin: 0 auto;
@@ -404,6 +405,7 @@
 }
 
 .dot {
+  cursor: pointer;
   display: inline-block;
   background: grey;
   padding: 8px;
