@@ -248,7 +248,7 @@ function toggleMobileMenu(menu) {
 
 
 
-
+// Cart Dropdown Variables
 
 const cartBtn = document.getElementById('cart-btn');
 const cartDropdown = document.getElementById('cart-dropdown');
@@ -257,6 +257,8 @@ const cartTotalContainer = document.getElementById('cart-total');
 const checkoutBtn = document.getElementById('checkout-btn');
 const cartArrow = document.createElement('div');
 cartArrow.classList.add('arrow');
+
+//Wishlist Dropdown Variable
 
 const wishlistBtn = document.getElementById('wishlist-btn');
 const wishlistDropdown = document.getElementById('wishlist-dropdown');
@@ -269,36 +271,61 @@ wishlistArrow.classList.add('arrow');
 let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 let wishlistItems = JSON.parse(localStorage.getItem('wishlist')) || [];
 
+
+// This function updates the shopping cart display based on the contents of the cartItems array.
 function updateCart() {
+  // Initialize variables to keep track of the total items in the cart and the total cost.
   let cartCount = 0;
   let cartTotal = 0;
+
+  // Clear the cartItemsContainer to prepare for updated cart information.
   cartItemsContainer.innerHTML = '';
 
+  // Check if the cart is empty. If so, display a message and return early.
   if (cartItems.length === 0) {
     cartItemsContainer.innerHTML = 'Your cart is empty';
     return;
   }
 
+  // Loop through each item in the cartItems array.
   cartItems.forEach((item) => {
+    // Create a new div element to represent each item in the cart.
     const cartItem = document.createElement('div');
+    
+    // Populate the cartItem div with item name and quantity, along with their prices.
     cartItem.innerHTML = `
       <div>${item.name}</div>
       <div>${item.quantity} x $${item.price.toFixed(2)}</div>
     `;
+
+    // Append the cartItem to the cartItemsContainer.
     cartItemsContainer.appendChild(cartItem);
+
+    // Update cartCount by adding the quantity of the current item.
     cartCount += item.quantity;
+
+    // Update cartTotal by adding the total cost of the current item (price * quantity).
     cartTotal += item.price * item.quantity;
   });
 
+  // Update the cartTotalContainer to display the total cost of all items in the cart.
   cartTotalContainer.innerHTML = `Total: $${cartTotal.toFixed(2)}`;
+
+  // Update the count displayed for the shopping cart icon.
   document.querySelector('.count-cart').textContent = cartCount;
 }
 
+// This function updates the count of items in the wishlist and displays it in the UI.
 function updateWishlistCount() {
+  // Retrieve the current count of items in the wishlist.
   let wishlistCount = wishlistItems.length;
+  
+  // Update the content of the wishlistCountContainer with the new count.
   wishlistCountContainer.textContent = wishlistCount;
 }
 
+
+//Update Wishlist function
 function updateWishlist() {
   wishlistItemsContainer.innerHTML = '';
 
@@ -314,6 +341,7 @@ function updateWishlist() {
   });
 }
 
+//Calculating Wishlist Total function
 function calculateWishlistTotal() {
   let total = 0;
   wishlistItems.forEach((item) => {
@@ -322,6 +350,7 @@ function calculateWishlistTotal() {
   return total;
 }
 
+//Dropdowns Close function
 function closeDropdowns() {
   if (cartDropdown.classList.contains('show')) {
     closeCart();
@@ -351,6 +380,7 @@ wishlistBtn.addEventListener('click', () => {
   updateWishlist();
 });
 
+//Open Cart function
 function openCart() {
   cartBtn.disabled = true;
   cartDropdown.classList.add('show');
@@ -371,6 +401,7 @@ function openCart() {
   };
 }
 
+//Close Cart function
 function closeCart() {
   cartBtn.disabled = true;
   cartDropdown.removeChild(cartArrow);
@@ -391,6 +422,7 @@ function closeCart() {
   };
 }
 
+//Open Wishlist function
 function openWishlist() {
   wishlistBtn.disabled = true;
   wishlistDropdown.classList.add('show');
@@ -411,6 +443,7 @@ function openWishlist() {
   };
 }
 
+//Close Wishlist function
 function closeWishlist() {
   wishlistBtn.disabled = true;
   wishlistDropdown.removeChild(wishlistArrow);
