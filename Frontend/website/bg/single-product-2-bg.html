@@ -68,6 +68,9 @@
   </div>
 
 
+
+
+
   <!-- NAVIGATION MENU CONTENT -->
 
   <div class="menu">
@@ -77,8 +80,7 @@
       <div class="preview-zone">
         <section id="expandable-search" class="search search-icon search-icon-expandable" role="search">
           <form action="#" method="get" class="search-form">
-            <input class="search-input" type="search" name="search" maxlength="100" placeholder="I am looking for..."
-              required>
+            <input class="search-input" type="search" name="search" maxlength="100" placeholder="Търся си..." required>
             <button class="search-btn-submit" type="submit">
               <ion-icon name="search-outline"></ion-icon>
             </button>
@@ -134,7 +136,7 @@
         <div class="user-buttons-menu">
 
 
-          <button onclick="window.location.href='#';" class="user-btn-mobile">
+          <button onclick="window.location.href='./login-index-bg.html';" class="user-btn-mobile">
             <ion-icon name="person-outline"></ion-icon>
           </button>
 
@@ -155,7 +157,7 @@
 
 
       <div class="menu-top">
-        <h2 class="menu-title">Menu</h2>
+        <h2 class="menu-title">Меню</h2>
         <button class="menu-close-btn" data-mobile-menu-close-btn>
           <ion-icon name="close-outline"></ion-icon>
         </button>
@@ -163,7 +165,7 @@
 
       <ul class="mobile-menu-category-list">
         <li class="menu-category">
-          <a href="index-bg.html" class="menu-title">Home</a>
+          <a href="#" class="menu-title">Home</a>
         </li>
 
         <li class="menu-category">
@@ -350,123 +352,185 @@
   </div>
 
   <main>
-    <div class="container-login">
-      <div class="forms-container">
-        <div class="login-signup">
 
-          <form action="#" id="login-form-id" class="login-form">
-            <h2 class="title">Login</h2>
-            <div class="input-field-username">
-              <ion-icon class="login-icons" name="person-circle-outline"></ion-icon>
-              <input id="login_username" type="text" required="" placeholder="Username" />
-            </div>
-            <div class="input-field-password">
-              <ion-icon class="login-icons" name="lock-closed-outline"></ion-icon>
-              <input type="password" name="password" autocomplete="current-password" placeholder="Password" required=""
-                id="login_password">
-              <ion-button><ion-icon class="pass-show-hide" name="eye-off-outline" id="togglePasswordLogin"
-                  style="cursor: pointer;"></ion-icon></ion-button>
-            </div>
-            <input id="login-btn-submit" type="submit" value="Login" class="btn-signup solid" />
-            <p class="social-text">Or Sign in with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon" target="_blank">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a>
-              <a href="#" class="social-icon" target="_blank">
-                <ion-icon name="logo-discord"></ion-icon>
-              </a>
-              <a href="#" class="social-icon" target="_blank">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a>
-              <a href="https://www.facebook.com/profile.php?id=100072597646544" class="social-icon" target="_blank">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a>
-            </div>
-          </form>
+    <div class="center-container">
 
-          <form id="sign-up-form-id" class="sign-up-form">
-            <h2 class="title">Sign up</h2>
-            <div class="input-field-username">
-              <ion-icon class="login-icons" name="person-circle-outline"></ion-icon>
-              <input id="signup_username" type="text" required="" autocomplete="username" placeholder="Username" />
-            </div>
-            <div class="input-field-email">
-              <ion-icon class="login-icons" name="mail-outline"></ion-icon>
-              <input id='signup_email' type="email" required="" autocomplete="email" placeholder="Email" />
-            </div>
-
-            <div class="input-field-names">
-              <div class=" input-field-fname">
-                <input id="signup_fname" type="text" required="" autocomplete="given-name" placeholder="First Name" />
-              </div>
-              <div class="input-field-lname">
-                <input id="signup_lname" type="text" required="" autocomplete="family-name" placeholder="Last Name" />
-              </div>
-            </div>
-            <div class="input-field-bday">
-              <ion-icon class="login-icons" name="calendar-outline"></ion-icon>
-              <input id="signup_bdat" type="date" required="" autocomplete="bday" placeholder="Birthday" />
-            </div>
-            <div class="input-field-password">
-              <ion-icon class="login-icons" name="lock-closed-outline"></ion-icon>
-              <input id="signup_password" type="password" name="password" autocomplete="new-password"
-                placeholder="Password" required="">
-              <ion-button><ion-icon name="eye-off-outline" id="togglePasswordSignUp"
-                  style="cursor: pointer;"></ion-icon></ion-button>
-            </div>
-            <input id="signup-btn" type="submit" class="btn-signup" value="Sign up" />
-            <p class="social-text">Or Sign up with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon" target="_blank">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a>
-              <a href="#" class="social-icon" target="_blank">
-                <ion-icon name="logo-discord"></ion-icon>
-              </a>
-              <a href="#" class="social-icon" target="_blank">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a>
-              <a href="https://www.facebook.com/profile.php?id=100072597646544" class="social-icon" target="_blank">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a>
-            </div>
-          </form>
+      <div class="left-column">
 
 
+        <div id="slider">
+          <div class="slide" style="background:dodgerBlue;">
+            <img src="https://img.fotocommunity.com/peacefull-95e65145-d050-4957-9ddc-85dd60689d45.jpg?height=500">
+          </div>
+
+          <div class="slide" style="background:coral;">
+            <img
+              src="https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/sunset-storm-haystack-rock-canon-beach-oregon-coast-tl-mair.jpg">
+          </div>
+
+          <div class="slide" style="background:crimson;">
+            <img
+              src=" https://render.fineartamerica.com/images/images-profile-flow/400/images-medium-large-5/1-tourists-at-eiffel-tower-paris-panoramic-images.jpg">
+          </div>
+
+          <div class="slide" style="background: #6edf10;">
+            <img src="https://dmasia.travel/wp-content/uploads/2019/09/vit3-1000x350.jpg">
+          </div>
+
+          <!--Controlling arrows-->
+          <span class="controls" onclick="prevSlide(-1)" id="left-arrow"><i class="fa fa-arrow-left"
+              aria-hidden="true"></i>
+          </span>
+          <span class="controls" id="right-arrow" onclick="nextSlide(1)"><i class="fa fa-arrow-right"
+              aria-hidden="true"></i>
+          </span>
+        </div>
+        <div id="dots-con">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+
+      </div>
+
+      <div class="right-column">
+
+        <div class="placement">
+          <div class="heart"></div>
+        </div>
+
+        <div class="breadcrumbs">
+          <ul>
+            <li><a href="#">
+                <i class="fas fa-home icon"></i>
+                <p>Home</p>
+              </a></li>
+            <li><a href="#">
+                <i class="fas fa-tshirt icon"></i>
+                <p>Category</p>
+              </a></li>
+            <li><a href="#">
+                <i class="fas fa-shopping-cart icon"></i>
+                <p>Cart</p>
+              </a></li>
+            <li class="active"><a href="#">
+                <i class="far fa-credit-card icon"></i>
+                <p>Checkout</p>
+              </a></li>
+          </ul>
+        </div>
+
+
+
+
+        <div class="product">
+          <div class="product-title">
+            <h2>Half Sleve T-shirt for Men</h2>
+          </div>
+          <div class="product-rating">
+            <span><i class="bx bxs-star"></i></span>
+            <span><i class="bx bxs-star"></i></span>
+            <span><i class="bx bxs-star"></i></span>
+            <span><i class="bx bxs-star"></i></span>
+            <span><i class="bx bxs-star"></i></span>
+            <span class="review">(47 Review)</span>
+          </div>
+          <div class="product-price">
+            <span class="offer-price">$99.00</span>
+            <span class="sale-price">$129.00</span>
+          </div>
+
+          <div class="product-details">
+            <h3>Description</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos est magnam quibusdam maiores sit
+              perferendis minima cupiditate iusto earum repudiandae maxime vitae nostrum, ea cumque iste ipsa hic
+              commodi tempore.</p>
+          </div>
+
+          <hr class="rounded">
+
+          <div class="product-size">
+            <h4>Size</h4>
+            <div class="size-layout">
+              <input type="radio" name="size" value="S" id="1" class="size-input">
+              <label for="1" class="size">XS</label>
+
+              <input type="radio" name="size" value="S" id="2" class="size-input">
+              <label for="2" class="size">S</label>
+
+              <input type="radio" name="size" value="M" id="3" class="size-input">
+              <label for="3" class="size">M</label>
+
+              <input type="radio" name="size" value="L" id="4" class="size-input">
+              <label for="4" class="size">L</label>
+
+              <input type="radio" name="size" value="XL" id="5" class="size-input">
+              <label for="5" class="size">XL</label>
+
+              <input type="radio" name="size" value="XXL" id="6" class="size-input">
+              <label for="6" class="size">XXL</label>
+            </div>
+          </div>
+        </div>
+        <span class="divider"></span>
+
+        <div class="product-btn-group">
+          <button class="button buy-now"> Buy Now <ion-icon name="bag-add-outline"></ion-icon></button>
+          <button class="button add-cart">Add to Cart <ion-icon name="cart-outline"></ion-icon></button>
         </div>
       </div>
 
-      <div class="panels-container">
-        <div class="panel left-panel">
-          <div class="content">
-            <h3>New here ?</h3>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-              ex ratione. Aliquid!
-            </p>
-            <button class="btn transparent" id="sign-up-btn">
-              Sign up
-            </button>
+    </div>
+
+    <div class="lower-container">
+      <div class="chart">
+        <div class="rate-box">
+          <span class="value">5</span>
+          <div class="progress-bar">
+            <span class="progress"></span>
           </div>
-          <img src="../../assets/images/log.png" class="image" alt="" />
+          <span class="count">0</span>
         </div>
-        <div class="panel right-panel">
-          <div class="content">
-            <h3>One of us ?</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              laboriosam ad deleniti.
-            </p>
-            <button class="btn transparent" id="login-btn">
-              Login
-            </button>
-          </div>
-          <img src="../../assets/images/register.png" class="image" alt="" />
+        <div class="rate-box">
+          <span class="value">4</span>
+          <div class="progress-bar"><span class="progress"></span></div>
+          <span class="count">0</span>
         </div>
+        <div class="rate-box">
+          <span class="value">3</span>
+          <div class="progress-bar"><span class="progress"></span></div>
+          <span class="count">0</span>
+        </div>
+        <div class="rate-box">
+          <span class="value">2</span>
+          <div class="progress-bar"><span class="progress"></span></div>
+          <span class="count">0</span>
+        </div>
+        <div class="rate-box">
+          <span class="value">1</span>
+          <div class="progress-bar"><span class="progress"></span></div>
+          <span class="count">0</span>
+        </div>
+      </div>
+      <div class="global">
+        <span class="global-value">0.0</span>
+        <div class="rating-icons">
+          <span class="one"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i></span>
+          <span class="two"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i></span>
+        </div>
+        <span class="total-reviews">0</span>
       </div>
     </div>
+
+
+
   </main>
+
+
 
 
 
@@ -487,7 +551,7 @@
         </a>
       </div>
       <ul class="list-inline">
-        <li class="list-inline-item"><a href="index-bg.html">Home</a></li>
+        <li class="list-inline-item"><a href="#">Home</a></li>
         <li class="list-inline-item"><a href="#">Services</a></li>
         <li class="list-inline-item"><a href="#">About</a></li>
         <li class="list-inline-item"><a href="#">Terms</a></li>
@@ -496,7 +560,7 @@
       <p class="copyright">Company Name © 2018</p>
     </footer>
   </div>
-  
+
   <script>
     window.addEventListener("load", function () {
       var loaderWrapper = document.querySelector(".loader-wrapper");
@@ -508,16 +572,14 @@
         }, 500);
       }
     });
-  
+
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+  <script asyn src="../../assets/js/product-detail-script.js"></script>
+  <script asyn src="../../assets/js/script.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-  <script src="../../assets/js/script.js"></script>
-  <script asyn src="../../assets/js/login-page-script.js"></script>
-  <script src="../../../Backend/backend.js"></script>"
 </body>
 
 </html>

@@ -247,9 +247,7 @@ function toggleMobileMenu(menu) {
 }
 
 
-
 // Cart Dropdown Variables
-
 const cartBtn = document.getElementById('cart-btn');
 const cartDropdown = document.getElementById('cart-dropdown');
 const cartItemsContainer = document.getElementById('cart-items');
@@ -258,74 +256,90 @@ const checkoutBtn = document.getElementById('checkout-btn');
 const cartArrow = document.createElement('div');
 cartArrow.classList.add('arrow');
 
-//Wishlist Dropdown Variable
-
+// Wishlist Dropdown Variables
 const wishlistBtn = document.getElementById('wishlist-btn');
 const wishlistDropdown = document.getElementById('wishlist-dropdown');
+const wishlistDropdownCount = document.querySelector('.count-wishlist');
 const wishlistItemsContainer = document.getElementById('wishlist-items');
 const wishlistTotalContainer = document.getElementById('wishlist-total');
 const wishlistCheckoutBtn = document.getElementById('wishlist-checkout-btn');
 const wishlistArrow = document.createElement('div');
 wishlistArrow.classList.add('arrow');
 
+// Initialize cart and wishlist items from local storage
 let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 let wishlistItems = JSON.parse(localStorage.getItem('wishlist')) || [];
 
+// Initialize heart counter
+let heartCounter = 0;
 
-// This function updates the shopping cart display based on the contents of the cartItems array.
+// Function to update the shopping cart display based on the contents of the cartItems array.
 function updateCart() {
-  // Initialize variables to keep track of the total items in the cart and the total cost.
   let cartCount = 0;
   let cartTotal = 0;
 
-  // Clear the cartItemsContainer to prepare for updated cart information.
   cartItemsContainer.innerHTML = '';
 
-  // Check if the cart is empty. If so, display a message and return early.
   if (cartItems.length === 0) {
     cartItemsContainer.innerHTML = 'Your cart is empty';
     return;
   }
 
-  // Loop through each item in the cartItems array.
   cartItems.forEach((item) => {
-    // Create a new div element to represent each item in the cart.
     const cartItem = document.createElement('div');
-    
-    // Populate the cartItem div with item name and quantity, along with their prices.
-    cartItem.innerHTML = `
-      <div>${item.name}</div>
-      <div>${item.quantity} x $${item.price.toFixed(2)}</div>
-    `;
 
-    // Append the cartItem to the cartItemsContainer.
+    cartItem.innerHTML = `
+        <div>${item.name}</div>
+        <div>${item.quantity} x $${item.price.toFixed(2)}</div>
+      `;
+
     cartItemsContainer.appendChild(cartItem);
 
-    // Update cartCount by adding the quantity of the current item.
     cartCount += item.quantity;
-
-    // Update cartTotal by adding the total cost of the current item (price * quantity).
     cartTotal += item.price * item.quantity;
   });
 
-  // Update the cartTotalContainer to display the total cost of all items in the cart.
   cartTotalContainer.innerHTML = `Total: $${cartTotal.toFixed(2)}`;
-
-  // Update the count displayed for the shopping cart icon.
   document.querySelector('.count-cart').textContent = cartCount;
 }
 
-// This function updates the count of items in the wishlist and displays it in the UI.
+// Initialize wishlist count from local storage
+let wishlistCount = parseInt(localStorage.getItem('wishlistCount')) || 0;
+
+// Function to update the wishlist count display
 function updateWishlistCount() {
-  // Retrieve the current count of items in the wishlist.
-  let wishlistCount = wishlistItems.length;
-  
-  // Update the content of the wishlistCountContainer with the new count.
-  wishlistCountContainer.textContent = wishlistCount;
+  let totalHeartCount = 0; // Initialize the total heart count
+
+  // Iterate through local storage to count hearts for each product page
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.endsWith("_heartState") && localStorage.getItem(key) === "active") {
+      totalHeartCount++;
+    }
+  }
+
+  // Update the wishlist count display
+  wishlistDropdownCount.textContent = totalHeartCount;
+
+  // Update the local storage value
+  localStorage.setItem('wishlistCount', totalHeartCount);
 }
 
+// ...
 
-//Update Wishlist function
+// Update the wishlist count display initially
+updateWishlistCount();
+
+// Create a MutationObserver to watch for changes in the DOM (class changes on hearts)
+const heartMutationObserver = new MutationObserver(updateWishlistCount);
+
+heartMutationObserver.observe(document.body, {
+  subtree: true,
+  attributes: true,
+  attributeFilter: ['class'],
+});
+
+// Function to update the wishlist display
 function updateWishlist() {
   wishlistItemsContainer.innerHTML = '';
 
@@ -341,16 +355,7 @@ function updateWishlist() {
   });
 }
 
-//Calculating Wishlist Total function
-function calculateWishlistTotal() {
-  let total = 0;
-  wishlistItems.forEach((item) => {
-    total += item.price * item.quantity;
-  });
-  return total;
-}
-
-//Dropdowns Close function
+// Dropdowns Close function
 function closeDropdowns() {
   if (cartDropdown.classList.contains('show')) {
     closeCart();
@@ -378,9 +383,9 @@ wishlistBtn.addEventListener('click', () => {
     closeWishlist();
   }
   updateWishlist();
+  updateWishlistCount();
 });
 
-//Open Cart function
 function openCart() {
   cartBtn.disabled = true;
   cartDropdown.classList.add('show');
@@ -401,7 +406,6 @@ function openCart() {
   };
 }
 
-//Close Cart function
 function closeCart() {
   cartBtn.disabled = true;
   cartDropdown.removeChild(cartArrow);
@@ -422,7 +426,6 @@ function closeCart() {
   };
 }
 
-//Open Wishlist function
 function openWishlist() {
   wishlistBtn.disabled = true;
   wishlistDropdown.classList.add('show');
@@ -443,7 +446,6 @@ function openWishlist() {
   };
 }
 
-//Close Wishlist function
 function closeWishlist() {
   wishlistBtn.disabled = true;
   wishlistDropdown.removeChild(wishlistArrow);
@@ -486,7 +488,7 @@ wishlistCheckoutBtn.addEventListener('click', async () => {
   // Handle checkout for the wishlist here
 });
 
+// Update the shopping cart and wishlist initially
 updateCart();
 updateWishlist();
-
-
+updateWishlistCount();

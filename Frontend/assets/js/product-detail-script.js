@@ -1,12 +1,52 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var hearts = document.querySelectorAll(".heart");
+  // Get the heart element
+  var heart = document.querySelector(".heart");
+  var productId = heart.dataset.productId;
+  var currentURL = window.location.href;
 
-  hearts.forEach(function (heart) {
-    heart.addEventListener("click", function () {
-      this.classList.toggle("is-active");
-    });
+  // Initialize the heart's state based on local storage
+  var heartState = localStorage.getItem(currentURL + "_" + productId + "_heartState");
+
+  if (heartState === "active") {
+    heart.classList.add("is-active");
+    updateCounterDisplay(1); // Increment the counter if heart is active
+  }
+
+  heart.addEventListener("click", function () {
+    if (heart.classList.contains("is-active")) {
+      heart.classList.remove("is-active");
+      localStorage.setItem(currentURL + "_" + productId + "_heartState", "inactive");
+      updateCounterDisplay(-1); // Decrement the counter if heart is deactivated
+      updateGlobalWishlistCount(-1); // Update the global wishlist count
+    } else {
+      heart.classList.add("is-active");
+      localStorage.setItem(currentURL + "_" + productId + "_heartState", "active");
+      updateCounterDisplay(1); // Increment the counter if heart is activated
+      updateGlobalWishlistCount(1); // Update the global wishlist count
+    }
   });
+
+  // Function to update the counter display
+  function updateCounterDisplay(change) {
+    // Assuming you have an element with the class "count-heart" to display the count
+    var countHeartElement = document.querySelector(".count-heart");
+    if (countHeartElement) {
+      var currentCount = parseInt(countHeartElement.textContent) || 0;
+      countHeartElement.textContent = currentCount + change;
+    }
+  }
+
+  // Function to update the global wishlist count stored in session storage
+  function updateGlobalWishlistCount(change) {
+    let globalWishlistCount = parseInt(sessionStorage.getItem('wishlistCount')) || 0;
+    globalWishlistCount += change;
+    sessionStorage.setItem('wishlistCount', globalWishlistCount);
+    // Update the display of the global wishlist count if needed
+    // Example: document.querySelector('.global-wishlist-count').textContent = globalWishlistCount;
+  }
 });
+
+
 
 var slides = document.querySelectorAll(".slide");
 var dots = document.querySelectorAll(".dot");

@@ -70,7 +70,7 @@ signUpForm.addEventListener('click', signUpUser());
 
 function signUpUser() {
     // Prevent the form from submitting and refreshing the page
-    event.preventDefault();
+    preventDefault();
 
     // Get sign up form input values
     var signUpUsername = document.getElementById('signup_username').value;
