@@ -89,7 +89,7 @@
 
 .modal-close-btn {
   position: absolute;
-  height:34px;
+  height: 34px;
   width: 34px;
   top: 15px;
   right: 15px;
@@ -158,7 +158,7 @@ a .overlay .modal .modal-close-overlay .modal-content .newsletter {
 
 .btn-newsletter:hover {
   font-weight: var(--weight-700);
-  color:var(--eerie-black);
+  color: var(--eerie-black);
   background: var(--salmon-pink);
 }
 

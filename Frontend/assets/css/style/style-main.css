@@ -76,7 +76,7 @@ body {
   overflow: visible !important;
 }
 
-.light-background{
+.light-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -87,7 +87,7 @@ body {
   background-repeat: repeat;
 }
 
-.dark-background{
+.dark-background {
   display: none;
 }
 

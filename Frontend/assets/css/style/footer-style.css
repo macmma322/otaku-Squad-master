@@ -22,14 +22,15 @@
 }
 
 
-.footer-basic ion-icon{
+.footer-basic ion-icon {
   display: auto;
 }
+
 .footer-basic ul a {
   align-items: center;
   justify-content: center;
   color: inherit;
-  
+
   text-decoration: none;
   opacity: 0.8;
 }

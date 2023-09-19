@@ -124,7 +124,7 @@ a:hover {
   opacity: 1;
   overflow: hidden;
   height: 100%;
-  
+
   -webkit-transform: scale(1, 1);
   -webkit-transform: rotate(0deg);
   /* margin: 0; */
@@ -1238,7 +1238,9 @@ a:hover {
     margin: 30px 40px 0 0;
   }
 }
-@media (max-width:1260px){
+
+@media (max-width:1260px) {
+
   .pcss3t>.tab-content-first:checked~ul .tab-content-first,
   .pcss3t>.tab-content-2:checked~ul .tab-content-2,
   .pcss3t>.tab-content-3:checked~ul .tab-content-3,
@@ -1260,12 +1262,13 @@ a:hover {
     -webkit-transform: scale(1, 1);
     -webkit-transform: rotate(0deg);
   }
-  .page{
+
+  .page {
     margin: 0;
     padding: 10px;
   }
-  
-  .tab-content::-webkit-scrollbar{
+
+  .tab-content::-webkit-scrollbar {
     display: none;
   }
 
@@ -1283,6 +1286,7 @@ a:hover {
   transition: 0.5s;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .button-container button {
   z-index: 99999;
   width: 101%;
@@ -1299,9 +1303,11 @@ a:hover {
   cursor: pointer;
   animation: anim2 0.7s steps(22) forwards;
 }
+
 .button-container button:hover {
   animation: anim1 0.7s steps(22) forwards;
 }
+
 .mask {
   position: absolute;
   color: #fff;
@@ -1313,25 +1319,29 @@ a:hover {
   margin-top: 25px;
   overflow: hidden;
 }
+
 @keyframes anim1 {
   from {
     -webkit-mask-position: 100% 0;
     mask-position: 100% 0;
- }
+  }
+
   to {
     -webkit-mask-position: 0 0;
     mask-position: 0 0;
- }
+  }
 }
+
 @keyframes anim2 {
   from {
     -webkit-mask-position: 0 0;
     mask-position: 0 0;
- }
+  }
+
   to {
     -webkit-mask-position: 100% 0;
     mask-position: 100% 0;
- }
+  }
 }
 
 .btn-buy-now {
@@ -1348,6 +1358,6 @@ a:hover {
 
 .btn-buy-now:hover {
   font-weight: var(--weight-700);
-  color:var(--eerie-black);
+  color: var(--eerie-black);
   background: var(--salmon-pink);
 }

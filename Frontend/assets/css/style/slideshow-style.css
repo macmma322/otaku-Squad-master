@@ -1951,7 +1951,7 @@ body[data-route-option=next-section] .c-header-home_buttons {
 }
 
 @media (max-width: 320px) {
-  #wrapper{
+  #wrapper {
     padding: 5vh 5px;
   }
 }
