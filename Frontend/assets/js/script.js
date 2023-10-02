@@ -179,7 +179,7 @@ $expandableSearchBtn.addEventListener('click', function (e) {
 
 
 
-//Mobile Menu Script
+// Mobile Menu Script
 
 // mobile menu variables
 
@@ -187,7 +187,25 @@ const mobileMenuOpenBtn = document.querySelectorAll('[data-mobile-menu-open-btn]
 const mobileMenu = document.querySelectorAll('[data-mobile-menu]');
 const mobileMenuCloseBtn = document.querySelectorAll('[data-mobile-menu-close-btn]');
 const overlay = document.querySelector('[data-overlay]');
+
+// Function to close cart and wishlist dropdowns
+function closeDropdowns() {
+  if (cartDropdown.classList.contains('show')) {
+    closeCart();
+  }
+  if (wishlistDropdown.classList.contains('show')) {
+    closeWishlist();
+  }
+
+  // Reset the active state of the menu action buttons
+  cartBtn.classList.remove('active');
+  wishlistBtn.classList.remove('active');
+}
+
+
 for (let i = 0; i < mobileMenuOpenBtn.length; i++) {
+
+
   //mobile menu function
   const mobileMenuCloseFunc = function () {
     mobileMenu[i].classList.remove('active');
@@ -195,6 +213,7 @@ for (let i = 0; i < mobileMenuOpenBtn.length; i++) {
   };
 
   mobileMenuOpenBtn[i].addEventListener('click', function () {
+    closeDropdowns(); // Close cart and wishlist dropdowns when mobile menu is opened
     mobileMenu[i].classList.add('active');
     overlay.classList.add('active');
   });
@@ -203,11 +222,6 @@ for (let i = 0; i < mobileMenuOpenBtn.length; i++) {
     overlay.addEventListener('click', mobileMenuCloseFunc);
   }
 }
-
-
-
-
-
 
 //----------------------------------------------------------
 
@@ -245,7 +259,6 @@ for (let i = 0; i < accordionBtn.length; i++) {
 function toggleMobileMenu(menu) {
   menu.classList.toggle('open');
 }
-
 
 // Cart Dropdown Variables
 const cartBtn = document.getElementById('cart-btn');
@@ -325,8 +338,6 @@ function updateWishlistCount() {
   localStorage.setItem('wishlistCount', totalHeartCount);
 }
 
-// ...
-
 // Update the wishlist count display initially
 updateWishlistCount();
 
@@ -386,6 +397,34 @@ wishlistBtn.addEventListener('click', () => {
   updateWishlistCount();
 });
 
+checkoutBtn.addEventListener('click', async () => {
+  // Close the cart dropdown when the checkout button is clicked
+  closeCart();
+
+  // Add your checkout logic here
+});
+
+wishlistCheckoutBtn.addEventListener('click', async () => {
+  // Close the wishlist dropdown when the wishlist checkout button is clicked
+  closeWishlist();
+
+  // Add your wishlist checkout logic here
+});
+
+document.body.addEventListener('click', (event) => {
+  const isCartDropdownClicked = cartDropdown.contains(event.target) || cartBtn.contains(event.target);
+  const isWishlistDropdownClicked = wishlistDropdown.contains(event.target) || wishlistBtn.contains(event.target);
+
+  if (!isCartDropdownClicked && cartDropdown.classList.contains('show')) {
+    closeCart();
+  }
+
+  if (!isWishlistDropdownClicked && wishlistDropdown.classList.contains('show')) {
+    closeWishlist();
+  }
+});
+
+// Function to open the cart dropdown
 function openCart() {
   cartBtn.disabled = true;
   cartDropdown.classList.add('show');
@@ -406,6 +445,7 @@ function openCart() {
   };
 }
 
+// Function to close the cart dropdown
 function closeCart() {
   cartBtn.disabled = true;
   cartDropdown.removeChild(cartArrow);
@@ -426,6 +466,7 @@ function closeCart() {
   };
 }
 
+// Function to open the wishlist dropdown
 function openWishlist() {
   wishlistBtn.disabled = true;
   wishlistDropdown.classList.add('show');
@@ -446,6 +487,7 @@ function openWishlist() {
   };
 }
 
+// Function to close the wishlist dropdown
 function closeWishlist() {
   wishlistBtn.disabled = true;
   wishlistDropdown.removeChild(wishlistArrow);
