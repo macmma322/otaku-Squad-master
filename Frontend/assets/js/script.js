@@ -152,15 +152,13 @@ window.addEventListener('load', openModal);
 
 
 
-//Search Bar Script
-
+// Search Bar Script
 const $expandableSearch = document.getElementById('expandable-search')
 const $expandableSearchBtn = $expandableSearch.querySelector('.search-btn-submit')
 const $expandableSearchInput = $expandableSearch.querySelector('.search-input')
 
 // Attach click event handler on search icon
 $expandableSearchBtn.addEventListener('click', function (e) {
-
   e.preventDefault()
 
   const expanded = $expandableSearch.getAttribute('data-expanded')
@@ -171,15 +169,23 @@ $expandableSearchBtn.addEventListener('click', function (e) {
     $expandableSearch.classList.add('search-expanded')
     $expandableSearchInput.focus()
   } else {
-    $expandableSearch.setAttribute('data-expanded', 'false')
-    $expandableSearch.classList.remove('search-expanded')
+    // Check if the input field is empty
+    if ($expandableSearchInput.value.trim() === '') {
+      $expandableSearch.setAttribute('data-expanded', 'false')
+      $expandableSearch.classList.remove('search-expanded')
+    } else {
+      // Perform search action here (you can replace this with your search logic)
+      alert('Performing search for: ' + $expandableSearchInput.value)
+    }
   }
 })
 
 
 
-
+//-------------------//
 // Mobile Menu Script
+//-------------------//
+
 
 // mobile menu variables
 
@@ -227,7 +233,7 @@ for (let i = 0; i < mobileMenuOpenBtn.length; i++) {
 
 // Mobile Menu on the left side Script
 
-//accordion variables
+//Accordion Variables
 
 const accordionBtn = document.querySelectorAll('[data-accordion-btn]');
 const accordion = document.querySelectorAll('[data-accordion]');
@@ -278,6 +284,96 @@ const wishlistTotalContainer = document.getElementById('wishlist-total');
 const wishlistCheckoutBtn = document.getElementById('wishlist-checkout-btn');
 const wishlistArrow = document.createElement('div');
 wishlistArrow.classList.add('arrow');
+
+
+// Profile Dropdown Variables
+const profileBtn = document.getElementById('profile-btn');
+const profileDropdown = document.getElementById('profile-dropdown');
+const profileArrow = document.createElement('div');
+profileArrow.classList.add('arrow');
+
+// Function to open the profile dropdown
+function openProfile() {
+  profileBtn.disabled = true;
+  profileDropdown.classList.add('show');
+  profileDropdown.appendChild(profileArrow);
+  const animation = profileDropdown.animate(
+    [
+      { transform: 'translate(-105px, 0) scale(0, 0)', opacity: 0 },
+      { transform: 'translate(20px, 20px) scale(1, 1)', opacity: 1 },
+    ],
+    {
+      duration: 250,
+      easing: 'ease-out',
+      fill: 'forwards',
+    }
+  );
+  animation.onfinish = function () {
+    profileBtn.disabled = false;
+  };
+}
+
+// Function to close the profile dropdown
+function closeProfile() {
+  profileBtn.disabled = true;
+  profileDropdown.removeChild(profileArrow);
+  const animation = profileDropdown.animate(
+    [
+      { transform: 'translate(20px, 20px) scale(1, 1)', opacity: 1 },
+      { transform: 'translate(-105px, 0) scale(0, 0)', opacity: 0 },
+    ],
+    {
+      duration: 250,
+      easing: 'ease-out',
+      fill: 'forwards',
+    }
+  );
+  animation.onfinish = function () {
+    profileDropdown.classList.remove('show');
+    profileBtn.disabled = false;
+  };
+}
+
+profileBtn.addEventListener('click', () => {
+  if (!profileDropdown.classList.contains('show')) {
+    closeDropdowns(); // Close other dropdowns if open
+    openProfile();
+  } else {
+    closeProfile();
+  }
+});
+
+// Modify the closeDropdowns function to include the profile dropdown
+function closeDropdowns() {
+  if (cartDropdown.classList.contains('show')) {
+    closeCart();
+  }
+  if (wishlistDropdown.classList.contains('show')) {
+    closeWishlist();
+  }
+  if (profileDropdown.classList.contains('show')) {
+    closeProfile();
+  }
+}
+
+// Add an event listener to the document body to close dropdowns when clicked outside
+document.body.addEventListener('click', (event) => {
+  const isCartDropdownClicked = cartDropdown.contains(event.target) || cartBtn.contains(event.target);
+  const isWishlistDropdownClicked = wishlistDropdown.contains(event.target) || wishlistBtn.contains(event.target);
+  const isProfileDropdownClicked = profileDropdown.contains(event.target) || profileBtn.contains(event.target);
+
+  if (!isCartDropdownClicked && cartDropdown.classList.contains('show')) {
+    closeCart();
+  }
+
+  if (!isWishlistDropdownClicked && wishlistDropdown.classList.contains('show')) {
+    closeWishlist();
+  }
+
+  if (!isProfileDropdownClicked && profileDropdown.classList.contains('show')) {
+    closeProfile();
+  }
+});
 
 // Initialize cart and wishlist items from local storage
 let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
@@ -448,7 +544,12 @@ function openCart() {
 // Function to close the cart dropdown
 function closeCart() {
   cartBtn.disabled = true;
-  cartDropdown.removeChild(cartArrow);
+
+  // Check if cartArrow is a child of cartDropdown before removing it
+  if (cartDropdown.contains(cartArrow)) {
+    cartDropdown.removeChild(cartArrow);
+  }
+
   const animation = cartDropdown.animate(
     [
       { transform: 'translate(20px, 20px) scale(1, 1)', opacity: 1 },
@@ -465,6 +566,7 @@ function closeCart() {
     cartBtn.disabled = false;
   };
 }
+
 
 // Function to open the wishlist dropdown
 function openWishlist() {
@@ -490,7 +592,12 @@ function openWishlist() {
 // Function to close the wishlist dropdown
 function closeWishlist() {
   wishlistBtn.disabled = true;
-  wishlistDropdown.removeChild(wishlistArrow);
+
+  // Check if wishlistArrow is a child of wishlistDropdown before removing it
+  if (wishlistDropdown.contains(wishlistArrow)) {
+    wishlistDropdown.removeChild(wishlistArrow);
+  }
+
   const animation = wishlistDropdown.animate(
     [
       { transform: 'translate(20px, 20px) scale(1, 1)', opacity: 1 },
@@ -507,6 +614,7 @@ function closeWishlist() {
     wishlistBtn.disabled = false;
   };
 }
+
 
 checkoutBtn.addEventListener('click', async () => {
   const stripe = Stripe('your_public_key_here');
