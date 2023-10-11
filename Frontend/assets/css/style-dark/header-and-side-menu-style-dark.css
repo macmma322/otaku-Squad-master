@@ -157,7 +157,7 @@
 }
 
 .menu-close-btn ion-icon {
-  --ionicon-stroke-width: 50px
+  --ionicon-stroke-width: 50px;
 }
 
 .mobile-menu-category-list {
@@ -234,7 +234,7 @@
   text-decoration: none;
 }
 
-.accordion-menu>div {
+.accordion-menu > div {
   font-size: 14px;
 }
 
@@ -324,11 +324,10 @@
   border-bottom: 1px solid var(--sonic-silver);
 }
 
-.menu-category-list>p {
+.menu-category-list > p {
   align-items: center;
   justify-content: center;
 }
-
 
 /* Search Bar Container */
 .preview-zone {
@@ -417,7 +416,7 @@
   transform: scaleX(1);
 }
 
-.menu-category-list>p {
+.menu-category-list > p {
   align-items: center;
   justify-content: center;
 }
@@ -570,7 +569,6 @@
   transform: scale(0);
 }
 
-
 /* Wishlist CSS dropdown */
 
 .wishlist-wrapper {
@@ -655,7 +653,6 @@
   transform: scale(0);
 }
 
-
 /* Profile CSS dropdown */
 
 .profile-wrapper {
@@ -672,6 +669,7 @@
 }
 
 .profile-dropdown {
+  width: auto;
   position: absolute;
   top: calc(100% - 15px);
   left: -18px;
@@ -712,6 +710,7 @@
 
 .profile-dropdown li {
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .profile-dropdown a {
@@ -722,6 +721,27 @@
   transition: color 0.3s ease;
 }
 
+.profile-header-dropdown{
+  width: auto;
+  display: flex;
+  height: auto !important;
+  flex-direction: column-reverse;
+  gap: 8px;
+}
+
+.profile-greeting-dropdown{
+  text-align: left;
+  font-size: 20px;
+  min-width: 200px;
+}
+
+.settings-button {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  font-size: 20px;
+  color: var(--white);
+}
 .profile-dropdown a:hover {
   color: var(--salmon-pink);
 }
@@ -729,6 +749,7 @@
 .action-btn:hover,
 .profile-btn:hover,
 .cart-btn:hover,
-.wishlist-btn:hover {
+.wishlist-btn:hover,
+.settings-button:hover {
   color: var(--salmon-pink);
 }
