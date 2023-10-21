@@ -1,23 +1,21 @@
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
-const app = express();
 const bodyParser = require("body-parser");
 const { Client } = require("pg");
 const bcrypt = require("bcrypt");
 
-// Set the __dirname value to the parent directory of the current file
+const app = express();
+const port = process.env.PORT || 3000;
 const parentDir = path.dirname(__dirname);
 global.__basedir = parentDir;
 
 // Serve static files from the 'Otaku Squad' folder
 app.use(express.static(path.join(__basedir, "Otaku Squad")));
 
+// Middleware for parsing JSON and form data
 app.use(express.json());
-
-// Use body-parser middleware to parse incoming request bodies
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 // Create a new PostgreSQL client
 const client = new Client({
@@ -37,21 +35,39 @@ client.connect((err) => {
   }
 });
 
+// Configure session middleware
 app.use(
   session({
-    secret: "your-secret-key", // Change this to a secret key
+    secret: "your-strong-secret-key", // Change this to a strong secret
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 60000 }, // Set cookie expiration time
+    cookie: {
+      maxAge: 3600000, // Set the session expiration time (in milliseconds)
+    },
   })
 );
+const isLoggedIn = (req) => {
+  // Check if req.session.user is defined and truthy
+  return req.session.user ? true : false;
+};
 
-// Route for the home page
-app.get("/", (req, res) => {
-  res.sendFile(parentDir + "/index.html");
+// Example usage in a protected route
+app.get("/protected-route", (req, res) => {
+  if (isLoggedIn(req)) {
+    // User is logged in, proceed with protected logic
+    res.json({ message: "This is a protected route", user: req.session.user });
+  } else {
+    // User is not logged in, send an unauthorized response
+    res.status(401).json({ message: "Unauthorized" });
+  }
 });
 
-// Set headers to allow cross-origin resource sharing (CORS)
+// Home page route
+app.get("/", (req, res) => {
+  res.sendFile(path.join(parentDir, "index.html"));
+});
+
+// CORS headers
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5501");
   res.header(
@@ -64,16 +80,24 @@ app.use((req, res, next) => {
 // Search API endpoint
 app.get("/search", (req, res) => {
   const searchTerm = req.query.search;
-  const sql = `SELECT * FROM custom_products WHERE product_name ILIKE '%${searchTerm}%' OR description_bg ILIKE '%${searchTerm}%' OR description_en ILIKE '%${searchTerm}%' OR description_fr ILIKE '%${searchTerm}%' OR description_es ILIKE '%${searchTerm}%'`;
+  const sql = `
+    SELECT * FROM custom_products
+    WHERE product_name ILIKE '%${searchTerm}%'
+    OR description_bg ILIKE '%${searchTerm}%'
+    OR description_en ILIKE '%${searchTerm}%'
+    OR description_fr ILIKE '%${searchTerm}%'
+    OR description_es ILIKE '%${searchTerm}%'
+  `;
 
-  client.query(sql, (err, results) => {
-    if (err) {
+  client
+    .query(sql)
+    .then((results) => {
+      res.render("search-results", { results: results.rows });
+    })
+    .catch((err) => {
       console.error(err);
       res.sendStatus(500);
-    } else {
-      res.render("search-results", { results: results.rows });
-    }
-  });
+    });
 });
 
 // Login API
@@ -83,8 +107,7 @@ app.post("/api/login", async (req, res) => {
   const user = await getUserByUsernameAndPassword(username, password);
 
   if (user) {
-    // Create a session and store user-related information
-    req.session.user = user; // You can store user data in the session
+    req.session.user = user;
     res.status(200).json({ message: "Login successful", user });
   } else {
     res.status(401).json({ message: "Invalid credentials" });
@@ -94,17 +117,13 @@ app.post("/api/login", async (req, res) => {
 // Sign up API
 app.post("/api/sign-up", async (req, res) => {
   const { username, email, password, fname, lname } = req.body;
-
-  // Check if the username is already taken
   const existingUser = await getUserByUsername(username);
+
   if (existingUser) {
     return res.status(400).json({ message: "Username already exists" });
   }
 
-  // Hash the password
   const hashedPassword = await bcrypt.hash(password, 10);
-
-  // Insert the user into the database
   const newUser = await insertUser(
     username,
     email,
@@ -114,8 +133,7 @@ app.post("/api/sign-up", async (req, res) => {
   );
 
   if (newUser) {
-    // Log in the user after sign-up
-    req.session.user = newUser; // Store user data in the session
+    req.session.user = newUser;
     res.status(201).json({ message: "Sign-up successful", user: newUser });
   } else {
     res.status(500).json({ message: "Sign-up failed" });
@@ -134,21 +152,16 @@ app.get("/api/logout", (req, res) => {
   });
 });
 
-// Example route that requires a user session
+// Protected route
 app.get("/protected-route", (req, res) => {
   if (req.session.user) {
-    // User is logged in, you can access user data using req.session.user
     res.json({ message: "This is a protected route", user: req.session.user });
   } else {
-    // User is not logged in, redirect or handle accordingly
     res.status(401).json({ message: "Unauthorized" });
   }
 });
 
 // Start the server
-const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-  process.chdir("e:/Otaku Squad");
-  console.log("__basedirs:", parentDir);
+  console.log(`Server is running on port ${port}`);
 });

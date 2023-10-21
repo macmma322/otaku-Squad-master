@@ -259,7 +259,6 @@ function toggleMobileMenu(menu) {
   menu.classList.toggle("open");
 }
 
-
 // Cart Dropdown Variables
 const cartBtn = document.getElementById("cart-btn");
 const cartDropdown = document.getElementById("cart-dropdown");
@@ -286,6 +285,14 @@ const profileArrow = document.createElement("div");
 profileArrow.classList.add("arrow");
 
 // Function to open the profile dropdown
+function isLoggedIn() {
+  // Example: Check if the user is logged in using sessionStorage
+  return sessionStorage.getItem("userLoggedIn") === "true";
+}
+
+// Other variables and functions as in your code
+
+// Function to open the profile dropdown
 function openProfile() {
   profileBtn.disabled = true;
   profileDropdown.classList.add("show");
@@ -305,61 +312,87 @@ function openProfile() {
     profileBtn.disabled = false;
   };
 
-  // Check if user is logged in (you may need to adjust this logic based on your authentication system)
-  const isLoggedIn = /* Add your logic to check if the user is logged in */;
+  // Check if user is logged in by calling the isLoggedIn function
+  isLoggedIn().then((loggedIn) => {
+    if (loggedIn) {
+      // User is logged in, fetch user data and update the dropdown
+      fetch("/get-username-from-session") // Replace with the actual endpoint or method to get the username from the session
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.username) {
+            const usernameElement = document.getElementById("username");
+            usernameElement.textContent = `Hello, ${data.username}!`;
 
-  if (isLoggedIn) {
-    // User is logged in
-    fetch("/get-username-from-session") // Replace with the actual endpoint or method to get the username from the session
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.username) {
-          const usernameElement = document.getElementById("username");
-          usernameElement.textContent = `Здравей, ${data.username}!`;
+            // Calculate the width based on the updated username's width
+            const usernameWidth = usernameElement.offsetWidth; // Get the width of the updated username element
+            const minWidth = 150; // Set a minimum width for the dropdown (adjust as needed)
+            const calculatedWidth = Math.max(usernameWidth, minWidth); // Choose the maximum width
 
-          // Calculate the width based on the updated username's width
-          const usernameWidth = usernameElement.offsetWidth; // Get the width of the updated username element
-          const minWidth = 150; // Set a minimum width for the dropdown (adjust as needed)
-          const calculatedWidth = Math.max(usernameWidth, minWidth); // Choose the maximum width
+            // Set the width of the profile dropdown
+            profileDropdown.style.width = `${calculatedWidth}px`;
 
-          // Set the width of the profile dropdown
-          profileDropdown.style.width = `${calculatedWidth}px`;
+            // Add a "Logout" button
+            const logoutButton = document.createElement("button");
+            logoutButton.textContent = "Logout";
+            logoutButton.addEventListener("click", () => {
+              // Add your logout logic here
+            });
+            profileDropdown.appendChild(logoutButton);
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching username:", error);
+        });
+    } else {
+      // User is not logged in (guest), display guest options
+      const guestGreeting = document.createElement("div");
+      guestGreeting.textContent = "Welcome, Guest!";
+      profileDropdown.appendChild(guestGreeting);
 
-          // Add a "Logout" button
-          const logoutButton = document.createElement("button");
-          logoutButton.textContent = "Logout";
-          logoutButton.addEventListener("click", () => {
-            // Add your logout logic here
-          });
-          profileDropdown.appendChild(logoutButton);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching username:", error);
+      // Add "Login" and "Sign Up" buttons
+      const loginButton = document.createElement("button");
+      loginButton.textContent = "Login";
+      loginButton.addEventListener("click", () => {
+        // Add your login logic here
       });
-  } else {
-    // User is not logged in (guest)
-    const guestGreeting = document.createElement("div");
-    guestGreeting.textContent = "Welcome, Guest!";
-    profileDropdown.appendChild(guestGreeting);
+      profileDropdown.appendChild(loginButton);
 
-    // Add "Login" and "Sign Up" buttons
-    const loginButton = document.createElement("button");
-    loginButton.textContent = "Login";
-    loginButton.addEventListener("click", () => {
-      // Add your login logic here
-    });
-    profileDropdown.appendChild(loginButton);
-
-    const signUpButton = document.createElement("button");
-    signUpButton.textContent = "Sign Up";
-    signUpButton.addEventListener("click", () => {
-      // Add your sign-up logic here
-    });
-    profileDropdown.appendChild(signUpButton);
-  }
+      const signUpButton = document.createElement("button");
+      signUpButton.textContent = "Sign Up";
+      signUpButton.addEventListener("click", () => {
+        // Add your sign-up logic here
+      });
+      profileDropdown.appendChild(signUpButton);
+    }
+  });
 }
 
+function closeProfile() {
+  profileBtn.disabled = true;
+  const animation = profileDropdown.animate(
+    [
+      { transform: "translate(20px, 20px) scale(1, 1)", opacity: 1 },
+      { transform: "translate(-178px, 0) scale(0, 0)", opacity: 0 },
+    ],
+    {
+      duration: 250,
+      easing: "ease-out",
+      fill: "forwards",
+    }
+  );
+
+  animation.onfinish = function () {
+    // Check if profileArrow exists in profileDropdown before removing it
+    const existingProfileArrow =
+      profileDropdown.querySelector(".profile-arrow");
+    if (existingProfileArrow) {
+      profileDropdown.removeChild(existingProfileArrow);
+    }
+
+    profileDropdown.classList.remove("show");
+    profileBtn.disabled = false;
+  };
+}
 
 profileBtn.addEventListener("click", () => {
   if (!profileDropdown.classList.contains("show")) {
@@ -681,33 +714,6 @@ updateCart();
 updateWishlist();
 updateWishlistCount();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Registration/Login form script and access to the backend
 
 const login_btn = document.querySelector("#login-btn");
@@ -715,125 +721,124 @@ const sign_up_btn = document.querySelector("#sign-up-btn");
 const container = document.querySelector(".container-login");
 
 sign_up_btn.addEventListener("click", function () {
-    container.classList.add("sign-up-mode");
+  container.classList.add("sign-up-mode");
 });
 
 login_btn.addEventListener("click", function () {
-    container.classList.remove("sign-up-mode");
+  container.classList.remove("sign-up-mode");
 });
-
-
 
 //--------------------Log In Password Show/Hide-------------------
 
-const toggleLoginPassword = document.querySelector('#togglePasswordLogin');
-const loginPasswordInput = document.querySelector('#login_password');
+const toggleLoginPassword = document.querySelector("#togglePasswordLogin");
+const loginPasswordInput = document.querySelector("#login_password");
 
 // toggle the type attribute
-toggleLoginPassword.addEventListener('click', function (e) {
-    const type = loginPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-    loginPasswordInput.setAttribute('type', type);
+toggleLoginPassword.addEventListener("click", function (e) {
+  const type =
+    loginPasswordInput.getAttribute("type") === "password"
+      ? "text"
+      : "password";
+  loginPasswordInput.setAttribute("type", type);
 });
 
 // toggle the eye slash icon
-const loginPasswordButton = document.querySelectorAll('ion-button')[0];
+const loginPasswordButton = document.querySelectorAll("ion-button")[0];
 loginPasswordButton.addEventListener("click", () => {
-    if (toggleLoginPassword.getAttribute('name') == 'eye-outline') {
-        toggleLoginPassword.setAttribute('name', 'eye-off-outline');
-    }
-    else {
-        toggleLoginPassword.setAttribute('name', 'eye-outline');
-    }
+  if (toggleLoginPassword.getAttribute("name") == "eye-outline") {
+    toggleLoginPassword.setAttribute("name", "eye-off-outline");
+  } else {
+    toggleLoginPassword.setAttribute("name", "eye-outline");
+  }
 });
 
 //--------------------Sign Up Password Show/Hide-------------------
 
-const toggleSignUpPassword = document.querySelector('#togglePasswordSignUp');
-const signUpPasswordInput = document.querySelector('#signup_password');
+const toggleSignUpPassword = document.querySelector("#togglePasswordSignUp");
+const signUpPasswordInput = document.querySelector("#signup_password");
 
 // toggle the type attribute
-toggleSignUpPassword.addEventListener('click', function (e) {
-    const type = signUpPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-    signUpPasswordInput.setAttribute('type', type);
+toggleSignUpPassword.addEventListener("click", function (e) {
+  const type =
+    signUpPasswordInput.getAttribute("type") === "password"
+      ? "text"
+      : "password";
+  signUpPasswordInput.setAttribute("type", type);
 });
 
 // toggle the eye slash icon
 const signUpPasswordButton = document.querySelectorAll("ion-button")[1];
 signUpPasswordButton.addEventListener("click", () => {
-    if (toggleSignUpPassword.getAttribute('name') == 'eye-outline') {
-        toggleSignUpPassword.setAttribute('name', 'eye-off-outline');
-    }
-    else {
-        toggleSignUpPassword.setAttribute('name', 'eye-outline');
-    }
+  if (toggleSignUpPassword.getAttribute("name") == "eye-outline") {
+    toggleSignUpPassword.setAttribute("name", "eye-off-outline");
+  } else {
+    toggleSignUpPassword.setAttribute("name", "eye-outline");
+  }
 });
 
-
-
-
-
-
-
-
-const signUpForm = document.getElementById('signup-btn');
-signUpForm.addEventListener('click', signUpUser());
+const signUpForm = document.getElementById("signup-btn");
+signUpForm.addEventListener("click", signUpUser());
 
 function signUpUser() {
-    // Prevent the form from submitting and refreshing the page
-    preventDefault();
+  // Prevent the form from submitting and refreshing the page
+  preventDefault();
 
-    // Get sign up form input values
-    var signUpUsername = document.getElementById('signup_username').value;
-    var email = document.getElementById('signup_email').value;
-    var signUpPassword = document.getElementById('signup_password').value;
-    var fname = document.getElementById('signup_fname').value;
-    var lname = document.getElementById('signup_lname').value;
+  // Get sign up form input values
+  var signUpUsername = document.getElementById("signup_username").value;
+  var email = document.getElementById("signup_email").value;
+  var signUpPassword = document.getElementById("signup_password").value;
+  var fname = document.getElementById("signup_fname").value;
+  var lname = document.getElementById("signup_lname").value;
 
-    // Send a POST request to the /api/sign-up endpoint
-    fetch('http://localhost:3000/api/sign-up', {
-        method: 'POST',
-        body: JSON.stringify({ signUpUsername, email, signUpPassword, fname, lname }),
-        headers: { 'Content-Type': 'application/json' }
+  // Send a POST request to the /api/sign-up endpoint
+  fetch("http://localhost:3000/api/sign-up", {
+    method: "POST",
+    body: JSON.stringify({
+      signUpUsername,
+      email,
+      signUpPassword,
+      fname,
+      lname,
+    }),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data); // Handle the response data here
+      insertUser(signUpUsername, email, signUpPassword, fname, lname);
     })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data); // Handle the response data here
-            insertUser(signUpUsername, email, signUpPassword, fname, lname);
-        })
-        .catch(error => {
-            // Handle any errors that occur during the request
-            console.error(error);
-        });
+    .catch((error) => {
+      // Handle any errors that occur during the request
+      console.error(error);
+    });
 }
 
-
-
-
-const loginForm = document.getElementById('login-btn');
-loginForm.addEventListener('submit', loginUser);
+const loginForm = document.getElementById("login-btn");
+loginForm.addEventListener("submit", loginUser);
 
 function loginUser(event) {
-    // Prevent the form from submitting and refreshing the page
-    event.preventDefault();
+  // Prevent the form from submitting and refreshing the page
+  event.preventDefault();
 
-    // Get the login form input values
-    var loginUsername = document.getElementById('login_username').value; console.log(loginUsername);
-    var loginPassword = document.getElementById('login_password').value; console.log(loginPassword);
+  // Get the login form input values
+  var loginUsername = document.getElementById("login_username").value;
+  console.log(loginUsername);
+  var loginPassword = document.getElementById("login_password").value;
+  console.log(loginPassword);
 
-    // Send a POST request to the /api/login endpoint
-    fetch('http://localhost:3000/api/login', {
-        method: 'POST',
-        body: JSON.stringify({ loginUsername, loginPassword }),
-        headers: { 'Content-Type': 'application/json' }
+  // Send a POST request to the /api/login endpoint
+  fetch("http://localhost:3000/api/login", {
+    method: "POST",
+    body: JSON.stringify({ loginUsername, loginPassword }),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response data here
+      console.log(data);
     })
-        .then(response => response.json())
-        .then(data => {
-            // Handle the response data here
-            console.log(data);
-        })
-        .catch(error => {
-            // Handle any errors that occur during the request
-            console.error(error);
-        });
+    .catch((error) => {
+      // Handle any errors that occur during the request
+      console.error(error);
+    });
 }
-
