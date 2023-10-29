@@ -1,10 +1,9 @@
-const express = require("express");
+    const express = require("express");
 const session = require("express-session");
 const path = require("path");
 const bodyParser = require("body-parser");
 const { Client } = require("pg");
 const bcrypt = require("bcrypt");
-const cors = require("cors"); // Import the cors package
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -48,14 +47,6 @@ app.use(
   })
 );
 
-// Configure CORS
-app.use(
-  cors({
-    origin: "http://127.0.0.1:5501", // Update with the actual origin of your front-end
-    methods: ["GET", "POST"],
-    credentials: true, // Enable passing cookies and session information
-  }));
-
 // Example usage in a protected route
 app.get("/protected-route", (req, res) => {
   if (isLoggedIn(req)) {
@@ -70,6 +61,16 @@ app.get("/protected-route", (req, res) => {
 // Home page route
 app.get("/", (req, res) => {
   res.sendFile(path.join(parentDir, "index.html"));
+});
+
+// CORS headers
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5501");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
 });
 
 // Search API endpoint
@@ -120,7 +121,7 @@ async function getUserByUsernameAndPassword(username, password) {
 async function getUserByUsername(username) {
   // Replace with code to fetch user data from the database by username
   // Example:
-  const sql = "SELECT * FROM custom_user WHERE username = $1";
+  const sql = "SELECT * FROM users WHERE username = $1";
   const { rows } = await client.query(sql, [username]);
 
   if (rows.length === 0) {
@@ -130,90 +131,52 @@ async function getUserByUsername(username) {
   return rows[0];
 }
 
-async function insertUser(username, hashedPassword, email, fname, lname) {
-  try {
-    // Define the SQL query to insert a new user into the database
-    const sql = `
-      INSERT INTO custom_user (username, password, email, first_name, last_name)
-      VALUES ($1, $2, $3, $4, $5)
-      RETURNING *;
-    `;
-    
-    // Define an array of parameter values for the SQL query
-    const values = [username, hashedPassword, email, fname, lname];
+async function insertUser(username, email, hashedPassword, fname, lname) {
+  // Replace with code to insert a new user into the database
+  // Example:
+  const sql =
+    "INSERT INTO users (username, email, password, first_name, last_name) VALUES ($1, $2, $3, $4, $5) RETURNING *";
+  const values = [username, email, hashedPassword, fname, lname];
+  const { rows } = await client.query(sql, values);
 
-    // Execute the SQL query using the database client (e.g., PostgreSQL client)
-    const { rows } = await client.query(sql, values);
-
-    // Check if any rows were returned (successful insertion)
-    if (rows.length === 0) {
-      return null;
-    }
-
-    // Return the inserted user data
-    return rows[0];
-  } catch (error) {
-    // Handle any database-related errors
-    console.error("Error inserting user into the database:", error);
-    throw error; // Re-throw the error to be handled in the calling function
+  if (rows.length === 0) {
+    return null;
   }
+
+  return rows[0];
 }
-
-
 
 // Login API
 app.post("/api/login", async (req, res) => {
   const { username, password } = req.body;
 
-  // Fetch user from the database using the username
-  const user = await getUserByUsername(username);
+  const user = await getUserByUsernameAndPassword(username, password);
 
   if (user) {
-    // Compare the provided password with the hashed password stored in the database
-    const passwordMatch = await bcrypt.compare(password, user.password);
-
-    if (passwordMatch) {
-      // Create a session by storing user information in req.session
-      req.session.user = user;
-      res.status(200).json({ message: "Login successful", user });
-    } else {
-      res.status(401).json({ message: "Invalid credentials" });
-    }
+    req.session.user = user;
+    res.status(200).json({ message: "Login successful", user });
   } else {
     res.status(401).json({ message: "Invalid credentials" });
   }
 });
 
-
 // Sign up API
 app.post("/api/sign-up", async (req, res) => {
-  try {
-    const { username, password, email, fname, lname } = req.body;
+  const { username, email, password, fname, lname } = req.body;
+  const existingUser = await getUserByUsername(username);
 
-    // Check if a user with the provided username already exists
-    const existingUser = await getUserByUsername(username);
+  if (existingUser) {
+    return res.status(400).json({ message: "Username already exists" });
+  }
 
-    if (existingUser) {
-      return res.status(400).json({ message: "Username already exists" });
-    }
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const newUser = await insertUser(username, email, hashedPassword, fname, lname);
 
-    // Hash the user's password with bcrypt
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    // Insert the new user into the database
-    const newUser = await insertUser(username, hashedPassword, email, fname, lname);
-
-    if (newUser) {
-      // Create a session by storing user information in req.session
-      req.session.user = newUser;
-      return res.status(201).json({ message: "Sign-up successful", user: newUser });
-    } else {
-      return res.status(500).json({ message: "Sign-up failed" });
-    }
-  } catch (error) {
-    // Handle any unexpected errors
-    console.error("Error in user registration:", error);
-    return res.status(500).json({ message: "Internal Server Error" });
+  if (newUser) {
+    req.session.user = newUser;
+    res.status(201).json({ message: "Sign-up successful", user: newUser });
+  } else {
+    res.status(500).json({ message: "Sign-up failed" });
   }
 });
 

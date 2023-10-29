@@ -27,7 +27,17 @@
     "axe/structure": [
       "default",
       {
-        "listitem": "off"
+        "listitem": "off",
+        "list": "off"
+      }
+    ],
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "overscroll-behavior",
+          "height: fit-content"
+        ]
       }
     ]
   }
