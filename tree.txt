@@ -1,0 +1,120 @@
+ж   .hintrc
+ж   .md.md
+ж   app,js
+ж   filename.txt
+ж   index.html
+ж   package-lock.json
+ж   package.json
+ж   README.md
+ж   tree.txt
+ж   
++---.vscode
+ж       launch.json
+ж       settings.json
+ж       
++---.VSCodeCounter
+ж   L---2023-03-12_15-44-17
+ж           details.md
+ж           diff-details.md
+ж           diff.csv
+ж           diff.md
+ж           diff.txt
+ж           results.csv
+ж           results.json
+ж           results.md
+ж           results.txt
+ж           
++---Backend
+ж   ж   app.js
+ж   ж   db.js
+ж   ж   routes.js
+ж   ж   emailer.js
+ж   ж   
+ж   L---controllers
+ж           UserController.js
+ж           
++---Frontend
+ж   +---assets
+ж   ж   +---css
+ж   ж   ж   ж   variables.css
+ж   ж   ж   ж   
+ж   ж   ж   +---style
+ж   ж   ж   ж       card-style.css
+ж   ж   ж   ж       footer-style.css
+ж   ж   ж   ж       header-and-side-menu-style.css
+ж   ж   ж   ж       login-page.css
+ж   ж   ж   ж       overlay-and-modal-style.css
+ж   ж   ж   ж       slideshow-style.css
+ж   ж   ж   ж       style-main.css
+ж   ж   ж   ж       var.css
+ж   ж   ж   ж       
+ж   ж   ж   L---style-dark
+ж   ж   ж           card-style-dark.css
+ж   ж   ж           checkout-dark.css
+ж   ж   ж           footer-style-dark.css
+ж   ж   ж           header-and-side-menu-style-dark.css
+ж   ж   ж           login-page-dark.css
+ж   ж   ж           overlay-and-modal-style-dark.css
+ж   ж   ж           product-categories-dark.css
+ж   ж   ж           product-style-dark.css
+ж   ж   ж           profile-logged-dark.css
+ж   ж   ж           slideshow-style-dark.css
+ж   ж   ж           style-main-dark.css
+ж   ж   ж           var-dark.css
+ж   ж   ж           whishlist-dark.css
+ж   ж   ж           
+ж   ж   +---images
+ж   ж   ж   ж   104101551_273441183740339_489982462914748310_n.jpg
+ж   ж   ж   ж   357650087_1418574039007728_3983108123722670697_n.jpg
+ж   ж   ж   ж   361689454_650417650373025_6644738688959098595_n.jpg
+ж   ж   ж   ж   368739079_1230245891000185_2620427086093743909_n.jpg
+ж   ж   ж   ж   382583088_5529184150539519_2398938183818513051_n.jpg
+ж   ж   ж   ж   log.png
+ж   ж   ж   ж   register.png
+ж   ж   ж   ж   яЁюЇшыэр.png
+ж   ж   ж   ж   
+ж   ж   ж   +---logo
+ж   ж   ж   ж       logo.svg
+ж   ж   ж   ж       site header icon.png
+ж   ж   ж   ж       
+ж   ж   ж   L---main-content
+ж   ж   ж           buttoncheckbox.png
+ж   ж   ж           card-background-hover.jpg
+ж   ж   ж           card-background.jpg
+ж   ж   ж           dark-background.jpg
+ж   ж   ж           dark-mode.png
+ж   ж   ж           day-background.jpg
+ж   ж   ж           day-mode.png
+ж   ж   ж           img-1.jpg
+ж   ж   ж           img-2.jpg
+ж   ж   ж           img-3.jpg
+ж   ж   ж           light-background.jpg
+ж   ж   ж           product-1.jfif
+ж   ж   ж           search.svg
+ж   ж   ж           
+ж   ж   L---js
+ж   ж           homepage-script.js
+ж   ж           login-page-script.js
+ж   ж           product-detail-script.js
+ж   ж           profile-settings-script.js
+ж   ж           script.js
+ж   ж           
+ж   L---website
+ж       +---bg
+ж       ж       about-bg.html
+ж       ж       cart-bg.html
+ж       ж       checkout-bg.html
+ж       ж       index-bg.html
+ж       ж       login-index-bg.html
+ж       ж       product-categories-bg.html
+ж       ж       profile-logged-bg.html
+ж       ж       profile-settings-bg.html
+ж       ж       single-product-2-bg.html
+ж       ж       single-product-bg.html
+ж       ж       whishlist-bg.html
+ж       ж       
+ж       L---en
+ж               index-en.html
+ж               login-index-en.html
+ж               
+L---node_modules

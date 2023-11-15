@@ -144,6 +144,21 @@ const openModal = function () {
   }
 };
 
+window.addEventListener("load", function() {
+  hideLoader();
+});
+
+function hideLoader() {
+  var loaderWrapper = document.querySelector(".loader-wrapper");
+  var body = document.querySelector("body");
+
+  loaderWrapper.style.opacity = 0;
+  setTimeout(function() {
+    loaderWrapper.style.display = "none";
+    body.style.overflow = "visible"; // Allow scrolling
+  }, 500); // You can adjust the delay if needed
+}
+
 // Add event listeners to close the modal
 modalCloseOverlay.addEventListener("click", closeModal);
 modalCloseBtn.addEventListener("click", closeModal);
@@ -295,76 +310,67 @@ function isLoggedIn() {
 // Function to open the profile dropdown
 function openProfile() {
   profileBtn.disabled = true;
-  profileDropdown.classList.add("show");
-  profileDropdown.appendChild(profileArrow);
-  const animation = profileDropdown.animate(
-    [
-      { transform: "translate(-178px, 0) scale(0, 0)", opacity: 0 },
-      { transform: "translate(20px, 20px) scale(1, 1)", opacity: 1 },
-    ],
-    {
-      duration: 250,
-      easing: "ease-out",
-      fill: "forwards",
-    }
-  );
-  animation.onfinish = function () {
-    profileBtn.disabled = false;
+
+  // Function to check if the user is logged in
+  const isLoggedIn = () => {
+    // You can use your own method to check if the user is logged in
+    return fetch("/check-login-status") // Replace with the actual endpoint to check login status
+      .then((response) => response.json())
+      .then((data) => data.isLoggedIn);
   };
 
-  // Check if user is logged in by calling the isLoggedIn function
-  isLoggedIn().then((loggedIn) => {
-    if (loggedIn) {
-      // User is logged in, fetch user data and update the dropdown
-      fetch("/get-username-from-session") // Replace with the actual endpoint or method to get the username from the session
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.username) {
-            const usernameElement = document.getElementById("username");
-            usernameElement.textContent = `Hello, ${data.username}!`;
+  // Check if the user is logged in
+  isLoggedIn()
+    .then((loggedIn) => {
+      // Create a new div element to display the greeting
+      const greetingDiv = document.createElement("div");
 
-            // Calculate the width based on the updated username's width
-            const usernameWidth = usernameElement.offsetWidth; // Get the width of the updated username element
-            const minWidth = 150; // Set a minimum width for the dropdown (adjust as needed)
-            const calculatedWidth = Math.max(usernameWidth, minWidth); // Choose the maximum width
+      if (loggedIn) {
+        // User is logged in, fetch the username and display it
+        fetch("/get-username-from-session") // Replace with the actual endpoint to get the username from the session
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.username) {
+              greetingDiv.textContent = `Hello, ${data.username}!`;
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching username:", error);
+          });
+      } else {
+        // User is not logged in (guest), display "Guest"
+        greetingDiv.textContent = "Welcome, Guest!";
+      }
 
-            // Set the width of the profile dropdown
-            profileDropdown.style.width = `${calculatedWidth}px`;
+      // Add the greeting to the profile dropdown
+      profileDropdown.appendChild(greetingDiv);
 
-            // Add a "Logout" button
-            const logoutButton = document.createElement("button");
-            logoutButton.textContent = "Logout";
-            logoutButton.addEventListener("click", () => {
-              // Add your logout logic here
-            });
-            profileDropdown.appendChild(logoutButton);
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching username:", error);
-        });
-    } else {
-      // User is not logged in (guest), display guest options
-      const guestGreeting = document.createElement("div");
-      guestGreeting.textContent = "Welcome, Guest!";
-      profileDropdown.appendChild(guestGreeting);
+      // Calculate the width based on the updated greeting's width
+      const greetingWidth = greetingDiv.offsetWidth; // Get the width of the updated greeting element
+      const minWidth = 150; // Set a minimum width for the dropdown (adjust as needed)
+      const calculatedWidth = Math.max(greetingWidth, minWidth); // Choose the maximum width
 
-      // Add "Login" and "Sign Up" buttons
-      const loginButton = document.createElement("button");
-      loginButton.textContent = "Login";
-      loginButton.addEventListener("click", () => {
-        // Add your login logic here
-      });
-      profileDropdown.appendChild(loginButton);
-
-      const signUpButton = document.createElement("button");
-      signUpButton.textContent = "Sign Up";
-      signUpButton.addEventListener("click", () => {
-        // Add your sign-up logic here
-      });
-      profileDropdown.appendChild(signUpButton);
-    }
-  });
+      // Set the width of the profile dropdown
+      profileDropdown.style.width = `${calculatedWidth}px`;
+    })
+    .finally(() => {
+      profileDropdown.classList.add("show");
+      profileDropdown.appendChild(profileArrow);
+      const animation = profileDropdown.animate(
+        [
+          { transform: "translate(-178px, 0) scale(0, 0)", opacity: 0 },
+          { transform: "translate(20px, 20px) scale(1, 1)", opacity: 1 },
+        ],
+        {
+          duration: 250,
+          easing: "ease-out",
+          fill: "forwards",
+        }
+      );
+      animation.onfinish = function () {
+        profileBtn.disabled = false;
+      };
+    });
 }
 
 function closeProfile() {

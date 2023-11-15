@@ -1,405 +1,494 @@
 <!DOCTYPE html>
 <html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Otaku Squad - Anime & Gaming Culture - дрехи и аксесоари</title>
 
-  <title>Otaku Squad - Anime & Gaming Culture - дрехи и аксесоари</title>
+    <link
+      rel="shortcut icon"
+      href="../../assets/images/logo/site header icon.png"
+      type="image/x-icon"
+    />
+    <link href="/Frontend/assets/css/style/var.css" type="text/css" />
+    <link id="active-stylesheet" href="" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <script>
+      0;
+    </script>
+    <script>
+      localStorage.setItem("preferredLanguage", "bg");
+    </script>
+  </head>
 
-  <link rel="shortcut icon" href="../../assets/images/logo/site header icon.png" type="image/x-icon" />
-  <link href="/Frontend/assets/css/style/var.css" type="text/css" />
-  <link id="active-stylesheet" href="" rel="stylesheet" type="text/css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-  <script>0</script>
-  <script>
-    localStorage.setItem('preferredLanguage', 'bg');
-  </script>
-</head>
-
-<body class="body">
-  <div class="loader-wrapper">
-    <span class="loader"><span class="loader-inner"></span></span>
-  </div>
-
-  <div class="backgrounds">
-    <img class="light-background" src="../../assets/images/main-content/light-background.jpg">
-    <img class="dark-background" src="../../assets/images/main-content/dark-background.jpg">
-  </div>
-
-  <div class="overlay" data-overlay></div>
-
-  <!-- MODAL CONTENT -->
-
-  <div class="modal" data-modal>
-    <div class="modal-close-overlay" data-modal-overlay></div>
-
-    <div class="modal-content" newsletter-cont>
-      <button class="modal-close-btn" data-modal-close>
-        <ion-icon name="close-outline"></ion-icon>
-      </button>
-
-      <div class="newsletter">
-        <form action="#">
-          <div class="newsletter-header">
-            <h3 class="newsletter-title">Бъди част от "Otaku Squad"</h3>
-
-            <p class="newsletter-desc">
-              Нека бъдем тези, които няма да позволят
-              <b><a href="https://en.wikipedia.org/wiki/Otaku" target="_blank">Otaku</a></b>
-              културата да изчезне! Абонирай се за нас за да получваш нови
-              оферти, промоции и възможнст да споделяш своите идеи.
-            </p>
-          </div>
-
-          <input type="email" name="email" class="email-field" placeholder="Email Address" required />
-
-          <button type="submit" class="btn-newsletter">Абонирай се!</button>
-        </form>
-      </div>
+  <body class="body">
+    <div class="loader-wrapper">
+      <span class="loader"><span class="loader-inner"></span></span>
     </div>
-  </div>
 
+    <div class="backgrounds">
+      <img
+        class="light-background"
+        src="../../assets/images/main-content/light-background.jpg"
+      />
+      <img
+        class="dark-background"
+        src="../../assets/images/main-content/dark-background.jpg"
+      />
+    </div>
 
-  <!-- NAVIGATION MENU CONTENT -->
+    <div class="overlay" data-overlay></div>
 
-  <div class="menu">
+    <!-- MODAL CONTENT -->
 
-    <div class="top-navigation-menu">
+    <div class="modal" data-modal>
+      <div class="modal-close-overlay" data-modal-overlay></div>
 
-      <div class="preview-zone">
-        <section id="expandable-search" class="search search-icon search-icon-expandable" role="search">
-          <form action="#" method="get" class="search-form">
-            <input class="search-input" type="search" name="search" maxlength="100" placeholder="I am looking for..."
-              required>
-            <button class="search-btn-submit" type="submit">
-              <ion-icon name="search-outline"></ion-icon>
-            </button>
+      <div class="modal-content" newsletter-cont>
+        <button class="modal-close-btn" data-modal-close>
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+
+        <div class="newsletter">
+          <form action="#">
+            <div class="newsletter-header">
+              <h3 class="newsletter-title">Бъди част от "Otaku Squad"</h3>
+
+              <p class="newsletter-desc">
+                Нека бъдем тези, които няма да позволят
+                <b
+                  ><a href="https://en.wikipedia.org/wiki/Otaku" target="_blank"
+                    >Otaku</a
+                  ></b
+                >
+                културата да изчезне! Абонирай се за нас за да получваш нови
+                оферти, промоции и възможнст да споделяш своите идеи.
+              </p>
+            </div>
+
+            <input
+              type="email"
+              name="email"
+              class="email-field"
+              placeholder="Email Address"
+              required
+            />
+
+            <button type="submit" class="btn-newsletter">Абонирай се!</button>
           </form>
-        </section>
-      </div>
-
-      <div class="top-menu-icons" id="mydiv">
-
-        <button class="action-btn" data-mobile-menu-open-btn>
-          <ion-icon name="menu-outline"></ion-icon>
-        </button>
-
-        <button onclick="window.location.href='./login-index-bg.html';" class="user-btn">
-          <ion-icon name="person-outline"></ion-icon>
-        </button>
-
-        <div class="cart-wrapper">
-          <button class="user-btn cart-btn" id="cart-btn">
-            <ion-icon name="bag-handle-outline"></ion-icon>
-            <span class="count count-cart">0</span>
-          </button>
-          <div class="cart-dropdown" id="cart-dropdown">
-            <div class="cart-items" id="cart-items"></div>
-            <div class="cart-total" id="cart-total"></div>
-            <button onclick="window.location.href='./checkout-bg.html';" class="checkout-btn"
-              id="checkout-btn">Checkout</button>
-          </div>
-        </div>
-
-        <div class="wishlist-wrapper">
-          <button class="user-btn wishlist-btn" id="wishlist-btn">
-            <ion-icon name="heart-outline"></ion-icon>
-            <span class="count count-wishlist">0</span>
-          </button>
-
-          <div id="wishlist-dropdown" class="wishlist-dropdown">
-            <h2>My Wishlist</h2>
-            <ul id="wishlist-items">
-              <!-- Wishlist items will be added here dynamically -->
-            </ul>
-            <button onclick="window.location.href='./checkout-bg.html';" class="checkout-btn"
-              id="wishlist-checkout-btn">Checkout</button>
-          </div>
         </div>
       </div>
-
     </div>
 
-    <nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu>
+    <!-- NAVIGATION MENU CONTENT -->
 
-      <div class="user-buttons-menu-mobile">
+    <div class="menu">
+      <div class="top-navigation-menu">
+        <div class="preview-zone">
+          <section
+            id="expandable-search"
+            class="search search-icon search-icon-expandable"
+            role="search"
+          >
+            <form action="#" method="get" class="search-form">
+              <input
+                class="search-input"
+                type="search"
+                name="search"
+                maxlength="100"
+                placeholder="I am looking for..."
+                required
+              />
+              <button class="search-btn-submit" type="submit">
+                <ion-icon name="search-outline"></ion-icon>
+              </button>
+            </form>
+          </section>
+        </div>
 
-        <div class="user-buttons-menu">
+        <div class="top-menu-icons" id="mydiv">
+          <button class="action-btn" data-mobile-menu-open-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
 
-
-          <button onclick="window.location.href='#';" class="user-btn-mobile">
+          <button
+            onclick="window.location.href='./login-index-bg.html';"
+            class="user-btn"
+          >
             <ion-icon name="person-outline"></ion-icon>
           </button>
 
-          <button class="user-btn cart-btn" id="cart-btn" onclick="window.location.href='./cart-bg.html';">
-            <ion-icon name="bag-handle-outline"></ion-icon>
-            <span class="count count-cart">0</span>
-          </button>
+          <div class="cart-wrapper">
+            <button class="user-btn cart-btn" id="cart-btn">
+              <ion-icon name="bag-handle-outline"></ion-icon>
+              <span class="count count-cart">0</span>
+            </button>
+            <div class="cart-dropdown" id="cart-dropdown">
+              <div class="cart-items" id="cart-items"></div>
+              <div class="cart-total" id="cart-total"></div>
+              <button
+                onclick="window.location.href='./checkout-bg.html';"
+                class="checkout-btn"
+                id="checkout-btn"
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
 
-          <button class="user-btn-mobile wishlist-btn" id="wishlist-btn" onclick="window.location.href='./whishlist-bg.html';">
-            <ion-icon name="heart-outline"></ion-icon>
-            <span class="count count-wishlist">0</span>
-          </button>
+          <div class="wishlist-wrapper">
+            <button class="user-btn wishlist-btn" id="wishlist-btn">
+              <ion-icon name="heart-outline"></ion-icon>
+              <span class="count count-wishlist">0</span>
+            </button>
 
+            <div id="wishlist-dropdown" class="wishlist-dropdown">
+              <h2>My Wishlist</h2>
+              <ul id="wishlist-items">
+                <!-- Wishlist items will be added here dynamically -->
+              </ul>
+              <button
+                onclick="window.location.href='./checkout-bg.html';"
+                class="checkout-btn"
+                id="wishlist-checkout-btn"
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-
-      <div class="menu-top">
-        <h2 class="menu-title">Menu</h2>
-        <button class="menu-close-btn" data-mobile-menu-close-btn>
-          <ion-icon name="close-outline"></ion-icon>
-        </button>
-      </div>
-
-      <ul class="mobile-menu-category-list">
-        <li class="menu-category">
-          <a href="index-bg.html" class="menu-title">Home</a>
-        </li>
-
-        <li class="menu-category">
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Men's</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Shirt</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Shorts & Jeans</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Safety Shoes</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Wallet</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="menu-category">
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Women's</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Dress & Frock</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Earrings</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Necklace</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Makeup Kit</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="menu-category">
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Jewelry</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Earrings</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Couple Rings</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Necklace</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Bracelets</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="menu-category">
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Perfume</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Clothes</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Deodorant</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Flower Fragrance</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Air Freshener</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="menu-category">
-          <a href="#" class="menu-title">Blog</a>
-        </li>
-
-        <li class="menu-category">
-          <a href="#" class="menu-title">Hot Offers</a>
-        </li>
-      </ul>
-
-      <div class="menu-bottom">
-        <ul class="menu-category-list">
-          <li class="menu-category">
-            <button class="accordion-menu" data-accordion-btn>
-              <p class="menu-title">Language</p>
-
-              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+      <nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu>
+        <div class="user-buttons-menu-mobile">
+          <div class="user-buttons-menu">
+            <button onclick="window.location.href='#';" class="user-btn-mobile">
+              <ion-icon name="person-outline"></ion-icon>
             </button>
 
-            <ul class="submenu-category-list" id="language-selector" data-accordion>
-              <li class="submenu-category">
-                <button class="submenu-title" id="en-btn" data-lang="en">English</button>
-              </li>
+            <button
+              class="user-btn cart-btn"
+              id="cart-btn"
+              onclick="window.location.href='./cart-bg.html';"
+            >
+              <ion-icon name="bag-handle-outline"></ion-icon>
+              <span class="count count-cart">0</span>
+            </button>
 
-              <li class="submenu-category">
-                <button class="submenu-title" id="bg-btn" data-lang="bg">Bulgarian</button>
-              </li>
+            <button
+              class="user-btn-mobile wishlist-btn"
+              id="wishlist-btn"
+              onclick="window.location.href='./whishlist-bg.html';"
+            >
+              <ion-icon name="heart-outline"></ion-icon>
+              <span class="count count-wishlist">0</span>
+            </button>
+          </div>
+        </div>
 
-              <li class="submenu-category">
-                <button class="submenu-title" id="fr-btn" data-lang="fr">French</button>
-              </li>
+        <div class="menu-top">
+          <h2 class="menu-title">Menu</h2>
+          <button class="menu-close-btn" data-mobile-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
 
-              <li class="submenu-category">
-                <button class="submenu-title" id="es-btn" data-lang="es">Spanish</button>
-              </li>
-            </ul>
+        <ul class="mobile-menu-category-list">
+          <li class="menu-category">
+            <a href="index-bg.html" class="menu-title">Home</a>
           </li>
 
           <li class="menu-category">
             <button class="accordion-menu" data-accordion-btn>
-              <p class="menu-title">Currency</p>
+              <p class="menu-title">Men's</p>
 
-              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+              <div>
+                <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+              </div>
             </button>
 
             <ul class="submenu-category-list" data-accordion>
               <li class="submenu-category">
-                <a href="#" class="submenu-title" submenu-text>USD &dollar;</a>
+                <a href="#" class="submenu-title" submenu-text>Shirt</a>
               </li>
 
               <li class="submenu-category">
-                <a href="#" class="submenu-title" submenu-text>Euro &euro;</a>
+                <a href="#" class="submenu-title" submenu-text
+                  >Shorts & Jeans</a
+                >
               </li>
 
               <li class="submenu-category">
-                <a href="#" class="submenu-title" submenu-text>български лв.</a>
+                <a href="#" class="submenu-title" submenu-text>Safety Shoes</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Wallet</a>
               </li>
             </ul>
           </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Women's</p>
+
+              <div>
+                <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+              </div>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Dress & Frock</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Earrings</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Necklace</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Makeup Kit</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Jewelry</p>
+
+              <div>
+                <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+              </div>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Earrings</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Couple Rings</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Necklace</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Bracelets</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Perfume</p>
+
+              <div>
+                <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+              </div>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Clothes</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Deodorant</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text
+                  >Flower Fragrance</a
+                >
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Air Freshener</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu-category">
+            <a href="#" class="menu-title">Blog</a>
+          </li>
+
+          <li class="menu-category">
+            <a href="#" class="menu-title">Hot Offers</a>
+          </li>
         </ul>
 
-        <div class="dark-mode-btn">
-          <input class="dark-mode-swtch" type="checkbox" id="check" onclick="changeStatus()"></input>
+        <div class="menu-bottom">
+          <ul class="menu-category-list">
+            <li class="menu-category">
+              <button class="accordion-menu" data-accordion-btn>
+                <p class="menu-title">Language</p>
+
+                <ion-icon
+                  name="caret-back-outline"
+                  class="caret-back"
+                ></ion-icon>
+              </button>
+
+              <ul
+                class="submenu-category-list"
+                id="language-selector"
+                data-accordion
+              >
+                <li class="submenu-category">
+                  <button class="submenu-title" id="en-btn" data-lang="en">
+                    English
+                  </button>
+                </li>
+
+                <li class="submenu-category">
+                  <button class="submenu-title" id="bg-btn" data-lang="bg">
+                    Bulgarian
+                  </button>
+                </li>
+
+                <li class="submenu-category">
+                  <button class="submenu-title" id="fr-btn" data-lang="fr">
+                    French
+                  </button>
+                </li>
+
+                <li class="submenu-category">
+                  <button class="submenu-title" id="es-btn" data-lang="es">
+                    Spanish
+                  </button>
+                </li>
+              </ul>
+            </li>
+
+            <li class="menu-category">
+              <button class="accordion-menu" data-accordion-btn>
+                <p class="menu-title">Currency</p>
+
+                <ion-icon
+                  name="caret-back-outline"
+                  class="caret-back"
+                ></ion-icon>
+              </button>
+
+              <ul class="submenu-category-list" data-accordion>
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title" submenu-text
+                    >USD &dollar;</a
+                  >
+                </li>
+
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title" submenu-text>Euro &euro;</a>
+                </li>
+
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title" submenu-text
+                    >български лв.</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="dark-mode-btn">
+            <input
+              class="dark-mode-swtch"
+              type="checkbox"
+              id="check"
+              onclick="changeStatus()"
+            />
+          </div>
         </div>
-      </div>
-    </nav>
-  </div>
+      </nav>
+    </div>
 
+    <div class="footer-basic">
+      <footer>
+        <div class="social">
+          <a href="#" target="_blank">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+          <a href="#" target="_blank">
+            <ion-icon name="logo-discord"></ion-icon>
+          </a>
+          <a href="#" target="_blank">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=100072597646544"
+            target="_blank"
+          >
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </div>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="index-bg.html">Home</a></li>
+          <li class="list-inline-item"><a href="#">Services</a></li>
+          <li class="list-inline-item"><a href="#">About</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p class="copyright">Company Name © 2018</p>
+      </footer>
+    </div>
 
-
-
-
-
-  <div class="footer-basic">
-    <footer>
-      <div class="social">
-        <a href="#" target="_blank">
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a>
-        <a href="#" target="_blank">
-          <ion-icon name="logo-discord"></ion-icon>
-        </a>
-        <a href="#" target="_blank">
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=100072597646544" target="_blank">
-          <ion-icon name="logo-facebook"></ion-icon>
-        </a>
-      </div>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="index-bg.html">Home</a></li>
-        <li class="list-inline-item"><a href="#">Services</a></li>
-        <li class="list-inline-item"><a href="#">About</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-      </ul>
-      <p class="copyright">Company Name © 2018</p>
-    </footer>
-  </div>
-
-  <script>
-    window.addEventListener("load", function () {
-      var loaderWrapper = document.querySelector(".loader-wrapper");
-      if (loaderWrapper) {
-        loaderWrapper.style.transition = "opacity 0.5s";
-        loaderWrapper.style.opacity = "0";
-        setTimeout(function () {
-          loaderWrapper.style.display = "none";
-        }, 500);
-      }
-    });
-
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-  <script src="../../assets/js/script.js"></script>
-  <script src="../../../Backend/backend.js"></script>"
-</body>
-
+    <script>
+      window.addEventListener("load", function () {
+        var loaderWrapper = document.querySelector(".loader-wrapper");
+        if (loaderWrapper) {
+          loaderWrapper.style.transition = "opacity 0.5s";
+          loaderWrapper.style.opacity = "0";
+          setTimeout(function () {
+            loaderWrapper.style.display = "none";
+          }, 500);
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/yourcode.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../../Backend/app.js"></script>
+    "
+  </body>
 </html>

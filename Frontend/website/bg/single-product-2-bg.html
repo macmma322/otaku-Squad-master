@@ -1,597 +1,723 @@
 <!DOCTYPE html>
 <html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Otaku Squad - Anime & Gaming Culture - дрехи и аксесоари</title>
 
-  <title>Otaku Squad - Anime & Gaming Culture - дрехи и аксесоари</title>
+    <link
+      rel="shortcut icon"
+      href="../../assets/images/logo/site header icon.png"
+      type="image/x-icon"
+    />
+    <link href="/Frontend/assets/css/style/var.css" type="text/css" />
+    <link id="active-stylesheet" href="" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <script>
+      0;
+    </script>
+    <script>
+      localStorage.setItem("preferredLanguage", "bg");
+    </script>
+  </head>
 
-  <link rel="shortcut icon" href="../../assets/images/logo/site header icon.png" type="image/x-icon" />
-  <link href="/Frontend/assets/css/style/var.css" type="text/css" />
-  <link id="active-stylesheet" href="" rel="stylesheet" type="text/css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-  <script>0</script>
-  <script>
-    localStorage.setItem('preferredLanguage', 'bg');
-  </script>
-</head>
-
-<body class="body">
-  <div class="loader-wrapper">
-    <span class="loader"><span class="loader-inner"></span></span>
-  </div>
-
-  <div class="backgrounds">
-    <img class="light-background" src="../../assets/images/main-content/light-background.jpg">
-    <img class="dark-background" src="../../assets/images/main-content/dark-background.jpg">
-  </div>
-
-  <div class="overlay" data-overlay></div>
-
-  <!-- MODAL CONTENT -->
-
-  <div class="modal" data-modal>
-    <div class="modal-close-overlay" data-modal-overlay></div>
-
-    <div class="modal-content" newsletter-cont>
-      <button class="modal-close-btn" data-modal-close>
-        <ion-icon name="close-outline"></ion-icon>
-      </button>
-
-      <div class="newsletter">
-        <form action="#">
-          <div class="newsletter-header">
-            <h3 class="newsletter-title">Бъди част от "Otaku Squad"</h3>
-
-            <p class="newsletter-desc">
-              Нека бъдем тези, които няма да позволят
-              <b><a href="https://en.wikipedia.org/wiki/Otaku" target="_blank">Otaku</a></b>
-              културата да изчезне! Абонирай се за нас за да получваш нови
-              оферти, промоции и възможнст да споделяш своите идеи.
-            </p>
-          </div>
-
-          <input type="email" name="email" class="email-field" placeholder="Email Address" required />
-
-          <button type="submit" class="btn-newsletter">Абонирай се!</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-  <!-- NAVIGATION MENU CONTENT -->
-
-  <div class="menu">
-
-    <div class="top-navigation-menu">
-
-      <div class="preview-zone">
-        <section id="expandable-search" class="search search-icon search-icon-expandable" role="search">
-          <form action="#" method="get" class="search-form">
-            <input class="search-input" type="search" name="search" maxlength="100" placeholder="Търся си..." required>
-            <button class="search-btn-submit" type="submit">
-              <ion-icon name="search-outline"></ion-icon>
-            </button>
-          </form>
-        </section>
-      </div>
-
-      <div class="top-menu-icons" id="mydiv">
-
-        <button class="action-btn" data-mobile-menu-open-btn>
-          <ion-icon name="menu-outline"></ion-icon>
-        </button>
-
-        <div class="profile-wrapper">
-          <button class="user-btn profile-btn" id="profile-btn">
-            <ion-icon name="person-outline"></ion-icon>
-          </button>
-          <div class="profile-dropdown" id="profile-dropdown">
-            <!-- Add your profile content here -->
-            <ul>
-              <li><a href="#">Profile</a></li>
-              <li><a href="#">Settings</a></li>
-              <li><a href="#">Logout</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="cart-wrapper">
-          <button class="user-btn cart-btn" id="cart-btn">
-            <ion-icon name="bag-handle-outline"></ion-icon>
-            <span class="count count-cart">0</span>
-          </button>
-          <div class="cart-dropdown" id="cart-dropdown">
-            <div class="cart-items" id="cart-items"></div>
-            <div class="cart-total" id="cart-total"></div>
-            <button onclick="window.location.href='./checkout-bg.html';" class="checkout-btn"
-              id="checkout-btn">Checkout</button>
-          </div>
-        </div>
-
-        <div class="wishlist-wrapper">
-          <button class="user-btn wishlist-btn" id="wishlist-btn">
-            <ion-icon name="heart-outline"></ion-icon>
-            <span class="count count-wishlist">0</span>
-          </button>
-
-          <div id="wishlist-dropdown" class="wishlist-dropdown">
-            <h2>My Wishlist</h2>
-            <hr class="rounded">
-            <ul id="wishlist-items">
-              <!-- Wishlist items will be added here dynamically -->
-            </ul>
-            <button onclick="window.location.href='./checkout-bg.html';" class="checkout-btn"
-              id="wishlist-checkout-btn">Checkout</button>
-          </div>
-        </div>
-      </div>
-
+  <body class="body">
+    <div class="loader-wrapper">
+      <span class="loader"><span class="loader-inner"></span></span>
     </div>
 
-    <nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu>
+    <div class="backgrounds">
+      <img
+        class="light-background"
+        src="../../assets/images/main-content/light-background.jpg"
+      />
+      <img
+        class="dark-background"
+        src="../../assets/images/main-content/dark-background.jpg"
+      />
+    </div>
 
-      <div class="user-buttons-menu-mobile">
+    <div class="overlay" data-overlay></div>
 
-        <div class="user-buttons-menu">
+    <!-- MODAL CONTENT -->
 
+    <div class="modal" data-modal>
+      <div class="modal-close-overlay" data-modal-overlay></div>
 
-          <button onclick="window.location.href='./login-index-bg.html';" class="user-btn-mobile">
-            <ion-icon name="person-outline"></ion-icon>
-          </button>
-
-          <button class="user-btn-mobile">
-            <ion-icon name="bag-handle-outline"></ion-icon>
-
-            <span class="count-mobile">0</span>
-          </button>
-
-          <button class="user-btn-mobile">
-            <ion-icon name="heart-outline"></ion-icon>
-
-            <span class="count-mobile">0</span>
-          </button>
-
-        </div>
-      </div>
-
-
-      <div class="menu-top">
-        <h2 class="menu-title">Меню</h2>
-        <button class="menu-close-btn" data-mobile-menu-close-btn>
+      <div class="modal-content" newsletter-cont>
+        <button class="modal-close-btn" data-modal-close>
           <ion-icon name="close-outline"></ion-icon>
         </button>
+
+        <div class="newsletter">
+          <form action="#">
+            <div class="newsletter-header">
+              <h3 class="newsletter-title">Бъди част от "Otaku Squad"</h3>
+
+              <p class="newsletter-desc">
+                Нека бъдем тези, които няма да позволят
+                <b
+                  ><a href="https://en.wikipedia.org/wiki/Otaku" target="_blank"
+                    >Otaku</a
+                  ></b
+                >
+                културата да изчезне! Абонирай се за нас за да получваш нови
+                оферти, промоции и възможнст да споделяш своите идеи.
+              </p>
+            </div>
+
+            <input
+              type="email"
+              name="email"
+              class="email-field"
+              placeholder="Email Address"
+              required
+            />
+
+            <button type="submit" class="btn-newsletter">Абонирай се!</button>
+          </form>
+        </div>
       </div>
+    </div>
 
-      <ul class="mobile-menu-category-list">
-        <li class="menu-category">
-          <a href="#" class="menu-title">Home</a>
-        </li>
+    <!-- NAVIGATION MENU CONTENT -->
 
-        <li class="menu-category">
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Men's</p>
+    <div class="menu">
+      <div class="top-navigation-menu">
+        <div class="preview-zone">
+          <section
+            id="expandable-search"
+            class="search search-icon search-icon-expandable"
+            role="search"
+          >
+            <form action="#" method="get" class="search-form">
+              <input
+                class="search-input"
+                type="search"
+                name="search"
+                maxlength="100"
+                placeholder="Търся си..."
+                required
+              />
+              <button class="search-btn-submit" type="submit">
+                <ion-icon name="search-outline"></ion-icon>
+              </button>
+            </form>
+          </section>
+        </div>
 
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
+        <div class="top-menu-icons" id="mydiv">
+          <button class="action-btn" data-mobile-menu-open-btn>
+            <ion-icon name="menu-outline"></ion-icon>
           </button>
 
-          <ul class="submenu-category-list" data-accordion>
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Shirt</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Shorts & Jeans</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Safety Shoes</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Wallet</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="menu-category">
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Women's</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+          <div class="profile-wrapper">
+            <button class="user-btn profile-btn" id="profile-btn">
+              <ion-icon name="person-outline"></ion-icon>
+            </button>
+            <div class="profile-dropdown" id="profile-dropdown">
+              <!-- Add your profile content here -->
+              <ul>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
             </div>
-          </button>
+          </div>
 
-          <ul class="submenu-category-list" data-accordion>
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Dress & Frock</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Earrings</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Necklace</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Makeup Kit</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="menu-category">
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Jewelry</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+          <div class="cart-wrapper">
+            <button class="user-btn cart-btn" id="cart-btn">
+              <ion-icon name="bag-handle-outline"></ion-icon>
+              <span class="count count-cart">0</span>
+            </button>
+            <div class="cart-dropdown" id="cart-dropdown">
+              <div class="cart-items" id="cart-items"></div>
+              <div class="cart-total" id="cart-total"></div>
+              <button
+                onclick="window.location.href='./checkout-bg.html';"
+                class="checkout-btn"
+                id="checkout-btn"
+              >
+                Checkout
+              </button>
             </div>
-          </button>
+          </div>
 
-          <ul class="submenu-category-list" data-accordion>
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Earrings</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Couple Rings</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Necklace</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Bracelets</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="menu-category">
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Perfume</p>
-
-            <div>
-              <ion-icon name="add-outline" class="add-icon"></ion-icon>
-              <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
-            </div>
-          </button>
-
-          <ul class="submenu-category-list" data-accordion>
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Clothes</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Deodorant</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Flower Fragrance</a>
-            </li>
-
-            <li class="submenu-category">
-              <a href="#" class="submenu-title" submenu-text>Air Freshener</a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="menu-category">
-          <a href="#" class="menu-title">Blog</a>
-        </li>
-
-        <li class="menu-category">
-          <a href="#" class="menu-title">Hot Offers</a>
-        </li>
-      </ul>
-
-      <div class="menu-bottom">
-        <ul class="menu-category-list">
-          <li class="menu-category">
-            <button class="accordion-menu" data-accordion-btn>
-              <p class="menu-title">Language</p>
-
-              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+          <div class="wishlist-wrapper">
+            <button class="user-btn wishlist-btn" id="wishlist-btn">
+              <ion-icon name="heart-outline"></ion-icon>
+              <span class="count count-wishlist">0</span>
             </button>
 
-            <ul class="submenu-category-list" id="language-selector" data-accordion>
-              <li class="submenu-category">
-                <button class="submenu-title" id="en-btn" data-lang="en">English</button>
-              </li>
+            <div id="wishlist-dropdown" class="wishlist-dropdown">
+              <h2>My Wishlist</h2>
+              <hr class="rounded" />
+              <ul id="wishlist-items">
+                <!-- Wishlist items will be added here dynamically -->
+              </ul>
+              <button
+                onclick="window.location.href='./checkout-bg.html';"
+                class="checkout-btn"
+                id="wishlist-checkout-btn"
+              >
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-              <li class="submenu-category">
-                <button class="submenu-title" id="bg-btn" data-lang="bg">Bulgarian</button>
-              </li>
+      <nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu>
+        <div class="user-buttons-menu-mobile">
+          <div class="user-buttons-menu">
+            <button
+              onclick="window.location.href='./login-index-bg.html';"
+              class="user-btn-mobile"
+            >
+              <ion-icon name="person-outline"></ion-icon>
+            </button>
 
-              <li class="submenu-category">
-                <button class="submenu-title" id="fr-btn" data-lang="fr">French</button>
-              </li>
+            <button class="user-btn-mobile">
+              <ion-icon name="bag-handle-outline"></ion-icon>
 
-              <li class="submenu-category">
-                <button class="submenu-title" id="es-btn" data-lang="es">Spanish</button>
-              </li>
-            </ul>
+              <span class="count-mobile">0</span>
+            </button>
+
+            <button class="user-btn-mobile">
+              <ion-icon name="heart-outline"></ion-icon>
+
+              <span class="count-mobile">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-top">
+          <h2 class="menu-title">Меню</h2>
+          <button class="menu-close-btn" data-mobile-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+
+        <ul class="mobile-menu-category-list">
+          <li class="menu-category">
+            <a href="#" class="menu-title">Home</a>
           </li>
 
           <li class="menu-category">
             <button class="accordion-menu" data-accordion-btn>
-              <p class="menu-title">Currency</p>
+              <p class="menu-title">Men's</p>
 
-              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+              <div>
+                <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+              </div>
             </button>
 
             <ul class="submenu-category-list" data-accordion>
               <li class="submenu-category">
-                <a href="#" class="submenu-title" submenu-text>USD &dollar;</a>
+                <a href="#" class="submenu-title" submenu-text>Shirt</a>
               </li>
 
               <li class="submenu-category">
-                <a href="#" class="submenu-title" submenu-text>Euro &euro;</a>
+                <a href="#" class="submenu-title" submenu-text
+                  >Shorts & Jeans</a
+                >
               </li>
 
               <li class="submenu-category">
-                <a href="#" class="submenu-title" submenu-text>български лв.</a>
+                <a href="#" class="submenu-title" submenu-text>Safety Shoes</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Wallet</a>
               </li>
             </ul>
           </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Women's</p>
+
+              <div>
+                <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+              </div>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Dress & Frock</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Earrings</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Necklace</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Makeup Kit</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Jewelry</p>
+
+              <div>
+                <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+              </div>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Earrings</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Couple Rings</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Necklace</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Bracelets</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Perfume</p>
+
+              <div>
+                <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
+              </div>
+            </button>
+
+            <ul class="submenu-category-list" data-accordion>
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Clothes</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Deodorant</a>
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text
+                  >Flower Fragrance</a
+                >
+              </li>
+
+              <li class="submenu-category">
+                <a href="#" class="submenu-title" submenu-text>Air Freshener</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu-category">
+            <a href="#" class="menu-title">Blog</a>
+          </li>
+
+          <li class="menu-category">
+            <a href="#" class="menu-title">Hot Offers</a>
+          </li>
         </ul>
 
-        <div class="dark-mode-btn">
-          <input class="dark-mode-swtch" type="checkbox" id="check" onclick="changeStatus()"></input>
-        </div>
-      </div>
-    </nav>
-  </div>
+        <div class="menu-bottom">
+          <ul class="menu-category-list">
+            <li class="menu-category">
+              <button class="accordion-menu" data-accordion-btn>
+                <p class="menu-title">Language</p>
 
-  <main>
+                <ion-icon
+                  name="caret-back-outline"
+                  class="caret-back"
+                ></ion-icon>
+              </button>
 
-    <div class="center-container">
+              <ul
+                class="submenu-category-list"
+                id="language-selector"
+                data-accordion
+              >
+                <li class="submenu-category">
+                  <button class="submenu-title" id="en-btn" data-lang="en">
+                    English
+                  </button>
+                </li>
 
-      <div class="left-column">
+                <li class="submenu-category">
+                  <button class="submenu-title" id="bg-btn" data-lang="bg">
+                    Bulgarian
+                  </button>
+                </li>
 
+                <li class="submenu-category">
+                  <button class="submenu-title" id="fr-btn" data-lang="fr">
+                    French
+                  </button>
+                </li>
 
-        <div id="slider">
-          <div class="slide" style="background:dodgerBlue;">
-            <img src="https://img.fotocommunity.com/peacefull-95e65145-d050-4957-9ddc-85dd60689d45.jpg?height=500">
-          </div>
+                <li class="submenu-category">
+                  <button class="submenu-title" id="es-btn" data-lang="es">
+                    Spanish
+                  </button>
+                </li>
+              </ul>
+            </li>
 
-          <div class="slide" style="background:coral;">
-            <img
-              src="https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/sunset-storm-haystack-rock-canon-beach-oregon-coast-tl-mair.jpg">
-          </div>
+            <li class="menu-category">
+              <button class="accordion-menu" data-accordion-btn>
+                <p class="menu-title">Currency</p>
 
-          <div class="slide" style="background:crimson;">
-            <img
-              src=" https://render.fineartamerica.com/images/images-profile-flow/400/images-medium-large-5/1-tourists-at-eiffel-tower-paris-panoramic-images.jpg">
-          </div>
+                <ion-icon
+                  name="caret-back-outline"
+                  class="caret-back"
+                ></ion-icon>
+              </button>
 
-          <div class="slide" style="background: #6edf10;">
-            <img src="https://dmasia.travel/wp-content/uploads/2019/09/vit3-1000x350.jpg">
-          </div>
+              <ul class="submenu-category-list" data-accordion>
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title" submenu-text
+                    >USD &dollar;</a
+                  >
+                </li>
 
-          <!--Controlling arrows-->
-          <span class="controls" onclick="prevSlide(-1)" id="left-arrow"><i class="fa fa-arrow-left"
-              aria-hidden="true"></i>
-          </span>
-          <span class="controls" id="right-arrow" onclick="nextSlide(1)"><i class="fa fa-arrow-right"
-              aria-hidden="true"></i>
-          </span>
-        </div>
-        <div id="dots-con">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </div>
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title" submenu-text>Euro &euro;</a>
+                </li>
 
-
-      </div>
-
-      <div class="right-column">
-
-        <div class="placement">
-          <div class="heart"></div>
-        </div>
-
-        <div class="breadcrumbs">
-          <ul>
-            <li><a href="#">
-                <i class="fas fa-home icon"></i>
-                <p>Home</p>
-              </a></li>
-            <li><a href="#">
-                <i class="fas fa-tshirt icon"></i>
-                <p>Category</p>
-              </a></li>
-            <li><a href="#">
-                <i class="fas fa-shopping-cart icon"></i>
-                <p>Cart</p>
-              </a></li>
-            <li class="active"><a href="#">
-                <i class="far fa-credit-card icon"></i>
-                <p>Checkout</p>
-              </a></li>
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title" submenu-text
+                    >български лв.</a
+                  >
+                </li>
+              </ul>
+            </li>
           </ul>
+
+          <div class="dark-mode-btn">
+            <input
+              class="dark-mode-swtch"
+              type="checkbox"
+              id="check"
+              onclick="changeStatus()"
+            />
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <main>
+      <div class="center-container">
+        <div class="left-column">
+          <div id="slider">
+            <div class="slide" style="background: dodgerBlue">
+              <img
+                src="https://img.fotocommunity.com/peacefull-95e65145-d050-4957-9ddc-85dd60689d45.jpg?height=500"
+              />
+            </div>
+
+            <div class="slide" style="background: coral">
+              <img
+                src="https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/2/sunset-storm-haystack-rock-canon-beach-oregon-coast-tl-mair.jpg"
+              />
+            </div>
+
+            <div class="slide" style="background: crimson">
+              <img
+                src=" https://render.fineartamerica.com/images/images-profile-flow/400/images-medium-large-5/1-tourists-at-eiffel-tower-paris-panoramic-images.jpg"
+              />
+            </div>
+
+            <div class="slide" style="background: #6edf10">
+              <img
+                src="https://dmasia.travel/wp-content/uploads/2019/09/vit3-1000x350.jpg"
+              />
+            </div>
+
+            <!--Controlling arrows-->
+            <span class="controls" onclick="prevSlide(-1)" id="left-arrow"
+              ><i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </span>
+            <span class="controls" id="right-arrow" onclick="nextSlide(1)"
+              ><i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </span>
+          </div>
+          <div id="dots-con">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
         </div>
 
-
-
-
-        <div class="product">
-          <div class="product-title">
-            <h2>Half Sleve T-shirt for Men</h2>
-          </div>
-          <div class="product-rating">
-            <span><i class="bx bxs-star"></i></span>
-            <span><i class="bx bxs-star"></i></span>
-            <span><i class="bx bxs-star"></i></span>
-            <span><i class="bx bxs-star"></i></span>
-            <span><i class="bx bxs-star"></i></span>
-            <span class="review">(47 Review)</span>
-          </div>
-          <div class="product-price">
-            <span class="offer-price">$99.00</span>
-            <span class="sale-price">$129.00</span>
+        <div class="right-column">
+          <div class="placement">
+            <div class="heart"></div>
           </div>
 
-          <div class="product-details">
-            <h3>Description</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos est magnam quibusdam maiores sit
-              perferendis minima cupiditate iusto earum repudiandae maxime vitae nostrum, ea cumque iste ipsa hic
-              commodi tempore.</p>
+          <div class="breadcrumbs">
+            <ul>
+              <li>
+                <a href="#">
+                  <i class="fas fa-home icon"></i>
+                  <p>Home</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fas fa-tshirt icon"></i>
+                  <p>Category</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="fas fa-shopping-cart icon"></i>
+                  <p>Cart</p>
+                </a>
+              </li>
+              <li class="active">
+                <a href="#">
+                  <i class="far fa-credit-card icon"></i>
+                  <p>Checkout</p>
+                </a>
+              </li>
+            </ul>
           </div>
 
-          <hr class="rounded">
+          <div class="product">
+            <div class="product-title">
+              <h2>Half Sleve T-shirt for Men</h2>
+            </div>
+            <div class="product-rating">
+              <span><i class="bx bxs-star"></i></span>
+              <span><i class="bx bxs-star"></i></span>
+              <span><i class="bx bxs-star"></i></span>
+              <span><i class="bx bxs-star"></i></span>
+              <span><i class="bx bxs-star"></i></span>
+              <span class="review">(47 Review)</span>
+            </div>
+            <div class="product-price">
+              <span class="offer-price">$99.00</span>
+              <span class="sale-price">$129.00</span>
+            </div>
 
-          <div class="product-size">
-            <h4>Size</h4>
-            <div class="size-layout">
-              <input type="radio" name="size" value="S" id="1" class="size-input">
-              <label for="1" class="size">XS</label>
+            <div class="product-details">
+              <h3>Description</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+                est magnam quibusdam maiores sit perferendis minima cupiditate
+                iusto earum repudiandae maxime vitae nostrum, ea cumque iste
+                ipsa hic commodi tempore.
+              </p>
+            </div>
 
-              <input type="radio" name="size" value="S" id="2" class="size-input">
-              <label for="2" class="size">S</label>
+            <hr class="rounded" />
 
-              <input type="radio" name="size" value="M" id="3" class="size-input">
-              <label for="3" class="size">M</label>
+            <div class="product-size">
+              <h4>Size</h4>
+              <div class="size-layout">
+                <input
+                  type="radio"
+                  name="size"
+                  value="S"
+                  id="1"
+                  class="size-input"
+                />
+                <label for="1" class="size">XS</label>
 
-              <input type="radio" name="size" value="L" id="4" class="size-input">
-              <label for="4" class="size">L</label>
+                <input
+                  type="radio"
+                  name="size"
+                  value="S"
+                  id="2"
+                  class="size-input"
+                />
+                <label for="2" class="size">S</label>
 
-              <input type="radio" name="size" value="XL" id="5" class="size-input">
-              <label for="5" class="size">XL</label>
+                <input
+                  type="radio"
+                  name="size"
+                  value="M"
+                  id="3"
+                  class="size-input"
+                />
+                <label for="3" class="size">M</label>
 
-              <input type="radio" name="size" value="XXL" id="6" class="size-input">
-              <label for="6" class="size">XXL</label>
+                <input
+                  type="radio"
+                  name="size"
+                  value="L"
+                  id="4"
+                  class="size-input"
+                />
+                <label for="4" class="size">L</label>
+
+                <input
+                  type="radio"
+                  name="size"
+                  value="XL"
+                  id="5"
+                  class="size-input"
+                />
+                <label for="5" class="size">XL</label>
+
+                <input
+                  type="radio"
+                  name="size"
+                  value="XXL"
+                  id="6"
+                  class="size-input"
+                />
+                <label for="6" class="size">XXL</label>
+              </div>
             </div>
           </div>
-        </div>
-        <span class="divider"></span>
+          <span class="divider"></span>
 
-        <div class="product-btn-group">
-          <button class="button buy-now"> Buy Now <ion-icon name="bag-add-outline"></ion-icon></button>
-          <button class="button add-cart">Add to Cart <ion-icon name="cart-outline"></ion-icon></button>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="lower-container">
-      <div class="chart">
-        <div class="rate-box">
-          <span class="value">5</span>
-          <div class="progress-bar">
-            <span class="progress"></span>
+          <div class="product-btn-group">
+            <button class="button buy-now">
+              Buy Now <ion-icon name="bag-add-outline"></ion-icon>
+            </button>
+            <button class="button add-cart">
+              Add to Cart <ion-icon name="cart-outline"></ion-icon>
+            </button>
           </div>
-          <span class="count">0</span>
-        </div>
-        <div class="rate-box">
-          <span class="value">4</span>
-          <div class="progress-bar"><span class="progress"></span></div>
-          <span class="count">0</span>
-        </div>
-        <div class="rate-box">
-          <span class="value">3</span>
-          <div class="progress-bar"><span class="progress"></span></div>
-          <span class="count">0</span>
-        </div>
-        <div class="rate-box">
-          <span class="value">2</span>
-          <div class="progress-bar"><span class="progress"></span></div>
-          <span class="count">0</span>
-        </div>
-        <div class="rate-box">
-          <span class="value">1</span>
-          <div class="progress-bar"><span class="progress"></span></div>
-          <span class="count">0</span>
         </div>
       </div>
-      <div class="global">
-        <span class="global-value">0.0</span>
-        <div class="rating-icons">
-          <span class="one"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star"></i><i class="fas fa-star"></i></span>
-          <span class="two"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-              class="fas fa-star"></i><i class="fas fa-star"></i></span>
+
+      <div class="lower-container">
+        <div class="chart">
+          <div class="rate-box">
+            <span class="value">5</span>
+            <div class="progress-bar">
+              <span class="progress"></span>
+            </div>
+            <span class="count">0</span>
+          </div>
+          <div class="rate-box">
+            <span class="value">4</span>
+            <div class="progress-bar"><span class="progress"></span></div>
+            <span class="count">0</span>
+          </div>
+          <div class="rate-box">
+            <span class="value">3</span>
+            <div class="progress-bar"><span class="progress"></span></div>
+            <span class="count">0</span>
+          </div>
+          <div class="rate-box">
+            <span class="value">2</span>
+            <div class="progress-bar"><span class="progress"></span></div>
+            <span class="count">0</span>
+          </div>
+          <div class="rate-box">
+            <span class="value">1</span>
+            <div class="progress-bar"><span class="progress"></span></div>
+            <span class="count">0</span>
+          </div>
         </div>
-        <span class="total-reviews">0</span>
+        <div class="global">
+          <span class="global-value">0.0</span>
+          <div class="rating-icons">
+            <span class="one"
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+            ></span>
+            <span class="two"
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+            ></span>
+          </div>
+          <span class="total-reviews">0</span>
+        </div>
       </div>
+    </main>
+
+    <div class="footer-basic">
+      <footer>
+        <div class="social">
+          <a href="#" target="_blank">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+          <a href="#" target="_blank">
+            <ion-icon name="logo-discord"></ion-icon>
+          </a>
+          <a href="#" target="_blank">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=100072597646544"
+            target="_blank"
+          >
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </div>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Home</a></li>
+          <li class="list-inline-item"><a href="#">Services</a></li>
+          <li class="list-inline-item"><a href="#">About</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p class="copyright">Company Name © 2018</p>
+      </footer>
     </div>
 
-
-
-  </main>
-
-
-
-
-
-  <div class="footer-basic">
-    <footer>
-      <div class="social">
-        <a href="#" target="_blank">
-          <ion-icon name="logo-instagram"></ion-icon>
-        </a>
-        <a href="#" target="_blank">
-          <ion-icon name="logo-discord"></ion-icon>
-        </a>
-        <a href="#" target="_blank">
-          <ion-icon name="logo-linkedin"></ion-icon>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=100072597646544" target="_blank">
-          <ion-icon name="logo-facebook"></ion-icon>
-        </a>
-      </div>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">Home</a></li>
-        <li class="list-inline-item"><a href="#">Services</a></li>
-        <li class="list-inline-item"><a href="#">About</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-      </ul>
-      <p class="copyright">Company Name © 2018</p>
-    </footer>
-  </div>
-
-  <script>
-    window.addEventListener("load", function () {
-      var loaderWrapper = document.querySelector(".loader-wrapper");
-      if (loaderWrapper) {
-        loaderWrapper.style.transition = "opacity 0.5s";
-        loaderWrapper.style.opacity = "0";
-        setTimeout(function () {
-          loaderWrapper.style.display = "none";
-        }, 500);
-      }
-    });
-
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-  <script asyn src="../../assets/js/product-detail-script.js"></script>
-  <script asyn src="../../assets/js/script.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
-
+    <script>
+      window.addEventListener("load", function () {
+        var loaderWrapper = document.querySelector(".loader-wrapper");
+        if (loaderWrapper) {
+          loaderWrapper.style.transition = "opacity 0.5s";
+          loaderWrapper.style.opacity = "0";
+          setTimeout(function () {
+            loaderWrapper.style.display = "none";
+          }, 500);
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script asyn src="../../assets/js/product-detail-script.js"></script>
+    <script asyn src="../../assets/js/script.js"></script>
+    <script src="../../../Backend/app.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
 </html>
